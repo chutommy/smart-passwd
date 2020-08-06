@@ -2,58 +2,67 @@ package data
 
 import (
 	"database/sql"
-	"fmt"
 
 	"github.com/pkg/errors"
 )
 
-// Service provides all actions with the database.
-type Service struct {
-	db *sql.DB
-}
+const (
+	// N is a noun placeholder
+	Noun = 1
+	// V is a verb placeholder
+	Verb = 2
+	// A is an adjective placeholder
+	Adjective = 3
+	// R is an adverb placeholder
+	Adverb = 4
+)
 
-// ConfigDB holds database connection's credentials.
-type ConfigDB struct {
-	Host     string
-	Port     int
-	User     string
-	Password string
-	DBname   string
-}
+// Len returns the number of words with the lenght l in category c.
+func (s *Service) Len(l int, c int) (int, error) {
 
-// New is a Service's constructor.
-func New() *Service {
-	return &Service{}
-}
+	// define query
+	query := `
+	SELECT COUNT(*)
+	FROM words
+	WHERE LENGHT(word) = $1
+	AND category_id = $2`
 
-// Init initialize the database connection.
-func (s *Service) Init(cfg ConfigDB) error {
+	// run query
+	row := s.db.QueryRow(query, l, c)
 
-	// define database connection
-	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", cfg.Host, cfg.Port, cfg.User, cfg.Password, cfg.DBname)
-
-	// connect to db
-	var err error
-	s.db, err = sql.Open("postgres", psqlInfo)
-	if err != nil {
-		return errors.Wrap(err, "connecting to the database")
+	// get the count
+	var count int
+	if err := row.Scan(&count); err == sql.ErrNoRows {
+		return 0, errors.Wrap(err, "no rows")
+	} else if err != nil {
+		return 0, errors.Wrap(err, "db internal errror")
 	}
 
-	// check the db connecton
-	err = s.db.Ping()
-	if err != nil {
-		return errors.Wrap(err, "ping to DB conn")
-	}
-
-	return nil
+	return count, nil
 }
 
-// Stop closes the database connection.
-func (s *Service) Stop() error {
+// Gen returns an i-th word with the length l in category c.
+func (s *Service) Gen(l int, c int, i int) (string, error) {
 
-	// closure
-	if err := s.db.Close(); err != nil {
-		return errors.Wrap(err, "failed to close the database connection")
+	// define query
+	query := `
+	SELECT word
+	FROM words
+	WHERE LENGTH(word) = $1
+	AND category_id = $2
+	OFFSET $3
+	LIMIT 1`
+
+	// run query
+	row := s.db.QueryRow(query, l, c, i)
+
+	// get the word
+	var word string
+	if err := row.Scan(&word); err == sql.ErrNoRows {
+		return 0, errors.Wrap(err, "no rows")
+	} else if err != nil {
+		return 0, errors.Wrap(err, "db internal errror")
 	}
-	return nil
+
+	return word, nil
 }
