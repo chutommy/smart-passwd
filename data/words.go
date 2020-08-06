@@ -59,9 +59,9 @@ func (s *Service) Gen(l int, c int, i int) (string, error) {
 	// get the word
 	var word string
 	if err := row.Scan(&word); err == sql.ErrNoRows {
-		return 0, errors.Wrap(err, "no rows")
+		return "", errors.Wrap(err, "no rows")
 	} else if err != nil {
-		return 0, errors.Wrap(err, "db internal errror")
+		return "", errors.Wrap(err, "db internal errror")
 	}
 
 	return word, nil
