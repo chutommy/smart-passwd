@@ -2,10 +2,9 @@ package models
 
 // PasswordReq defines the password's request.
 type PasswordReq struct {
-	Length    int     `json:"length"`
-	ExtraNums int     `json:"extra_nums"`
-	ExtraSpec int     `json:"extra_spec"`
-	Helper    *string `json:"helper"`
+	Length        int     `json:"length"`
+	ExtraSecurity int     `json:"extra_security"`
+	Helper        *string `json:"helper"`
 }
 
 // PasswordResp defines the password's' response.

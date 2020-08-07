@@ -35,7 +35,8 @@ func (c *Controller) Generate(preq *models.PasswordReq) (*models.PasswordResp, e
 
 	// transform the password
 	phrase = c.transform(phrase)
-	phrase = c.randomAdds(phrase, preq.ExtraNums, preq.ExtraSpec)
+	nums, specs := extraSecurityLvl(preq.ExtraSecurity)
+	phrase = c.randomAdds(phrase, nums, specs)
 
 	// assing into the response
 	presp := &models.PasswordResp{
