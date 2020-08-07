@@ -27,7 +27,7 @@ func New() *Controller {
 }
 
 // Init initializes all services.
-func (c *Controller) Init(cfg config.DBConfig) error {
+func (c *Controller) Init(cfg *config.DBConfig) error {
 
 	// Init data service.
 	err := c.ds.Init(cfg)

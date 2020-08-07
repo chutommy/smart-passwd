@@ -19,10 +19,15 @@ func New() *Service {
 }
 
 // Init initialize the database connection.
-func (s *Service) Init(cfg config.DBConfig) error {
+func (s *Service) Init(cfg *config.DBConfig) error {
 
 	// define database connection
-	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", cfg.Host, cfg.Port, cfg.User, cfg.Password, cfg.DBname)
+	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
+		cfg.Host,
+		cfg.Port,
+		cfg.User,
+		cfg.Password,
+		cfg.DBname)
 
 	// connect to db
 	var err error

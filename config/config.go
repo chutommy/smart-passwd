@@ -11,8 +11,8 @@ import (
 
 // Config defines a configuration for the web API.
 type Config struct {
-	Port     int      `yaml:"Port"`
-	DBConfig DBConfig `yaml:"DB"`
+	Port     int       `yaml:"Port"`
+	DBConfig *DBConfig `yaml:"DB"`
 }
 
 // GetConfig tries to load and handle the configuration file.

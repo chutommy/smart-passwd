@@ -7,13 +7,13 @@ import (
 )
 
 const (
-	// N is a noun placeholder
+	// Noun is a noun placeholder
 	Noun = 1
-	// V is a verb placeholder
+	// Verb is a verb placeholder
 	Verb = 2
-	// A is an adjective placeholder
+	// Adjective is an adjective placeholder
 	Adjective = 3
-	// R is an adverb placeholder
+	// Adverb is an adverb placeholder
 	Adverb = 4
 )
 

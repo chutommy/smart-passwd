@@ -21,7 +21,7 @@ func NewPWD() *PWDhandler {
 }
 
 // Init starts the controller's services.
-func (h *PWDhandler) Init(cfg config.DBConfig) error {
+func (h *PWDhandler) Init(cfg *config.DBConfig) error {
 
 	// init the controller
 	err := h.pwdCtrl.Init(cfg)
