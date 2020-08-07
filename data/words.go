@@ -24,7 +24,7 @@ func (s *Service) Len(l int, c int) (int, error) {
 	query := `
 	SELECT COUNT(*)
 	FROM words
-	WHERE LENGHT(word) = $1
+	WHERE LENGTH(word) = $1
 	AND category_id = $2`
 
 	// run query
