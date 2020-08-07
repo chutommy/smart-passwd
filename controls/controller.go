@@ -40,6 +40,7 @@ func (c *Controller) Init(cfg config.DBConfig) error {
 
 // Stop stops all connections.
 func (c *Controller) Stop() error {
+	// close the database connection
 	err := c.ds.Stop()
 	if err != nil {
 		return errors.Wrap(err, "closing data service's connection")
