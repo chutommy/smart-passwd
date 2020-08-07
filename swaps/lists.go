@@ -8,7 +8,7 @@ var (
 	// num holds the list of the numer characters.
 	num = []rune{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'}
 	// special holds valid specials characters.
-	special = []rune{'!', '@', '#', '$', '%', '&', '*', '?', '+'}
+	special = []rune{'!', '@', '#', '$', '%', '&', '*', '?', '+', '_', '-'}
 
 	// swap is the hash table of the swappable characters (look or sound similarly).
 	swap = map[rune][]rune{
