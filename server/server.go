@@ -21,7 +21,9 @@ type Server struct {
 
 // New is the server's constructor.
 func New() *Server {
-	return &Server{}
+	return &Server{
+		ph: handlers.NewPWD(),
+	}
 }
 
 // Set prepares and sets the server to run.

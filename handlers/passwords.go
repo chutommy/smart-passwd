@@ -12,12 +12,14 @@ import (
 
 // PWDhandler handles the backend generation.
 type PWDhandler struct {
-	pwdCtrl controls.Controller
+	pwdCtrl *controls.Controller
 }
 
 // NewPWD is the constructor of the PWDhandler.
 func NewPWD() *PWDhandler {
-	return &PWDhandler{}
+	return &PWDhandler{
+		pwdCtrl: controls.New(),
+	}
 }
 
 // Init starts the controller's services.
