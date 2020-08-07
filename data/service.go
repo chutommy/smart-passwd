@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 
+	config "github.com/chutified/smart-passwd/config"
 	"github.com/pkg/errors"
 )
 
@@ -12,22 +13,13 @@ type Service struct {
 	db *sql.DB
 }
 
-// ConfigDB holds database connection's credentials.
-type ConfigDB struct {
-	Host     string
-	Port     int
-	User     string
-	Password string
-	DBname   string
-}
-
 // New is a Service's constructor.
 func New() *Service {
 	return &Service{}
 }
 
 // Init initialize the database connection.
-func (s *Service) Init(cfg ConfigDB) error {
+func (s *Service) Init(cfg config.DBConfig) error {
 
 	// define database connection
 	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", cfg.Host, cfg.Port, cfg.User, cfg.Password, cfg.DBname)
