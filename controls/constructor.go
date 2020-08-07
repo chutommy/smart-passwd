@@ -39,9 +39,19 @@ func (c *Controller) newPhrase(l int) ([]word, error) {
 
 	// (5-8)
 	case l < 9:
-		w1 := newWord(data.Adjective, l)
-		structure = append(structure, w1)
-
+		if ranN1 && ranN3 {
+			w1 := newWord(data.Adjective, l)
+			structure = append(structure, w1)
+		} else if ranN1 && ranN2 {
+			w1 := newWord(data.Adjective, l)
+			structure = append(structure, w1)
+		} else if ranN1 && ranN2 {
+			w1 := newWord(data.Adjective, l)
+			structure = append(structure, w1)
+		} else {
+			w1 := newWord(data.Adjective, l)
+			structure = append(structure, w1)
+		}
 	// (9-12)
 	case l < 13:
 
