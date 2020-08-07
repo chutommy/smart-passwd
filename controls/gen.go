@@ -14,7 +14,7 @@ func (c *Controller) Generate(preq *models.PasswordReq) (*models.PasswordResp, e
 	var phrase string
 	var helper string
 	// get phrase
-	if preq.Helper == nil {
+	if preq.Helper == "" {
 
 		// generate words
 		ws, err := c.newPhrase(preq.Length)
