@@ -36,7 +36,7 @@ func (se *SwapEngine) GetSpecial(i int) rune {
 // If no substitution found, returns the same char.
 func (se *SwapEngine) GetSubst(char rune, i int) rune {
 	if subst, ok := swap[char]; ok {
-		i %= len(swap)
+		i %= len(subst)
 		return subst[i]
 	}
 	return char
