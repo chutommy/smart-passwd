@@ -2,9 +2,7 @@ package server
 
 import (
 	"fmt"
-	"io"
 	"net/http"
-	"os"
 	"time"
 
 	config "github.com/chutified/smart-passwd/config"
@@ -31,28 +29,8 @@ func (s *Server) Set(cfg *config.Config) error {
 
 	// create a new router
 	r := gin.New()
-
-	// apply crach free middleware
 	r.Use(gin.Recovery())
-
-	// apply custom logging
-	r.Use(gin.LoggerWithFormatter(func(param gin.LogFormatterParams) string {
-		// your custom format
-		return fmt.Sprintf("%s - [%s] \"%s %s %s %d %s\" %s %s\n",
-			param.ClientIP,
-			param.TimeStamp.Format(time.RFC1123),
-			param.Method,
-			param.Path,
-			param.Request.Proto,
-			param.StatusCode,
-			param.Latency,
-			param.Request.UserAgent(),
-			param.ErrorMessage,
-		)
-	}))
-	// log to file and os.Stdout
-	f, _ := os.Create("server.log")
-	gin.DefaultWriter = io.MultiWriter(f, os.Stdout)
+	r.Use(gin.Logger())
 
 	// init the password handler
 	if err := s.ph.Init(cfg.DBConfig); err != nil {
