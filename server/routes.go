@@ -16,6 +16,6 @@ func SetRoutes(e *gin.Engine, ph *handlers.PWDhandler) {
 	// set API
 	api := e.Group("/api")
 	{
-		api.GET("/passwd", ph.PasswordGen)
+		api.POST("/passwd", ph.PasswordGen)
 	}
 }
