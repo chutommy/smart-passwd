@@ -5,7 +5,7 @@ import (
 
 	config "github.com/chutified/smart-passwd/config"
 	controls "github.com/chutified/smart-passwd/controls"
-	"github.com/chutified/smart-passwd/models"
+	models "github.com/chutified/smart-passwd/models"
 	"github.com/gin-gonic/gin"
 	"github.com/pkg/errors"
 )
