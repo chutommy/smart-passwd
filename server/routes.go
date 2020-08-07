@@ -10,7 +10,7 @@ func SetRoutes(e *gin.Engine, ph *handlers.PWDhandler) {
 
 	// ping to test server status
 	e.GET("/ping", func(c *gin.Context) {
-		c.String(200, "pong")
+		c.JSON(200, gin.H{"response": "pong"})
 	})
 
 	// set API
