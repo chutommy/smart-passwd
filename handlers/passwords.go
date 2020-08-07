@@ -53,6 +53,7 @@ func (h *PWDhandler) PasswordGen(c *gin.Context) {
 	if err := c.ShouldBindJSON(&preq); err != nil {
 		c.JSON(http.StatusBadRequest,
 			gin.H{"error": err.Error()})
+		return
 	}
 
 	// generate the passwd
@@ -60,6 +61,7 @@ func (h *PWDhandler) PasswordGen(c *gin.Context) {
 	if err != nil {
 		c.JSON(http.StatusInternalServerError,
 			gin.H{"error": err.Error()})
+		return
 	}
 
 	// response
