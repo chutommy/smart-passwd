@@ -60,6 +60,7 @@ func (h *PWDhandler) PasswordGen(c *gin.Context) {
 	resp, err := h.pwdCtrl.Generate(&preq)
 	if err == controls.InvalidLen {
 
+		// both length and helper are missing
 		c.JSON(http.StatusBadRequest,
 			gin.H{"error": err.Error()})
 		return
