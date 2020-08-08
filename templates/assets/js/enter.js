@@ -17,10 +17,12 @@ input.addEventListener("keyup", function(event) {
 
         document.getElementById('slider-len').disabled = true;
         document.getElementById("slider-len").value = this.value.length;
-        document.getElementById("len").innerHTML = this.value.length;
+        document.getElementById("len").innerHTML = this.value.length + parseInt(document.getElementById("extra").innerHTML);
 
     } else {
 
+        document.getElementById("len").innerHTML = this.value.length + parseInt(document.getElementById("extra").innerHTML);
+        document.getElementById("slider-len").value = 0;
         document.getElementById('slider-len').disabled = false;
     }
 });

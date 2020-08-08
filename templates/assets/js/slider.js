@@ -16,7 +16,13 @@ $(function() {
 	$('[id="slider-extra"]').on('change input', function() {
 		rangeVal = parseInt($('[id="slider-extra"]').val());
 		$('[id="extra"]').html(rangeVal);
-		$('[id="len"]').html(5 + parseInt($('[id="slider-len"]').val()) + parseInt($('[id="slider-extra"]').val())); // update len
+
+        if (document.getElementById('slider-len').disabled === true) {
+            $('[id="len"]').html(parseInt($('[id="slider-len"]').val()) + parseInt($('[id="slider-extra"]').val())); // update len
+        } else {
+            $('[id="len"]').html(5 + parseInt($('[id="slider-len"]').val()) + parseInt($('[id="slider-extra"]').val())); // update len
+        }
+
 		$('[id="slider-extra"], [id="extra"]>span').css('filter', 'hue-rotate(-' + rangeVal*10 + 'deg)');
 	});
 });

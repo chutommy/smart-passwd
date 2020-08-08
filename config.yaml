@@ -1,6 +1,6 @@
 ---
-Port: 8080
-DB:
+Port: 8080    # server port
+DB:           # database credentials
   Host: localhost
   Port: 5432
   User: tommychu
