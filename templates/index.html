@@ -1,72 +1,81 @@
 <!DOCTYPE HTML>
 <!--
-	Aerial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+    Aerial by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Smart Password</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <head>
+        <title>Smart Password</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="/assets/css/main.css" />
+        <noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
 
         <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Work+Sans:300,500'>
-        <link rel="stylesheet" href="./assets/css/slider.css">
-	</head>
-	<body class="is-preload">
-		<div id="wrapper">
-			<div id="bg"></div>
-			<div id="overlay"></div>
-			<div id="main">
+        <link rel="stylesheet" href="/assets/css/slider.css">
+    </head>
+    <body class="is-preload">
+        <div id="wrapper">
+            <div id="bg"></div>
+            <div id="overlay"></div>
+            <div id="main">
 
-				<!-- Header -->
-					<header id="header">
-						<h1>Smart Password Generator</h1>
-						<p>One-click generation &nbsp;&bull;&nbsp; Strong password  &nbsp;&bull;&nbsp; Easy to remember</p>
+                <!-- Header -->
+                <header id="header">
+                    <h1>Smart Password Generator</h1>
+                    <p>One-click generation &nbsp;&bull;&nbsp; Strong password  &nbsp;&bull;&nbsp; Easy to remember</p>
 
-                        <div id="password-gen-body">
+                    <!-- Content box -->
+                    <div id="password-gen-body" style="border: 3px solid pink;">
 
-                            <div id="slider-box">
+                        <!-- Form -->
 
-                                <div>
-                                    <input id="slider-len" type="range" value="0" min="0" max="27">
-                                    <h4 id="num-len">5</h4>
-                                </div>
-
-                                <div>
-                                    <input id="slider-extra" type="range" value="0" min="0" max="10">
-                                    <h4 id="num-extra">6</h4>
-                                </div>
-
-                            </div>
-
+                        <div id="slider-box">
+                            <input id="slider-len" type="range" value="0" min="0" max="27">
+                            <h4 id="len">5</h4>
                         </div>
-                                <script src="./js/jquery.min.js"></script>
-                                <script src="./js/slider.js"></script>
 
-						<nav>
-							<ul>
-								<li><a href="https://github.com/chutified/smart-passwd/blob/master/README.md" class="fa fa fa-book" target="_blank"><span class="label">Documentation</span></a></li>
-								<li><a href="https://github.com/chutified/smart-passwd" class="fa fa-code" target="_blank"><span class="label">Source</span></a></li>
-								<li><a href="https://github.com/chutified" class="icon brands fa-github" target="_blank"><span class="label">Github</span></a></li>
-								<li><a href="mailto:tommychu101@gmail.com?subject=Smart%20Password" class="icon solid fa-envelope" target="_blank"><span class="label">Email</span></a></li>
-							</ul>
-						</nav>
-					</header>
+                        <div id="slider-box">
+                            <input id="slider-extra" type="range" value="0" min="0" max="10">
+                            <h4 id="extra">0</h4>
+                        </div>
 
-				<!-- Footer -->
-					<footer id="footer">
-                        <span class="copyright"> &copy; CHU Tommy &nbsp;&bull;&nbsp; Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a>. </span>
-					</footer>
+                        <input id="helper" type="text" placeholder="Custom helper" maxlength="60">
 
-			</div>
-		</div>
-		<script>
-			window.onload = function() { document.body.classList.remove('is-preload'); }
-			window.ontouchmove = function() { return false; }
-			window.onorientationchange = function() { document.body.scrollTop = 0; }
-		</script>
-	</body>
+                        <button id="gen" onclick="generatePasswd(); return false">Generate</button>
+
+                        <!-- Results -->
+                        <p><input id="passwd" type="text" value="" placeholder="Password" disabled></p>
+                        <p><input id="helper-p"  type="text" value="" placeholder="Helper"   disabled></p>
+
+                    </div>
+
+                    <nav>
+                        <ul>
+                            <li><a href="https://github.com/chutified/smart-passwd/blob/master/README.md" class="fa fa fa-book" target="_blank"><span class="label">Documentation</span></a></li>
+                            <li><a href="https://github.com/chutified/smart-passwd" class="fa fa-code" target="_blank"><span class="label">Source</span></a></li>
+                            <li><a href="https://github.com/chutified" class="icon brands fa-github" target="_blank"><span class="label">Github</span></a></li>
+                            <li><a href="mailto:tommychu101@gmail.com?subject=Smart%20Password" class="icon solid fa-envelope" target="_blank"><span class="label">Email</span></a></li>
+                        </ul>
+                    </nav>
+                </header>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <span class="copyright"> &copy; CHU Tommy &nbsp;&bull;&nbsp; Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a>. </span>
+                </footer>
+
+            </div>
+        </div>
+        <script>
+            window.onload = function() { document.body.classList.remove('is-preload'); }
+            window.ontouchmove = function() { return false; }
+            window.onorientationchange = function() { document.body.scrollTop = 0; }
+        </script>
+        <script src="/assets/js/api-call.js"></script>
+        <script src="/assets/js/enter.js"></script>
+        <script src="/assets/js/jquery.min.js"></script>
+        <script src="/assets/js/slider.js"></script>
+    </body>
 </html>
