@@ -18,4 +18,11 @@ func SetRoutes(e *gin.Engine, ph *handlers.PWDhandler) {
 	{
 		api.POST("/passwd", ph.PasswordGen)
 	}
+
+	// main page
+	e.Static("/assets", "./templates/assets")
+	e.LoadHTMLFiles("templates/index.html")
+	e.GET("/", func(c *gin.Context) {
+		c.HTML(200, "index.html", nil)
+	})
 }

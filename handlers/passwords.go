@@ -58,7 +58,14 @@ func (h *PWDhandler) PasswordGen(c *gin.Context) {
 
 	// generate the passwd
 	resp, err := h.pwdCtrl.Generate(&preq)
-	if err != nil {
+	if err == controls.InvalidLen {
+
+		c.JSON(http.StatusBadRequest,
+			gin.H{"error": err.Error()})
+		return
+
+	} else if err != nil {
+
 		c.JSON(http.StatusInternalServerError,
 			gin.H{"error": err.Error()})
 		return

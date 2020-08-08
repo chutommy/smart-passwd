@@ -19,7 +19,7 @@ func (c *Controller) Generate(preq *models.PasswordReq) (*models.PasswordResp, e
 		// generate words
 		ws, err := c.newPhrase(preq.Length)
 		if err != nil {
-			return nil, errors.Wrap(err, "generating new phrase")
+			return nil, err
 		}
 
 		// handle words

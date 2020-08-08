@@ -2,9 +2,9 @@ package models
 
 // PasswordReq defines the password's request.
 type PasswordReq struct {
-	Length        int    `json:"len" binding:"required,min=5,max=32"`
-	ExtraSecurity int    `json:"extra" binding:"required,min=0,max=10"`
-	Helper        string `json:"note" binding:"omitempty"`
+	Length        int    `json:"len" binding:"omitempty,min=5,max=32"`
+	ExtraSecurity int    `json:"extra" binding:"omitempty,min=0,max=10"`
+	Helper        string `json:"helper" binding:"omitempty"`
 }
 
 // PasswordResp defines the password's' response.

@@ -7,6 +7,7 @@ import (
 
 	config "github.com/chutified/smart-passwd/config"
 	handlers "github.com/chutified/smart-passwd/handlers"
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/pkg/errors"
 )
@@ -31,6 +32,7 @@ func (s *Server) Set(cfg *config.Config) error {
 	r := gin.New()
 	r.Use(gin.Recovery())
 	r.Use(gin.Logger())
+	r.Use(cors.Default())
 
 	// init the password handler
 	if err := s.ph.Init(cfg.DBConfig); err != nil {

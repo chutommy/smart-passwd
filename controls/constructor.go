@@ -20,12 +20,15 @@ func newWord(c int, l int) word {
 	}
 }
 
+// InvalidLen indicates that the password's length is not suppported.
+var InvalidLen = errors.New("invalid length")
+
 // newPhrase generates the meaningful english phrase.
 func (c *Controller) newPhrase(l int) ([]word, error) {
 
 	// check the length
 	if l < 5 || l > 32 {
-		return nil, errors.New("invalid lengh (5-36)")
+		return nil, InvalidLen
 	}
 
 	// create a random influencer
