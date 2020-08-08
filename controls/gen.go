@@ -30,8 +30,8 @@ func (c *Controller) Generate(preq *models.PasswordReq) (*models.PasswordResp, e
 
 	} else {
 		phrase = strings.Replace(preq.Helper, " ", "", -1)
+		helper = phrase
 		phrase = strings.ToLower(phrase)
-		helper = preq.Helper
 	}
 
 	// transform the password
