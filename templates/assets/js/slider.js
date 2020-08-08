@@ -1,6 +1,7 @@
 // length slider
 $(function() {
 	var rangeVal = $('[id="slider-len"]').val();
+
 	$('[id="slider-len"]').on('change input', function() {
 		rangeVal = parseInt($('[id="slider-len"]').val());
 		$('[id="len"]').html(5 + parseInt($('[id="slider-len"]').val()) + parseInt($('[id="slider-extra"]').val())); // update len
@@ -11,6 +12,7 @@ $(function() {
 // extra security slider
 $(function() {
 	var rangeVal = $('[id="slider-extra"]').val();
+
 	$('[id="slider-extra"]').on('change input', function() {
 		rangeVal = parseInt($('[id="slider-extra"]').val());
 		$('[id="extra"]').html(rangeVal);

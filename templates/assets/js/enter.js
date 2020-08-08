@@ -12,12 +12,15 @@ input.addEventListener("keyup", function(event) {
         document.getElementById("gen").click();
     }
 
-    // when custom helper, disablel len slider
+    // if custom helper, disable len slider
     if(this.value.length > 0) {
+
         document.getElementById('slider-len').disabled = true;
         document.getElementById("slider-len").value = this.value.length;
         document.getElementById("len").innerHTML = this.value.length;
+
     } else {
+
         document.getElementById('slider-len').disabled = false;
     }
 });

@@ -1,4 +1,5 @@
 SELECT COUNT(*)
 FROM words
-WHERE LENGTH(word) = $1
-AND category_id = $2;
+WHERE LENGTH(words.word) = $1
+AND words.category_id = $2
+LIMIT 1;
