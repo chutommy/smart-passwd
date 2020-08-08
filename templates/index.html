@@ -11,6 +11,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Work+Sans:300,500'>
+        <link rel="stylesheet" href="./assets/css/slider.css">
 	</head>
 	<body class="is-preload">
 		<div id="wrapper">
@@ -23,9 +26,25 @@
 						<h1>Smart Password Generator</h1>
 						<p>One-click generation &nbsp;&bull;&nbsp; Strong password  &nbsp;&bull;&nbsp; Easy to remember</p>
 
-                        <div>
-                            ahoj jak se mate
+                        <div id="password-gen-body">
+
+                            <div id="slider-box">
+
+                                <div>
+                                    <input id="slider-len" type="range" value="0" min="0" max="27">
+                                    <h4 id="num-len">5</h4>
+                                </div>
+
+                                <div>
+                                    <input id="slider-extra" type="range" value="0" min="0" max="10">
+                                    <h4 id="num-extra">6</h4>
+                                </div>
+
+                            </div>
+
                         </div>
+                                <script src="./js/jquery.min.js"></script>
+                                <script src="./js/slider.js"></script>
 
 						<nav>
 							<ul>
@@ -39,7 +58,7 @@
 
 				<!-- Footer -->
 					<footer id="footer">
-						<span class="copyright">&copy; CHU Tommy. Design: <a href="http://html5up.net">HTML5 UP</a>.</span>
+                        <span class="copyright"> &copy; CHU Tommy &nbsp;&bull;&nbsp; Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a>. </span>
 					</footer>
 
 			</div>
