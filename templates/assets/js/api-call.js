@@ -2,11 +2,11 @@ const Url='/api/passwd'
 
 // post a request to a server and show the generated values
 function generatePasswd() {
-	
-	// get values
-	var	extra = parseInt($("#extra").text());
-	var len = parseInt($("#len").text())-extra;
-	var helper = document.getElementById("helper").value;
+
+    // get values
+    var	extra = parseInt($("#extra").text());
+    var len = parseInt($("#len").text())-extra;
+    var helper = document.getElementById("helper").value;
 
     // helper exists
     if (helper != "") {
