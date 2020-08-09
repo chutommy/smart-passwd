@@ -15,7 +15,9 @@
         <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Work+Sans:300,500'>
         <link rel="stylesheet" href="/assets/css/slider.css">
         <link rel="stylesheet" href="/assets/css/numbers.css">
-    </head>
+        <link rel="stylesheet" href="/assets/css/content.css">
+        <link rel="stylesheet" href="/assets/css/gen-btn.css">
+        <link rel="stylesheet" href="/assets/css/clear-btn.css"> </head>
     <body class="is-preload">
         <div id="wrapper">
             <div id="bg"></div>
@@ -27,36 +29,49 @@
                     <h1>Smart Password Generator</h1>
                     <p>One-click generation &nbsp;&bull;&nbsp; Strong password  &nbsp;&bull;&nbsp; Easy to remember</p>
 
-                    <!-- ----------- -->
-                    <!-- Content box -->
-                    <div id="password-gen-body">
+
+                    <div id="content">
+                        <!-- ----------- -->
+                        <!-- Content box -->
+                        <div id="password-gen-body">
+
+                            <!-- len slider -->
+                            <div class="sliders"><div class="slider"> <input id="slider-len" type="range" value="0" min="0" max="27"> </div></div>
+                            <div class="statusNums"><h4 id="len" class="nums">5</h4></div>
+
+                            <!-- extra slider -->
+                            <div class="sliders"><div class="slider"> <input id="slider-extra" type="range" value="0" min="0" max="10"> </div></div>
+                            <div class="statusNums"><h4 id="extra" class="nums">0</h4></div>
+
+                            <!-- helper -->
+                            <div id="helperText"><input id="helper" autocomplete="off" type="text" placeholder="Custom helper" maxlength="60"></div>
+                            <div id="clearBtn"><button id="clear" class="btn2" onclick="resetHelper(); return false" disabled>
+                                    <span class="left">
+                                        <span class="circle-left"></span>
+                                        <span class="circle-right"></span>
+                                    </span>
+                                    <span class="right">
+                                        <span class="circle-left"></span>
+                                        <span class="circle-right"></span>
+                                    </span></button>
+                            </div>
+                            <!-- gen button -->
+                            <div id="generateBtn"><button id="gen" class="btn effect01" onclick="generatePasswd(); return false"><span>GENERATE</span></button></div>
 
 
-                        <div class="slider">
-                            <input id="slider-len" type="range" value="0" min="0" max="27">
+                            <!-- generated password -->
+                            <p><input id="passwd" type="text" value="" placeholder="Password" disabled>
+                                <button id="copyPasswd" onclick="copyFunc('passwd'); return false" disabled>Copy</button>
+                                <button id="hidBtn" onclick="hidePasswd(); return false" disabled>Hide</button></p>
+
+                            <!-- password's helper -->
+                            <p><input id="helper-p" type="text" value="" placeholder="Helper" disabled>
+                                <button id="copyHelper" onclick="copyFunc('helper-p'); return false" disabled>Copy</button></p>
+
                         </div>
-                        <h4 id="len" class="nums">5</h4>
-
-                        <div class="slider">
-                            <input id="slider-extra" type="range" value="0" min="0" max="10">
-                        </div>
-                        <h4 id="extra" class="nums">0</h4>
-
-                        <input id="helper" autocomplete="off" type="text" placeholder="Custom helper" maxlength="60">
-                        <button id="clear" onclick="resetHelper(); return false" disabled>&#x2716</button>
-
-                        <button id="gen" onclick="generatePasswd(); return false">Generate</button>
-
-                        <p><input id="passwd" type="text" value="" placeholder="Password" disabled>
-                            <button id="copyPasswd" onclick="copyFunc('passwd'); return false" disabled>Copy</button>
-                            <button id="hidBtn" onclick="hidePasswd(); return false" disabled>Hide</button></p>
-
-                        <p><input id="helper-p" type="text" value="" placeholder="Helper" disabled>
-                            <button id="copyHelper" onclick="copyFunc('helper-p'); return false" disabled>Copy</button></p>
-
+                        <!-- Content box (end) -->
+                        <!-- ----------------- -->
                     </div>
-                    <!-- Content box (end) -->
-                    <!-- ----------------- -->
 
                     <nav>
                         <ul>

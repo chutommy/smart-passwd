@@ -6,8 +6,8 @@ $(function() {
         rangeVal = parseInt($('[id="slider-len"]').val());
         $('[id="len"]').html(5 + parseInt($('[id="slider-len"]').val()) + parseInt($('[id="slider-extra"]').val())); // update len
 
-        if (rangeVal < 17) {
-            $('[id="slider-len"], [id="len"]>span').css('filter', 'hue-rotate(' + rangeVal*100/27*1.8 + 'deg)');
+        if (rangeVal < 20) {
+            $('[id="slider-len"], [id="len"]>span').css('filter', 'hue-rotate(' + rangeVal*100/27*1.5 + 'deg)');
         } else {
             $('[id="slider-len"], [id="len"]>span').css('filter', 'hue-rotate(' + 100 + 'deg)');
         }
@@ -28,8 +28,8 @@ $(function() {
             $('[id="len"]').html(5 + parseInt($('[id="slider-len"]').val()) + parseInt($('[id="slider-extra"]').val())); // update len
         }
 
-        if (rangeVal < 5) {
-            $('[id="slider-extra"], [id="extra"]>span').css('filter', 'hue-rotate(' + rangeVal*10*2.8 + 'deg)');
+        if (rangeVal < 6) {
+            $('[id="slider-extra"], [id="extra"]>span').css('filter', 'hue-rotate(' + rangeVal*10*2 + 'deg)');
         } else {
             $('[id="slider-extra"], [id="extra"]>span').css('filter', 'hue-rotate(' + 100 + 'deg)');
         }
