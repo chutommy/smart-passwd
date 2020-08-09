@@ -1,93 +1,93 @@
 button.btn2 {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  background-color: #ffffff;
-  border-radius: 50%;
-  opacity: 1;
-  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-  -webkit-box-shadow: 0px 0px 30px 0px rgba(247, 149, 29, 0.5);
-  -moz-box-shadow: 0px 0px 30px 0px rgba(247, 149, 29, 0.5);
-  box-shadow: 0px 0px 30px 0px rgba(247, 149, 29, 0.5);
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-color: #ffffff;
+    border-radius: 50%;
+    opacity: 1;
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-box-shadow: 0px 0px 30px 0px rgba(247, 149, 29, 0.5);
+    -moz-box-shadow: 0px 0px 30px 0px rgba(247, 149, 29, 0.5);
+    box-shadow: 0px 0px 30px 0px rgba(247, 149, 29, 0.5);
 }
 button.btn2 > span {
-  background-color: #f5a700;
-  display: block;
-  height: 6px;
-  border-radius: 3px;
-  position: relative;
-  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-  position: absolute;
-  top: 50%;
-  margin-top: -3px;
-  left: 7px;
-  width: 32px;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
-  -moz-justify-content: space-between;
-  -ms-justify-content: space-between;
+    background-color: #f5a700;
+    display: block;
+    height: 6px;
+    border-radius: 3px;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    position: absolute;
+    top: 50%;
+    margin-top: -3px;
+    left: 7px;
+    width: 32px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
 }
 button.btn2 > span span {
-  display: block;
-  background-color: #ed7f00;
-  width: 6px;
-  height: 6px;
-  border-radius: 3px;
-  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-  position: absolute;
-  left: 0;
-  top: 0;
+    display: block;
+    background-color: #ed7f00;
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 button.btn2 > span.left {
-  transform: rotate(45deg);
-  transform-origin: center;
+    transform: rotate(45deg);
+    transform-origin: center;
 }
 button.btn2 > span.left .circle-left {
-  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-  margin-left: 0;
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    margin-left: 0;
 }
 button.btn2 > span.left .circle-right {
-  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-  margin-left: 26px;
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    margin-left: 26px;
 }
 button.btn2 > span.right {
-  transform: rotate(-45deg);
-  transform-origin: center;
+    transform: rotate(-45deg);
+    transform-origin: center;
 }
 button.btn2 > span.right .circle-left {
-  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-  margin-left: 0;
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    margin-left: 0;
 }
 button.btn2 > span.right .circle-right {
-  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-  margin-left: 26px;
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    margin-left: 26px;
 }
 button.btn2:hover > span {
-  background-color: #2faee0;
-  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    background-color: #2faee0;
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 button.btn2:hover > span span {
-  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-  background-color: #008ac9;
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    background-color: #008ac9;
 }
 button.btn2:hover > span.left .circle-left {
-  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-  margin-left: 26px;
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    margin-left: 26px;
 }
 button.btn2:hover > span.left .circle-right {
-  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-  margin-left: 0;
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    margin-left: 0;
 }
 button.btn2:hover > span.right .circle-left {
-  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-  margin-left: 26px;
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    margin-left: 26px;
 }
 button.btn2:hover > span.right .circle-right {
-  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-  margin-left: 0;
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    margin-left: 0;
 }

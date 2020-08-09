@@ -8,7 +8,7 @@ function hidePasswd() {
         field.type = "password";
 
     } else {
-        
+
         hidBtn.innerHTML = "Hide";
         field.type = "text";
     }
