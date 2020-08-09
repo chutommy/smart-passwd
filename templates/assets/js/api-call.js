@@ -11,7 +11,6 @@ function generatePasswd() {
     // helper exists
     if (helper != "") {
         len = 5;
-        console.log(len);
     }
 
     // set request
