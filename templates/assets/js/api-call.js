@@ -1,4 +1,5 @@
-const Url='/api/passwd'
+const Url='/api/passwd';
+var counter = 0;
 
 // post a request to a server and show the generated values
 function generatePasswd() {
@@ -26,6 +27,24 @@ function generatePasswd() {
             // insert into vars
             document.getElementById("passwd").value = resp.password;
             document.getElementById("helper-p").value = resp.helper;
+
+            // enable copy and hide buttons
+            document.getElementById("hidBtn").disabled = false;
+            document.getElementById("copyPasswd").disabled = false;
+            document.getElementById("copyHelper").disabled = false;
+
+            // set the status
+            hidBtn.innerHTML = "Hide";
+            document.getElementById("passwd").type = "text";
+
+            counter++;
+            var temp = counter;
+            // hide after a while
+            setTimeout(function() {
+                if (temp == counter) {
+                    hidePasswd();
+                }
+            },3000);
         }
     };
     var data = JSON.stringify({"len":len,"extra":extra,"helper":helper});
