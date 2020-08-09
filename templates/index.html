@@ -17,7 +17,9 @@
         <link rel="stylesheet" href="/assets/css/numbers.css">
         <link rel="stylesheet" href="/assets/css/content.css">
         <link rel="stylesheet" href="/assets/css/gen-btn.css">
-        <link rel="stylesheet" href="/assets/css/clear-btn.css"> </head>
+        <link rel="stylesheet" href="/assets/css/clear-btn.css">
+        <link rel="stylesheet" href="/assets/css/helper-text.css">
+    </head>
     <body class="is-preload">
         <div id="wrapper">
             <div id="bg"></div>
@@ -44,7 +46,10 @@
                             <div class="statusNums"><h4 id="extra" class="nums">0</h4></div>
 
                             <!-- helper -->
-                            <div id="helperText"><input id="helper" autocomplete="off" type="text" placeholder="Custom helper" maxlength="60"></div>
+                            <div class="form__group field">
+                              <input type="text" class="form__field" placeholder="Custom helper" id='helper' autocomplete="off" maxlength="60">
+                              <label for="name" class="form__label">Custom Helper</label>
+                            </div>
                             <div id="clearBtn"><button id="clear" class="btn2" onclick="resetHelper(); return false" disabled>
                                     <span class="left">
                                         <span class="circle-left"></span>

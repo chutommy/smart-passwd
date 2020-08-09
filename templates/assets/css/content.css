@@ -2,6 +2,8 @@
     width: 100%;
     display: flex;
     justify-content: center;
+
+    margin: 50px 0;
 }
 
 #password-gen-body {
@@ -48,18 +50,13 @@
 
 }
 
-#helperText {
-    width: 65%;
-    box-sizing: border-box;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 button {
    outline:none;
 }
 button ::-moz-focus-inner {
    border: 0;
+}
+
+input{
+    text-align:center;
 }

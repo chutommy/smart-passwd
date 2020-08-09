@@ -11,7 +11,7 @@
     border-radius: 100px;
     width: 100%;
     max-width: 100%;
-    margin: 24px 0;
+    margin: 16px 0;
     transition: box-shadow 0.2s ease-in-out;
 }
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
