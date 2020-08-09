@@ -8,6 +8,12 @@ function generatePasswd() {
 	var len = parseInt($("#len").text())-extra;
 	var helper = document.getElementById("helper").value;
 
+    // helper exists
+    if (helper != "") {
+        len = 5;
+        console.log(len);
+    }
+
     // set request
     var xhr = new XMLHttpRequest();
     xhr.open("POST", Url, true);
