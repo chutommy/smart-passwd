@@ -42,14 +42,17 @@
                         </div>
 
                         <input id="helper" type="text" placeholder="Custom helper" maxlength="60">
-                        <button onclick="document.getElementById('helper').value = ''">&#x2716</button>
+                        <button onclick="document.getElementById('helper').value = ''; return false">&#x2716</button>
                         <!-- create function, which will enable slider and set the right values -->
 
                         <button id="gen" onclick="generatePasswd(); return false">Generate</button>
 
                         <!-- Results -->
-                        <p><input id="passwd" type="text" value="" placeholder="Password" disabled></p>
-                        <p><input id="helper-p"  type="text" value="" placeholder="Helper"   disabled></p>
+                        <p><input id="passwd" type="text" value="" placeholder="Password" disabled>
+                            <button onclick="copyFunc('passwd');return false">Copy</button></p>
+
+                        <p><input id="helper-p"  type="text" value="" placeholder="Helper"   disabled>
+                            <button onclick="copyFunc('helper-p'); return false">Copy</button></p>
 
                     </div>
 
@@ -79,5 +82,6 @@
         <script src="/assets/js/enter.js"></script>
         <script src="/assets/js/jquery.min.js"></script>
         <script src="/assets/js/slider.js"></script>
+        <script src="/assets/js/copy.js"></script>
     </body>
 </html>
