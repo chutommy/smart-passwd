@@ -1,62 +1,58 @@
-#slider-box {
+.slider {
     width: 100%;
     height: 100%;
     display: flex;
     font-family: 'Work Sans', sans-serif;
     text-align: center;
 }
-#slider-box h4 {
-    /* color: #999; */
-    font-weight: 600;
-}
-#slider-box input[type="range"] {
+.slider input[type="range"] {
     outline: 0;
     border: 0;
     border-radius: 100px;
-    width: 80%;
+    width: 100%;
     max-width: 100%;
     margin: 24px 0;
     transition: box-shadow 0.2s ease-in-out;
 }
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
-    #slider-box input[type="range"] {
+    .slider input[type="range"] {
         overflow: hidden;
         height: 40px;
         -webkit-appearance: none;
         background-color: #ddd;
     }
-    #slider-box input[type="range"]::-webkit-slider-runnable-track {
+    .slider input[type="range"]::-webkit-slider-runnable-track {
         height: 40px;
         -webkit-appearance: none;
         color: #444;
         margin-top: -1px;
         transition: box-shadow 0.2s ease-in-out;
     }
-    #slider-box input[type="range"]::-webkit-slider-thumb {
+    .slider input[type="range"]::-webkit-slider-thumb {
         width: 40px;
         -webkit-appearance: none;
         height: 40px;
         cursor: ew-resize;
         background: #fff;
-        box-shadow: -340px 0 0 320px #1597ff, inset 0 0 0 40px #1597ff;
-        border-radius: 50%;
+        box-shadow: -1020px 0 0 1000px #e4542f, inset 0 0 0 3px #e4542f;
+        border-radius: 100%;
         transition: box-shadow 0.2s ease-in-out;
         position: relative;
     }
-    #slider-box input[type="range"]:active::-webkit-slider-thumb {
+    .slider input[type="range"]:active::-webkit-slider-thumb {
         background: #fff;
-        box-shadow: -340px 0 0 320px #1597ff, inset 0 0 0 3px #1597ff;
+        box-shadow: -1020px 0 0 1000px #e4542f, inset 0 0 0 3px #e4542f;
     }
 }
-#slider-box input[type="range"]::-moz-range-progress {
+.slider input[type="range"]::-moz-range-progress {
     background-color: #43e5f7;
 }
-#slider-box input[type="range"]::-moz-range-track {
+.slider input[type="range"]::-moz-range-track {
     background-color: #9a905d;
 }
-#slider-box input[type="range"]::-ms-fill-lower {
+.slider input[type="range"]::-ms-fill-lower {
     background-color: #43e5f7;
 }
-#slider-box input[type="range"]::-ms-fill-upper {
+.slider input[type="range"]::-ms-fill-upper {
     background-color: #9a905d;
 }
