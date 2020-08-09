@@ -21,11 +21,15 @@ input.addEventListener("keyup", function(event) {
 
         document.getElementById("clear").disabled = false;
 
+        $('[id="slider-len"], [id="len"]>span').css('filter', 'opacity(34%)');
+
     } else {
 
         document.getElementById("clear").disabled = true;
         document.getElementById("len").innerHTML = 5 + parseInt(document.getElementById("extra").innerHTML);
         document.getElementById("slider-len").value = 0;
         document.getElementById('slider-len').disabled = false;
+
+        $('[id="slider-len"], [id="len"]>span').css('filter', 'opacity(100%)');
     }
 });

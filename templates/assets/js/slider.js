@@ -7,7 +7,9 @@ $(function() {
         $('[id="len"]').html(5 + parseInt($('[id="slider-len"]').val()) + parseInt($('[id="slider-extra"]').val())); // update len
 
         if (rangeVal < 17) {
-        $('[id="slider-len"], [id="len"]>span').css('filter', 'hue-rotate(' + rangeVal*100/27*1.8 + 'deg)');
+            $('[id="slider-len"], [id="len"]>span').css('filter', 'hue-rotate(' + rangeVal*100/27*1.8 + 'deg)');
+        } else {
+            $('[id="slider-len"], [id="len"]>span').css('filter', 'hue-rotate(' + 100 + 'deg)');
         }
     });
 });
@@ -27,7 +29,9 @@ $(function() {
         }
 
         if (rangeVal < 5) {
-        $('[id="slider-extra"], [id="extra"]>span').css('filter', 'hue-rotate(' + rangeVal*10*2.8 + 'deg)');
+            $('[id="slider-extra"], [id="extra"]>span').css('filter', 'hue-rotate(' + rangeVal*10*2.8 + 'deg)');
+        } else {
+            $('[id="slider-extra"], [id="extra"]>span').css('filter', 'hue-rotate(' + 100 + 'deg)');
         }
     });
 });
