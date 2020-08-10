@@ -45,17 +45,19 @@
                         <div id="password-gen-body">
 
                             <!-- len slider -->
+                            <label class="eLabel" for="slider-len" class="pull-left">Length</label>
                             <div class="sliders"><div class="slider"> <input id="slider-len" type="range" value="0" min="0" max="27"> </div></div>
                             <div class="statusNums"><h4 id="len" class="nums">5</h4></div>
 
                             <!-- extra slider -->
+                            <label class="eLabel" for="slider-extra" class="pull-left">Strength</label>
                             <div class="sliders"><div class="slider"> <input id="slider-extra" type="range" value="0" min="0" max="10"> </div></div>
                             <div class="statusNums"><h4 id="extra" class="nums">0</h4></div>
 
                             <!-- helper -->
                             <div class="form__group field">
                                 <input type="text" class="form__field" placeholder="Custom helper" id='helper' autocomplete="off" maxlength="60">
-                                <label for="name" class="form__label">Custom Helper</label>
+                                <label for="name" class="form__label">Custom reminder</label>
                             </div>
                             <div id="clearBtn"><button id="clear" class="btn2" onclick="resetHelper(); return false" disabled>
                                     <span class="left">
@@ -74,13 +76,13 @@
                             <!-- generated password -->
                             <div id="generated-passwd-container">
                                 <button id="hidBtn" onclick="hidePasswd(); return false" disabled><i class="fas fa-eye-slash"></i></button>
-                                <input id="passwd" type="text" value="" placeholder="Password" disabled>
+                                <input id="passwd" type="text" value="Generated password" disabled>
                                 <button id="copyPasswd" class="btn btn-dark" onclick="copyFunc('passwd'); return false" disabled>Copy</button>
                             </div>
 
                             <!-- password's helper -->
                             <div id="passwd-helper">
-                                <input id="helper-p" type="text" value="" placeholder="Helper" disabled>
+                                <input id="helper-p" type="text" value="Password reminder" disabled>
                                 <button id="copyHelper" class="btn btn-dark" onclick="copyFunc('helper-p'); return false" disabled>Copy</button>
                             </div>
 
@@ -111,9 +113,10 @@
             window.ontouchmove = function() { return false; }
             window.onorientationchange = function() { document.body.scrollTop = 0; }
         </script>
+        <script src="/assets/js/jquery.min.js"></script>
+        <script src="/assets/js/notify.min.js"></script>
         <script src="/assets/js/api-call.js"></script>
         <script src="/assets/js/helper.js"></script>
-        <script src="/assets/js/jquery.min.js"></script>
         <script src="/assets/js/slider.js"></script>
         <script src="/assets/js/copy.js"></script>
         <script src="/assets/js/clear.js"></script>

@@ -1,7 +1,12 @@
-@media only screen and (max-width: 780px) and (min-width: 420px) {
+@media only screen and (min-width: 420px) {
 
     .sliders {
-        width: 88%;
+        width: 70%;
+    }
+
+    .eLabel {
+        width: 18%;
+        font-size: 20px;
     }
 
     .statusNums {
@@ -225,7 +230,7 @@
         font-size: 1.5em;
     }
     #header nav li {
-        width: 5.4em;
+        width: 5.3em;
     }
     #passwd {
         width: 70%;

@@ -1,7 +1,12 @@
 @media only screen and (max-width: 420px) {
 
     .sliders {
-        width: 80%;
+        width: 60%;
+    }
+
+    .eLabel {
+        width: 20%;
+        vertical-align: center;
     }
 
     .statusNums {
