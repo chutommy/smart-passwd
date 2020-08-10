@@ -58,6 +58,7 @@
 
     display: flex;
     flex-flow: row nowrap;
+    justify-content: space-between;
 }
 
 #passwd-helper {
@@ -66,6 +67,7 @@
 
     display: flex;
     flex-flow: row nowrap;
+    margin-top: 20px;
 }
 
 button {

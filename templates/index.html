@@ -23,7 +23,9 @@
         <link rel="stylesheet" href="/assets/css/results.css">
 
         <link rel="stylesheet" href="/assets/css/mqueries.css">
-
+        <link rel="stylesheet" href="/assets/css/mqueries2.css">
+        <link rel="stylesheet" href="/assets/css/mqueries3.css">
+        <link rel="stylesheet" href="/assets/css/mqueries4.css">
     </head>
     <body class="is-preload">
         <div id="wrapper">
@@ -71,15 +73,15 @@
 
                             <!-- generated password -->
                             <div id="generated-passwd-container">
-                                <button id="hidBtn" onclick="hidePasswd(); return false" disabled>Hide</button>
+                                <button id="hidBtn" onclick="hidePasswd(); return false" disabled><i class="fas fa-eye-slash"></i></button>
                                 <input id="passwd" type="text" value="" placeholder="Password" disabled>
-                                <button id="copyPasswd" onclick="copyFunc('passwd'); return false" disabled>Copy</button>
+                                <button id="copyPasswd" class="btn btn-dark" onclick="copyFunc('passwd'); return false" disabled>Copy</button>
                             </div>
 
                             <!-- password's helper -->
                             <div id="passwd-helper">
                                 <input id="helper-p" type="text" value="" placeholder="Helper" disabled>
-                                <button id="copyHelper" onclick="copyFunc('helper-p'); return false" disabled>Copy</button>
+                                <button id="copyHelper" class="btn btn-dark" onclick="copyFunc('helper-p'); return false" disabled>Copy</button>
                             </div>
 
                         </div>
@@ -99,7 +101,7 @@
 
                 <!-- Footer -->
                 <footer id="footer">
-                    <span class="copyright"> &copy; CHU Tommy &nbsp;&bull;&nbsp; Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a>. </span>
+                    <span class="copyright"> &copy; CHU Tommy &nbsp;&bull;&nbsp; Design: HTML5 UP. </span>
                 </footer>
 
             </div>

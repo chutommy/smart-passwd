@@ -34,7 +34,7 @@ function generatePasswd() {
             document.getElementById("copyHelper").disabled = false;
 
             // set the status
-            hidBtn.innerHTML = "Hide";
+            hidBtn.innerHTML = '<i class="fas fa-eye"></i>';
             document.getElementById("passwd").type = "text";
 
             counter++;
@@ -42,7 +42,9 @@ function generatePasswd() {
             // hide after a while
             setTimeout(function() {
                 if (temp == counter) {
-                    hidePasswd();
+                    if (hidBtn.innerHTML == '<i class="fas fa-eye"></i>') {
+                        hidePasswd();
+                    }
                 }
             },3000);
         }

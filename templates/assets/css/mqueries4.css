@@ -1,72 +1,68 @@
-@media only screen and (max-width: 420px) {
+@media only screen and (min-width: 1440px) {
 
     .sliders {
-        width: 80%;
+        width: 92%;
     }
 
     .statusNums {
-        width: 20%;
+        width: 8%;
     }
 
     .slider input[type="range"] {
-        margin: 6px 0;
+        margin: 14px 0;
     }
     .slider input[type="range"] {
-        height: 20px;
+        height: 40px;
     }
     .slider input[type="range"]::-webkit-slider-runnable-track {
-        height: 20px;
+        height: 40px;
     }
     .slider input[type="range"]::-webkit-slider-thumb {
-        width: 20px;
-        height: 20px;
-        box-shadow: -1010px 0 0 1000px #e4542f, inset 0 0 0 3px #e4542f;
+        width: 40px;
+        height: 40px;
+        box-shadow: -1040px 0 0 1000px #e4542f, inset 0 0 0 3px #e4542f;
     }
     .slider input[type="range"]:active::-webkit-slider-thumb {
-        box-shadow: -1010px 0 0 1000px #e4542f, inset 0 0 0 3px #e4542f;
+        box-shadow: -1020px 0 0 1000px #e4542f, inset 0 0 0 3px #e4542f;
     }
 
     .nums {
-        width: 30px;
-        height: 30px;
-        padding: 4px;
+        width: 50px;
+        height: 50px;
+        padding: 8px 9px;
 
         background: #fff;
-        border: 2px solid #666;
+        border: 3px solid #666;
         color: #666;
         text-align: center;
 
-        font: 18px Arial, sans-serif;
+        font: 24px Arial, sans-serif;
     }
 
     #content {
-        margin: 26px 0 13px 0;
-    }
-
-    #passwd-helper {
-        margin-top: 6px;
+        margin: 60px 0 100px 0;
     }
 
     #generated-passwd-container {
         width: 100%;
         box-sizing: border-box;
 
-        margin-top: 12px;
+        margin-top: 46px;
 
         display: flex;
         flex-flow: row nowrap;
     }
 
     .form__group {
-        padding: 10px 0 0;
-        margin: 10px 0;
-        width: 55%;
+        padding: 16px 0 0;
+        margin: 16px 0;
+        width: 65%;
     }
     #clearBtn {
         width: 15%;
     }
     #generateBtn {
-        width: 30%;
+        width: 20%;
     }
     .form__field {
         font-family: inherit;
@@ -75,7 +71,7 @@
         border-bottom: 5px solid #fff;
         border-radius: 16px;
         outline: 0;
-        font-size: 1.2rem;
+        font-size: 1.6rem;
         color: #fff;
         padding: 7px 0;
         background: transparent;
@@ -85,16 +81,16 @@
         color: transparent;
     }
     .form__field:placeholder-shown ~ .form__label {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         cursor: text;
-        top: 30px;
+        top: 36px;
     }
     .form__label {
         position: absolute;
         top: 0px;
         display: block;
         transition: 0.6s;
-        font-size: 1.1rem;
+        font-size: 1.6rem;
         color: #fff;
         text-align: center;
     }
@@ -107,13 +103,13 @@
         top: 0;
         display: block;
         transition: 0.3s;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         color: #c7c7c7;
     }
 
     button.btn2 {
-        width: 25px;
-        height: 25px;
+        width: 50px;
+        height: 50px;
         position: absolute;
         background-color: #ffffff;
         border-radius: 50%;
@@ -126,15 +122,15 @@
     button.btn2 > span {
         background-color: #f5a700;
         display: block;
-        height: 3px;
-        border-radius: 2px;
+        height: 6px;
+        border-radius: 3px;
         position: relative;
         transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
         position: absolute;
         top: 50%;
         margin-top: -3px;
-        left: 3px;
-        width: 16px;
+        left: 6px;
+        width: 32px;
         display: -webkit-box;
         display: -moz-box;
         display: -ms-flexbox;
@@ -148,9 +144,9 @@
     button.btn2 > span span {
         display: block;
         background-color: #ed7f00;
-        width: 3px;
-        height: 3px;
-        border-radius: 2px;
+        width: 6px;
+        height: 6px;
+        border-radius: 3px;
         transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
         position: absolute;
         left: 0;
@@ -166,7 +162,7 @@
     }
     button.btn2 > span.left .circle-right {
         transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-        margin-left: 13px;
+        margin-left: 26px;
     }
     button.btn2 > span.right {
         transform: rotate(-45deg);
@@ -178,7 +174,7 @@
     }
     button.btn2 > span.right .circle-right {
         transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-        margin-left: 13px;
+        margin-left: 26px;
     }
     button.btn2:hover > span {
         background-color: #2faee0;
@@ -190,7 +186,7 @@
     }
     button.btn2:hover > span.left .circle-left {
         transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-        margin-left: 13px;
+        margin-left: 26px;
     }
     button.btn2:hover > span.left .circle-right {
         transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -198,7 +194,7 @@
     }
     button.btn2:hover > span.right .circle-left {
         transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-        margin-left: 13px;
+        margin-left: 26px;
     }
     button.btn2:hover > span.right .circle-right {
         transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -207,13 +203,13 @@
 
     .btn {
         letter-spacing: 0.1em;
-        font-size: 0.5em;
-        font-weight: 300;
-        line-height: 25px;
+        font-size: 1.2em;
+        font-weight: 400;
+        line-height: 40px;
         text-transform: uppercase;
         width: 100%;
 
-        border-radius: 6px;
+        border-radius: 10px;
     }
     .effect01 {
         border: 3px solid #000;
@@ -222,9 +218,42 @@
         border: 3px solid #666;
     }
     #header nav a:before {
-        font-size: 1em;
+        font-size: 2em;
     }
     #header nav li {
-        width: 3em;
+        width: 8.6em;
     }
+#passwd {
+    width: 70%;
+    font-size: 22px;
+    line-height: 30px;
+}
+
+#helper-p {
+    width: 80%;
+    font-size: 22px;
+    line-height: 30px;
+}
+
+#hidBtn {
+    width: 10%;
+    font-size: 14px;
+}
+i {
+    font-size: 2.2rem;
+}
+
+#copyPasswd {
+    width: 20%;
+    box-sizing: border-box;
+    margin-left: 15px;
+    font-size: 16px;
+}
+
+#copyHelper {
+    width: 20%;
+    box-sizing: border-box;
+    margin-left: 15px;
+    font-size: 16px;
+}
 }

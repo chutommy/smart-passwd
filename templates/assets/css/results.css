@@ -1,21 +1,37 @@
 #passwd {
-    width: 82%;
+    width: 70%;
     box-sizing: border-box;
+    color: black;
 }
 
 #helper-p {
-    width: 82%;
+    width: 80%;
     box-sizing: border-box;
+    color: black;
 }
 
 #hidBtn {
-    width: 8%;
+    width: 10%;
+    background: transparent;
+    border: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+i {
+    font-size: 1rem;
 }
 
 #copyPasswd {
-    width: 10%;
+    width: 20%;
+    box-sizing: border-box;
+    margin-left: 15px;
 }
 
 #copyHelper {
-    width: 18%;
+    width: 20%;
+    box-sizing: border-box;
+    margin-left: 15px;
 }

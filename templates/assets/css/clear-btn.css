@@ -1,4 +1,4 @@
-button.btn2 {
+utton.btn2 {
     width: 50px;
     height: 50px;
     position: absolute;
@@ -20,7 +20,7 @@ button.btn2 > span {
     position: absolute;
     top: 50%;
     margin-top: -3px;
-    left: 6px;
+    left: 7px;
     width: 32px;
     display: -webkit-box;
     display: -moz-box;
