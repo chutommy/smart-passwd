@@ -9,7 +9,7 @@ Under the hood, the application collects words from the English dictionary (down
 <img src="https://raw.githubusercontent.com/chutified/smart-passwd/master/imgs/1.jpg">
 <img src="https://raw.githubusercontent.com/chutified/smart-passwd/master/imgs/2.jpg">
 <img src="https://raw.githubusercontent.com/chutified/smart-passwd/master/imgs/3.jpg">
-<img src="https://raw.githubusercontent.com/chutified/smart-passwd/master/imgs/5.jpg" width=350><img src="https://raw.githubusercontent.com/chutified/smart-passwd/master/imgs/6.jpg" width=350>
+<img src="https://raw.githubusercontent.com/chutified/smart-passwd/master/imgs/5.jpg" width=200><img src="https://raw.githubusercontent.com/chutified/smart-passwd/master/imgs/6.jpg" width=200>
 
 #### server logs
 <img src="https://raw.githubusercontent.com/chutified/smart-passwd/master/imgs/4.jpg">
