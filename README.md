@@ -5,9 +5,11 @@ The generator allows the user to select the length of the generated password and
 
 Under the hood, the application collects words from the English dictionary (download and parsed into the databse from <a href="https://wordnet.princeton.edu/">WordNet</a>) (a lexical database for English hosted by Princeton University) and composes them according to the random number generator into a certain structure, which very often sounds laughingly but allows user to quickly recall the generated password. Then the generated phrase goes through an algorithm that may or may not (again depends on RNG results) replace each of the letters with another one. But in order to preserve to a certain memorability, the each character can be replaced by a character, which sounds or looks similarly.
 
+### Screenshots
+
 ### Used languages and tools
-  - Backend
-    - Go
-      - Gin framework - REST API
-    - Postgres SQL - words selecting
-  - Frontend
+  - Go (Gin framework, Postgres driver)
+  - Postgres SQL
+  - Javascript + jQuery
+  - HTML (HTML5 UP design), CSS (SCSS) + Bootstrap
+  - Docker + Docker-compose
