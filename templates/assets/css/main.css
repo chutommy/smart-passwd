@@ -886,7 +886,7 @@ a:hover {
     }
 
     #bg {
-        background-size: 750px auto;
+        background-size: auto;
         width: 2250px;
     }
 }
@@ -973,7 +973,7 @@ a:hover {
     }
 
     #bg {
-        background-size: 300px auto;
+        background-size: auto;
         width: 900px;
     }
 
@@ -1072,7 +1072,7 @@ a:hover {
     }
 
     #bg {
-        background-size: 412.5px auto;
+        background-size: auto;
         width: 1237.5px;
     }
 
