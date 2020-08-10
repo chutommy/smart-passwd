@@ -1,0 +1,21 @@
+#passwd {
+    width: 82%;
+    box-sizing: border-box;
+}
+
+#helper-p {
+    width: 82%;
+    box-sizing: border-box;
+}
+
+#hidBtn {
+    width: 8%;
+}
+
+#copyPasswd {
+    width: 10%;
+}
+
+#copyHelper {
+    width: 18%;
+}

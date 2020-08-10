@@ -902,7 +902,7 @@ a:hover {
     }
 
     body, input, select, textarea {
-        font-size: 11pt;
+        font-size: 12pt;
     }
 
     /* BG */
@@ -984,7 +984,7 @@ a:hover {
     }
 
     #header p {
-        font-size: 1em;
+        font-size: 1.3em;
     }
 
     #header nav {
@@ -997,7 +997,8 @@ a:hover {
 
     #header nav a:active {
         font-size: 1em;
-} }
+    }
+}
 
 /* Mobile (Portrait) */
 

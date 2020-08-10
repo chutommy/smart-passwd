@@ -50,6 +50,24 @@
 
 }
 
+#generated-passwd-container {
+    width: 100%;
+    box-sizing: border-box;
+
+    margin-top: 32px;
+
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+#passwd-helper {
+    width:100%;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-flow: row nowrap;
+}
+
 button {
     outline:none;
 }

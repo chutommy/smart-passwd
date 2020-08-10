@@ -1,0 +1,229 @@
+@media only screen and (max-width: 420px) {
+
+    .sliders {
+        width: 80%;
+    }
+
+    .statusNums {
+        width: 20%;
+    }
+
+    .slider input[type="range"] {
+        margin: 6px 0;
+    }
+    .slider input[type="range"] {
+        height: 20px;
+    }
+    .slider input[type="range"]::-webkit-slider-runnable-track {
+        height: 20px;
+    }
+    .slider input[type="range"]::-webkit-slider-thumb {
+        width: 20px;
+        height: 20px;
+        box-shadow: -1010px 0 0 1000px #e4542f, inset 0 0 0 3px #e4542f;
+    }
+    .slider input[type="range"]:active::-webkit-slider-thumb {
+        box-shadow: -1010px 0 0 1000px #e4542f, inset 0 0 0 3px #e4542f;
+    }
+
+    .nums {
+        width: 30px;
+        height: 30px;
+        padding: 4px;
+
+        background: #fff;
+        border: 2px solid #666;
+        color: #666;
+        text-align: center;
+
+        font: 18px Arial, sans-serif;
+    }
+
+    #content {
+        margin: 22px 0;
+    }
+
+    #generated-passwd-container {
+        width: 100%;
+        box-sizing: border-box;
+
+        margin-top: 12px;
+
+        display: flex;
+        flex-flow: row nowrap;
+    }
+
+    .form__group {
+        padding: 10px 0 0;
+        margin: 10px 0;
+    }
+    .form__field {
+        font-family: inherit;
+        width: 100%;
+        border: 0;
+        border-bottom: 5px solid #fff;
+        border-radius: 16px;
+        outline: 0;
+        font-size: 1.2rem;
+        color: #fff;
+        padding: 7px 0;
+        background: transparent;
+        transition: border-color 0.2s;
+    }
+    .form__field::placeholder {
+        color: transparent;
+    }
+    .form__field:placeholder-shown ~ .form__label {
+        font-size: 1.2rem;
+        cursor: text;
+        top: 30px;
+    }
+    .form__label {
+        position: absolute;
+        top: 0px;
+        display: block;
+        transition: 0.6s;
+        font-size: 1.1rem;
+        color: #fff;
+        text-align: center;
+    }
+    .form__field:focus {
+        border-image: linear-gradient(to right, #c7c7c7, #38ef7d);
+        border-image-slice: 1;
+    }
+    .form__field:focus ~ .form__label {
+        position: absolute;
+        top: 0;
+        display: block;
+        transition: 0.3s;
+        font-size: 1.2rem;
+        color: #c7c7c7;
+    }
+
+    button.btn2 {
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        background-color: #ffffff;
+        border-radius: 50%;
+        opacity: 1;
+        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+        -webkit-box-shadow: 0px 0px 30px 0px rgba(247, 149, 29, 0.5);
+        -moz-box-shadow: 0px 0px 30px 0px rgba(247, 149, 29, 0.5);
+        box-shadow: 0px 0px 30px 0px rgba(247, 149, 29, 0.5);
+    }
+    button.btn2 > span {
+        background-color: #f5a700;
+        display: block;
+        height: 3px;
+        border-radius: 2px;
+        position: relative;
+        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+        position: absolute;
+        top: 50%;
+        margin-top: -3px;
+        left: 3px;
+        width: 16px;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+        -moz-justify-content: space-between;
+        -ms-justify-content: space-between;
+    }
+    button.btn2 > span span {
+        display: block;
+        background-color: #ed7f00;
+        width: 3px;
+        height: 3px;
+        border-radius: 2px;
+        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    button.btn2 > span.left {
+        transform: rotate(45deg);
+        transform-origin: center;
+    }
+    button.btn2 > span.left .circle-left {
+        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+        margin-left: 0;
+    }
+    button.btn2 > span.left .circle-right {
+        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+        margin-left: 13px;
+    }
+    button.btn2 > span.right {
+        transform: rotate(-45deg);
+        transform-origin: center;
+    }
+    button.btn2 > span.right .circle-left {
+        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+        margin-left: 0;
+    }
+    button.btn2 > span.right .circle-right {
+        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+        margin-left: 13px;
+    }
+    button.btn2:hover > span {
+        background-color: #2faee0;
+        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    button.btn2:hover > span span {
+        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+        background-color: #008ac9;
+    }
+    button.btn2:hover > span.left .circle-left {
+        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+        margin-left: 13px;
+    }
+    button.btn2:hover > span.left .circle-right {
+        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+        margin-left: 0;
+    }
+    button.btn2:hover > span.right .circle-left {
+        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+        margin-left: 13px;
+    }
+    button.btn2:hover > span.right .circle-right {
+        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 780px) and (min-width: 420px) {
+
+    .sliders {
+        width: 88%;
+    }
+
+    .statusNums {
+        width: 12%;
+    }
+}
+
+@media only screen and (max-width: 1280x) and (min-width: 780px) {
+
+    .sliders {
+        width: 90%;
+    }
+
+    .statusNums {
+        width: 10%;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+
+    .sliders {
+        width: 92%;
+    }
+
+    .statusNums {
+        width: 8%;
+    }
+}
