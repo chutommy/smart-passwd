@@ -5,10 +5,12 @@ import (
 
 	config "github.com/chutified/smart-passwd/config"
 	server "github.com/chutified/smart-passwd/server"
+	"github.com/gin-gonic/gin"
 	_ "github.com/lib/pq"
 )
 
 func main() {
+	gin.SetMode(gin.ReleaseMode)
 
 	// get configuration
 	cfg, err := config.GetConfig("config.yml")
