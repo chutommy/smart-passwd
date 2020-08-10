@@ -223,37 +223,37 @@
     #header nav li {
         width: 8.6em;
     }
-#passwd {
-    width: 70%;
-    font-size: 22px;
-    line-height: 30px;
-}
+    #passwd {
+        width: 70%;
+        font-size: 22px;
+        line-height: 30px;
+    }
 
-#helper-p {
-    width: 80%;
-    font-size: 22px;
-    line-height: 30px;
-}
+    #helper-p {
+        width: 80%;
+        font-size: 22px;
+        line-height: 30px;
+    }
 
-#hidBtn {
-    width: 10%;
-    font-size: 14px;
-}
-i {
-    font-size: 2.2rem;
-}
+    #hidBtn {
+        width: 10%;
+        font-size: 14px;
+    }
+    i {
+        font-size: 2.2rem;
+    }
 
-#copyPasswd {
-    width: 20%;
-    box-sizing: border-box;
-    margin-left: 15px;
-    font-size: 16px;
-}
+    #copyPasswd {
+        width: 20%;
+        box-sizing: border-box;
+        margin-left: 15px;
+        font-size: 16px;
+    }
 
-#copyHelper {
-    width: 20%;
-    box-sizing: border-box;
-    margin-left: 15px;
-    font-size: 16px;
-}
+    #copyHelper {
+        width: 20%;
+        box-sizing: border-box;
+        margin-left: 15px;
+        font-size: 16px;
+    }
 }
