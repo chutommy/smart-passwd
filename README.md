@@ -6,6 +6,13 @@ The generator allows the user to select the length of the generated password and
 Under the hood, the application collects words from the English dictionary (download and parsed into the databse from <a href="https://wordnet.princeton.edu/">WordNet</a>) (a lexical database for English hosted by Princeton University) and composes them according to the random number generator into a certain structure, which very often sounds laughingly but allows user to quickly recall the generated password. Then the generated phrase goes through an algorithm that may or may not (again depends on RNG results) replace each of the letters with another one. But in order to preserve to a certain memorability, the each character can be replaced by a character, which sounds or looks similarly.
 
 ### Screenshots
+<img src="https://raw.githubusercontent.com/chutified/smart-passwd/master/imgs/1.jpg">
+<img src="https://raw.githubusercontent.com/chutified/smart-passwd/master/imgs/2.jpg">
+<img src="https://raw.githubusercontent.com/chutified/smart-passwd/master/imgs/3.jpg">
+<img src="https://raw.githubusercontent.com/chutified/smart-passwd/master/imgs/4.jpg">
+<img src="https://raw.githubusercontent.com/chutified/smart-passwd/master/imgs/5.jpg">
+<img src="https://raw.githubusercontent.com/chutified/smart-passwd/master/imgs/6.jpg">
+<img src="https://raw.githubusercontent.com/chutified/smart-passwd/master/imgs/7.jpg">
 
 ### Used languages and tools
   - Go (Gin framework, Postgres driver)
