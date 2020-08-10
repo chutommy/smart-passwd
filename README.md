@@ -9,10 +9,11 @@ Under the hood, the application collects words from the English dictionary (down
 <img src="https://raw.githubusercontent.com/chutified/smart-passwd/master/imgs/1.jpg">
 <img src="https://raw.githubusercontent.com/chutified/smart-passwd/master/imgs/2.jpg">
 <img src="https://raw.githubusercontent.com/chutified/smart-passwd/master/imgs/3.jpg">
+<img src="https://raw.githubusercontent.com/chutified/smart-passwd/master/imgs/5.jpg" style="width: 50%">
+<img src="https://raw.githubusercontent.com/chutified/smart-passwd/master/imgs/6.jpg" style="width: 50%">
+
+#### server logs
 <img src="https://raw.githubusercontent.com/chutified/smart-passwd/master/imgs/4.jpg">
-<img src="https://raw.githubusercontent.com/chutified/smart-passwd/master/imgs/5.jpg">
-<img src="https://raw.githubusercontent.com/chutified/smart-passwd/master/imgs/6.jpg">
-<img src="https://raw.githubusercontent.com/chutified/smart-passwd/master/imgs/7.jpg">
 
 ### Used languages and tools
   - Go (Gin framework, Postgres driver)
