@@ -3,4 +3,5 @@
 *.swo
 
 server.log
-database/*
+database/word_list.sql
+db_data/*

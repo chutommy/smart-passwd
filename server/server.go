@@ -3,6 +3,7 @@ package server
 import (
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"os"
 	"time"
@@ -67,6 +68,7 @@ func (s *Server) Set(cfg *config.Config) error {
 
 // Start starts the server.
 func (s *Server) Start() error {
+	log.Println("Service started")
 	return s.srv.ListenAndServe()
 }
 

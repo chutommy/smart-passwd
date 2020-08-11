@@ -44,7 +44,7 @@ func (s *Service) Init(cfg *config.DBConfig) error {
 		if err == nil {
 			break
 		}
-		time.Sleep(4 * time.Second)
+		time.Sleep(5 * time.Second)
 	}
 	if err != nil {
 		return errors.Wrap(err, "ping to DB conn")

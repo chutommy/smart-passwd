@@ -22,12 +22,13 @@ RUN go build -o main .
 FROM alpine:latest AS product
 
 # set enviroment
-ENV PORT=80
+ENV PORT=10501
 
 # prepare workdir
 RUN apk update && apk add ca-certificates
 WORKDIR /webapp
-COPY --from=builder /webapp/config.yaml .
+COPY --from=builder /webapp/config.yml .
+COPY --from=builder /webapp/templates .
 COPY --from=builder /webapp/main .
 
 # run service
