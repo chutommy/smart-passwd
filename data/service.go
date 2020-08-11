@@ -3,6 +3,7 @@ package data
 import (
 	"database/sql"
 	"fmt"
+	"time"
 
 	config "github.com/chutified/smart-passwd/config"
 	"github.com/pkg/errors"
@@ -37,7 +38,14 @@ func (s *Service) Init(cfg *config.DBConfig) error {
 	}
 
 	// check the db connecton
-	err = s.db.Ping()
+	// try 5 times
+	for i := 0; i < 5; i++ {
+		err = s.db.Ping()
+		if err == nil {
+			break
+		}
+		time.Sleep(4 * time.Second)
+	}
 	if err != nil {
 		return errors.Wrap(err, "ping to DB conn")
 	}
