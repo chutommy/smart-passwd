@@ -7,14 +7,14 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-    volume:
-      - ./database:/var/lib/postgres/data
+    volumes:
+      - ./database/word_list.sql:/docker-entrypoint-initdb.d/word_list.sql
     ports:
       - '5432:5432'
 
   web:
-    build: .
+    build: ./
     depends_on:
       - db
     ports:
-      - '10515:80'
+      - '10528:80'
