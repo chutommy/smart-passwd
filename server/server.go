@@ -2,7 +2,9 @@ package server
 
 import (
 	"fmt"
+	"io"
 	"net/http"
+	"os"
 	"time"
 
 	config "github.com/chutified/smart-passwd/config"
@@ -27,6 +29,13 @@ func New() *Server {
 
 // Set prepares and sets the server to run.
 func (s *Server) Set(cfg *config.Config) error {
+
+	// Logging to a file.
+	f, err := os.OpenFile("server.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, os.ModeAppend)
+	if err != nil {
+		return errors.Wrap(err, "failed to open a file")
+	}
+	gin.DefaultWriter = io.MultiWriter(f, os.Stdout)
 
 	// create a new router
 	r := gin.New()
