@@ -1,0 +1,9 @@
+---
+Port: 8080    # server port
+DB:           # database credentials
+  Host: localhost
+  Port: 5432
+  User: tommychu
+  Password: ferdajekamarad
+  Database_Name: word_list
+
