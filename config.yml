@@ -1,8 +1,8 @@
 ---
-Port: 8080    # server port
-DB:           # database credentials
-  Host: localhost
+Port: 80
+DB:
+  Host: db
   Port: 5432
-  User: tommychu
-  Password: ferdajekamarad
+  User: postgres
+  Password: postgres
   Database_Name: word_list
