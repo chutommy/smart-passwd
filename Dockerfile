@@ -22,7 +22,7 @@ RUN go build -o main .
 FROM alpine:latest AS product
 
 # set enviroment
-ENV PORT=10501
+ENV PORT=80
 
 # prepare workdir
 RUN apk update && apk add ca-certificates
