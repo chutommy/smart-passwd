@@ -1,7 +1,7 @@
 .PHONY: build run
 
 build:
-	docker-compose -f docker-compose.yml -p smart-passwd build
+	docker build -t smartpasswd --rm .
 
 run:
-	docker-compose -f docker-compose.yml -p smart-passwd up
+	docker run --network=host -it smartpasswd
