@@ -30,7 +30,6 @@ WORKDIR /webapp
 COPY --from=builder /webapp/config.yml .
 COPY --from=builder /webapp/templates templates
 COPY --from=builder /webapp/main .
-run ls -la
 
 # run service
 EXPOSE $PORT
