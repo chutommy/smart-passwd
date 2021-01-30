@@ -3,8 +3,8 @@ package main
 import (
 	"log"
 
-	config "github.com/chutified/smart-passwd/config"
-	server "github.com/chutified/smart-passwd/server"
+	"github.com/chutified/smart-passwd/config"
+	"github.com/chutified/smart-passwd/server"
 	"github.com/gin-gonic/gin"
 	_ "github.com/lib/pq"
 )
@@ -20,6 +20,7 @@ func main() {
 
 	// set server
 	srv := server.New()
+
 	err = srv.Set(cfg)
 	if err != nil {
 		log.Fatal(err)
@@ -30,6 +31,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	defer func() {
 		log.Panic(srv.Stop())
 	}()

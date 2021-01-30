@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	config "github.com/chutified/smart-passwd/config"
+	"github.com/chutified/smart-passwd/config"
 	"github.com/pkg/errors"
 )
 
@@ -21,7 +21,6 @@ func New() *Service {
 
 // Init initialize the database connection.
 func (s *Service) Init(cfg *config.DBConfig) error {
-
 	// define database connection
 	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
 		cfg.Host,
@@ -32,20 +31,23 @@ func (s *Service) Init(cfg *config.DBConfig) error {
 
 	// connect to db
 	var err error
+
 	s.db, err = sql.Open("postgres", psqlInfo)
 	if err != nil {
 		return errors.Wrap(err, "connecting to the database")
 	}
 
-	// check the db connecton
+	// check the db connection
 	// try 5 times
 	for i := 0; i < 5; i++ {
 		err = s.db.Ping()
 		if err == nil {
 			break
 		}
+
 		time.Sleep(5 * time.Second)
 	}
+
 	if err != nil {
 		return errors.Wrap(err, "ping to DB conn")
 	}
@@ -55,10 +57,10 @@ func (s *Service) Init(cfg *config.DBConfig) error {
 
 // Stop closes the database connection.
 func (s *Service) Stop() error {
-
 	// closure
 	if err := s.db.Close(); err != nil {
 		return errors.Wrap(err, "failed to close the database connection")
 	}
+
 	return nil
 }

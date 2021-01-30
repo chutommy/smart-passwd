@@ -3,11 +3,10 @@ package swaps
 import (
 	"testing"
 
-	"gopkg.in/go-playground/assert.v1"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestSwapEngine(t *testing.T) {
-
 	se := New()
 
 	r1 := se.GetAlpha(2)

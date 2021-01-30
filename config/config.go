@@ -9,7 +9,7 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
-// ErrFileNotFound is returned if the file was not found
+// ErrFileNotFound is returned if the file was not found.
 var ErrFileNotFound = errors.New("file config.yml was not found")
 
 // ErrInvalidYamlFile is return when the file does not satisfy the yaml file type.
@@ -23,7 +23,6 @@ type Config struct {
 
 // GetConfig tries to load and handle the configuration file.
 func GetConfig(path string) (*Config, error) {
-
 	// load configuration
 	content, err := ioutil.ReadFile(filepath.Join(rootDir(), "..", path))
 	if err != nil {
@@ -32,6 +31,7 @@ func GetConfig(path string) (*Config, error) {
 
 	// validate and apply the settings
 	var cfg Config
+
 	err = yaml.Unmarshal(content, &cfg)
 	if err != nil {
 		return nil, ErrInvalidYamlFile
@@ -42,5 +42,6 @@ func GetConfig(path string) (*Config, error) {
 
 func rootDir() string {
 	_, b, _, _ := runtime.Caller(0)
+
 	return filepath.Dir(b)
 }

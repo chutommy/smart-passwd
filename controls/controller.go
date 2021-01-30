@@ -3,10 +3,10 @@ package controls
 import (
 	mrand "math/rand"
 
-	config "github.com/chutified/smart-passwd/config"
-	data "github.com/chutified/smart-passwd/data"
-	random "github.com/chutified/smart-passwd/random"
-	swaps "github.com/chutified/smart-passwd/swaps"
+	"github.com/chutified/smart-passwd/config"
+	"github.com/chutified/smart-passwd/data"
+	"github.com/chutified/smart-passwd/random"
+	"github.com/chutified/smart-passwd/swaps"
 	"github.com/pkg/errors"
 )
 
@@ -28,7 +28,6 @@ func New() *Controller {
 
 // Init initializes all services.
 func (c *Controller) Init(cfg *config.DBConfig) error {
-
 	// Init data service.
 	err := c.ds.Init(cfg)
 	if err != nil {

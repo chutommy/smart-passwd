@@ -15,7 +15,8 @@ func (*Source) Seed(int64) { /* noop */ }
 // Uint64 returns random uint64.
 func (s *Source) Uint64() uint64 {
 	var value uint64
-	binary.Read(crand.Reader, binary.BigEndian, &value)
+	_ = binary.Read(crand.Reader, binary.BigEndian, &value)
+
 	return value
 }
 

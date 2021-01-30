@@ -8,18 +8,17 @@ import (
 
 // composeWords composes the slice of words into the one string and returns it + the spaced phrase.
 func (c *Controller) composeWords(ws []word) (string, string, error) {
-
 	// define the phrase
-	var phrase []string
+	phrase := make([]string, 0)
 
 	// range over the structures and generates the words for them
 	for _, w := range ws {
-
 		// get the random index
 		capacity, err := c.ds.Len(w.length, w.category)
 		if err != nil {
 			return "", "", errors.Wrap(err, "count the max length")
 		}
+
 		randI := c.rng.Intn(capacity)
 
 		// generate the word
@@ -35,5 +34,6 @@ func (c *Controller) composeWords(ws []word) (string, string, error) {
 	// join the phrase
 	smashed := strings.Join(phrase, "")
 	spaced := strings.Join(phrase, " ")
+
 	return smashed, spaced, nil
 }

@@ -8,8 +8,8 @@ import (
 	"os"
 	"time"
 
-	config "github.com/chutified/smart-passwd/config"
-	handlers "github.com/chutified/smart-passwd/handlers"
+	"github.com/chutified/smart-passwd/config"
+	"github.com/chutified/smart-passwd/handlers"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/pkg/errors"
@@ -30,12 +30,12 @@ func New() *Server {
 
 // Set prepares and sets the server to run.
 func (s *Server) Set(cfg *config.Config) error {
-
 	// Logging to a file.
 	f, err := os.OpenFile("server.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, os.ModeAppend)
 	if err != nil {
 		return errors.Wrap(err, "failed to open a file")
 	}
+
 	gin.DefaultWriter = io.MultiWriter(f, os.Stdout)
 
 	// create a new router
@@ -69,6 +69,7 @@ func (s *Server) Set(cfg *config.Config) error {
 // Start starts the server.
 func (s *Server) Start() error {
 	log.Println("Service started")
+
 	return s.srv.ListenAndServe()
 }
 

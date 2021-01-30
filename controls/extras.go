@@ -2,7 +2,6 @@ package controls
 
 // extraSecurityLvl return extra number of numbers and special characters.
 func extraSecurityLvl(lvl int) (int, int) {
-
 	// narrow
 	if lvl < 0 {
 		lvl = 0

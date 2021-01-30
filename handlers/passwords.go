@@ -3,9 +3,9 @@ package handlers
 import (
 	"net/http"
 
-	config "github.com/chutified/smart-passwd/config"
-	controls "github.com/chutified/smart-passwd/controls"
-	models "github.com/chutified/smart-passwd/models"
+	"github.com/chutified/smart-passwd/config"
+	"github.com/chutified/smart-passwd/controls"
+	"github.com/chutified/smart-passwd/models"
 	"github.com/gin-gonic/gin"
 	"github.com/pkg/errors"
 )
@@ -24,7 +24,6 @@ func NewPWD() *PWDhandler {
 
 // Init starts the controller's services.
 func (h *PWDhandler) Init(cfg *config.DBConfig) error {
-
 	// init the controller
 	err := h.pwdCtrl.Init(cfg)
 	if err != nil {
@@ -36,10 +35,10 @@ func (h *PWDhandler) Init(cfg *config.DBConfig) error {
 
 // Close stops all connections.
 func (h *PWDhandler) Close() error {
-	//stop the controller
+	// stop the controller
 	err := h.pwdCtrl.Stop()
 	if err != nil {
-		return errors.Wrap(err, "stoping password controller")
+		return errors.Wrap(err, "stopping password controller")
 	}
 
 	return nil
@@ -47,28 +46,25 @@ func (h *PWDhandler) Close() error {
 
 // PasswordGen handles the password generation.
 func (h *PWDhandler) PasswordGen(c *gin.Context) {
-
 	// bind JSON
 	var preq models.PasswordReq
 	if err := c.ShouldBindJSON(&preq); err != nil {
-		c.JSON(http.StatusBadRequest,
-			gin.H{"error": err.Error()})
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+
 		return
 	}
 
 	// generate the passwd
 	resp, err := h.pwdCtrl.Generate(&preq)
-	if err == controls.InvalidLen {
-
+	if errors.Is(err, controls.ErrInvalidLen) {
 		// both length and helper are missing
 		c.JSON(http.StatusBadRequest,
 			gin.H{"error": err.Error()})
+
 		return
-
 	} else if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 
-		c.JSON(http.StatusInternalServerError,
-			gin.H{"error": err.Error()})
 		return
 	}
 

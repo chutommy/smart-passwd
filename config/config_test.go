@@ -3,11 +3,10 @@ package config
 import (
 	"testing"
 
-	"gopkg.in/go-playground/assert.v1"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestConfig(t *testing.T) {
-
 	tests := []struct {
 		name string
 		file string
@@ -32,7 +31,6 @@ func TestConfig(t *testing.T) {
 
 	for _, test := range tests {
 		t.Run(test.name, func(t1 *testing.T) {
-
 			_, err := GetConfig(test.file)
 			assert.Equal(t1, err, test.err)
 		})
