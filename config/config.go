@@ -2,9 +2,9 @@ package config
 
 import (
 	"errors"
-	"flag"
 	"fmt"
 
+	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
 )
 
@@ -15,18 +15,18 @@ const (
 	KeyDebug    = "Debug"
 )
 
-// File represents metadata of the configuration file.
-type File struct {
-	Name string
-	Type string
-	Path string
-}
-
 // Config represents an application configuration.
 type Config struct {
 	HTTPPort int64  `yaml:"HTTPPort"`
 	DBFile   string `yaml:"DBFile"`
 	Debug    bool   `yaml:"Debug"`
+}
+
+// File represents metadata of the configuration file.
+type File struct {
+	Name string
+	Type string
+	Path string
 }
 
 // GetConfig sets defaults, replaces them with the values from the configuration file
@@ -44,12 +44,12 @@ func GetConfig(defCfg *Config, file *File, args []string) (*Config, error) {
 		return nil, fmt.Errorf("set config from flags: %w", err)
 	}
 
-	var cfg Config
-	if err := vi.Unmarshal(&cfg); err != nil {
-		return nil, fmt.Errorf("unmarshal viper config: %w", err)
+	cfg, err := decodeViper(vi)
+	if err != nil {
+		return nil, fmt.Errorf("decode viper to config: %w", err)
 	}
 
-	return &cfg, nil
+	return cfg, nil
 }
 
 func setDefault(vi *viper.Viper, cfg *Config) {
@@ -62,24 +62,23 @@ func setFromFile(vi *viper.Viper, f *File) error {
 	fileData(vi, f)
 
 	if err := loadFile(vi); err != nil {
-		return fmt.Errorf("")
+		return fmt.Errorf("load file: %w", err)
 	}
 
 	return nil
 }
 
 func loadFile(vi *viper.Viper) error {
-	err := vi.ReadInConfig()
-	if err != nil {
+	if err := vi.ReadInConfig(); err != nil {
 		if !errors.Is(err, viper.ConfigFileNotFoundError{}) {
 			return fmt.Errorf("read config file: %w", err)
 		}
 
-		err = viper.SafeWriteConfig()
-		if err != nil {
+		if err = vi.SafeWriteConfig(); err != nil {
 			return fmt.Errorf("generate config file: %w", err)
 		}
 	}
+
 	return nil
 }
 
@@ -90,15 +89,28 @@ func fileData(vi *viper.Viper, f *File) {
 }
 
 func setFromFlags(vi *viper.Viper, args []string) error {
-	fs := flag.NewFlagSet("Smart Pass-WD", flag.ExitOnError)
+	fs := pflag.NewFlagSet("smart-passwd", pflag.ContinueOnError)
 
-	vi.Set(KeyHTTPPort, *fs.Int64("http", vi.GetInt64(KeyHTTPPort), "port of the application to serve"))
-	vi.Set(KeyDBFile, *fs.String("db", vi.GetString(KeyDBFile), "path to SQLite3 database file"))
-	vi.Set(KeyDebug, *fs.Bool("debug", vi.GetBool(KeyDebug), "debug mode"))
+	fs.Int64P(KeyHTTPPort, "p", vi.GetInt64(KeyHTTPPort), "port of the application to serve")
+	fs.StringP(KeyDBFile, "f", vi.GetString(KeyDBFile), "path to SQLite3 database file")
+	fs.BoolP(KeyDebug, "d", vi.GetBool(KeyDebug), "debug mode")
 
 	if err := fs.Parse(args); err != nil {
 		return fmt.Errorf("parse flags: %w", err)
 	}
 
+	if err := vi.BindPFlags(fs); err != nil {
+		return fmt.Errorf("bind pflags: %w", err)
+	}
+
 	return nil
+}
+
+func decodeViper(vi *viper.Viper) (*Config, error) {
+	var cfg Config
+	if err := vi.Unmarshal(&cfg); err != nil {
+		return nil, fmt.Errorf("unmarshal viper config: %w", err)
+	}
+
+	return &cfg, nil
 }
