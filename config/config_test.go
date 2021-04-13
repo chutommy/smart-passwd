@@ -21,8 +21,9 @@ func TestSetDefault(t *testing.T) {
 	t.Parallel()
 
 	tests := []struct {
-		name string
-		cfg  *Config
+		name    string
+		cfg     *Config
+		wantErr bool
 	}{
 		{
 			name: "empty values",
@@ -31,6 +32,7 @@ func TestSetDefault(t *testing.T) {
 				DBFile:   "",
 				Debug:    false,
 			},
+			wantErr: false,
 		},
 		{
 			name: "default values",
@@ -39,6 +41,7 @@ func TestSetDefault(t *testing.T) {
 				DBFile:   "words.db",
 				Debug:    false,
 			},
+			wantErr: false,
 		},
 		{
 			name: "complete",
@@ -47,6 +50,11 @@ func TestSetDefault(t *testing.T) {
 				DBFile:   "data/words-test.db",
 				Debug:    true,
 			},
+			wantErr: false,
+		},
+		{
+			name:    "nil config",
+			wantErr: true,
 		},
 	}
 
@@ -57,12 +65,17 @@ func TestSetDefault(t *testing.T) {
 			t.Parallel()
 
 			vi := viper.New()
-			setDefault(vi, tt.cfg)
-			cfg := testDecode(t, vi)
+			err := setDefault(vi, tt.cfg)
+			if tt.wantErr {
+				require.Error(t, err)
+			} else {
+				require.NoError(t, err)
+				cfg := testDecode(t, vi)
 
-			require.Equal(t, tt.cfg.HTTPPort, cfg.HTTPPort)
-			require.Equal(t, tt.cfg.DBFile, cfg.DBFile)
-			require.Equal(t, tt.cfg.Debug, cfg.Debug)
+				require.Equal(t, tt.cfg.HTTPPort, cfg.HTTPPort)
+				require.Equal(t, tt.cfg.DBFile, cfg.DBFile)
+				require.Equal(t, tt.cfg.Debug, cfg.Debug)
+			}
 		})
 	}
 }
@@ -127,6 +140,11 @@ func TestSetFromFile(t *testing.T) {
 			},
 			wantErr: true,
 		},
+		{
+			name:    "nil file",
+			file:    nil,
+			wantErr: true,
+		},
 	}
 
 	for _, tt := range tests {
@@ -170,6 +188,16 @@ func TestSetFromFlags(t *testing.T) {
 		{
 			name: "empty",
 			arg:  []string{},
+			cfg: &Config{
+				HTTPPort: 0,
+				DBFile:   "",
+				Debug:    false,
+			},
+			wantErr: false,
+		},
+		{
+			name: "empty with nil",
+			arg:  nil,
 			cfg: &Config{
 				HTTPPort: 0,
 				DBFile:   "",

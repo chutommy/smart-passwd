@@ -8,6 +8,9 @@ import (
 	"github.com/spf13/viper"
 )
 
+// ErrNilValue is returned whenever variable with nil value is not expected.
+var ErrNilValue = errors.New("invalid nil value")
+
 // Keys represents the key values of the configuration.
 const (
 	KeyHTTPPort = "HTTPPort"
@@ -34,7 +37,9 @@ type File struct {
 func GetConfig(defCfg *Config, file *File, args []string) (*Config, error) {
 	vi := viper.New()
 
-	setDefault(vi, defCfg)
+	if err := setDefault(vi, defCfg); err != nil {
+		return nil, fmt.Errorf("set value: %w", err)
+	}
 
 	if err := setFromFile(vi, file); err != nil {
 		return nil, fmt.Errorf("set config from file: %w", err)
@@ -52,14 +57,22 @@ func GetConfig(defCfg *Config, file *File, args []string) (*Config, error) {
 	return cfg, nil
 }
 
-func setDefault(vi *viper.Viper, cfg *Config) {
+func setDefault(vi *viper.Viper, cfg *Config) error {
+	if cfg == nil {
+		return fmt.Errorf("cfg: %w", ErrNilValue)
+	}
+
 	vi.SetDefault(KeyHTTPPort, cfg.HTTPPort)
 	vi.SetDefault(KeyDBFile, cfg.DBFile)
 	vi.SetDefault(KeyDebug, cfg.Debug)
+
+	return nil
 }
 
 func setFromFile(vi *viper.Viper, f *File) error {
-	fileData(vi, f)
+	if err := fileData(vi, f); err != nil {
+		return fmt.Errorf("set file data: %w", err)
+	}
 
 	if err := loadFile(vi); err != nil {
 		return fmt.Errorf("load file: %w", err)
@@ -82,10 +95,16 @@ func loadFile(vi *viper.Viper) error {
 	return nil
 }
 
-func fileData(vi *viper.Viper, f *File) {
+func fileData(vi *viper.Viper, f *File) error {
+	if f == nil {
+		return fmt.Errorf("f: %w", ErrNilValue)
+	}
+
 	vi.SetConfigName(f.Name)
 	vi.SetConfigType(f.Type)
 	vi.AddConfigPath(f.Path)
+
+	return nil
 }
 
 func setFromFlags(vi *viper.Viper, args []string) error {
