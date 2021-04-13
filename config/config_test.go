@@ -17,6 +17,48 @@ func testDecode(t *testing.T, vi *viper.Viper) *Config {
 	return cfg
 }
 
+func TestGetConfig(t *testing.T) {
+	t.Parallel()
+
+	type input struct {
+		defCfg *Config
+		file   *File
+		args   []string
+	}
+
+	type output struct {
+		cfg     *Config
+		wantErr bool
+	}
+
+	tests := []struct {
+		name string
+		inp  input
+		out  output
+	}{
+		// TODO: cases
+	}
+
+	for _, tt := range tests {
+		tt := tt
+
+		t.Run(tt.name, func(t *testing.T) {
+			t.Parallel()
+
+			cfg, err := GetConfig(tt.inp.defCfg, tt.inp.file, tt.inp.args)
+			if tt.out.wantErr {
+				require.Error(t, err)
+				require.Nil(t, cfg)
+			} else {
+				require.NoError(t, err)
+				require.NotNil(t, cfg)
+
+				require.Equal(t, *tt.out.cfg, *cfg)
+			}
+		})
+	}
+}
+
 func TestSetDefault(t *testing.T) {
 	t.Parallel()
 
