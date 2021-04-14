@@ -8,8 +8,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/chutified/smart-passwd/config"
 	"github.com/chutified/smart-passwd/handlers"
+	"github.com/chutified/smart-passwd/pkg/config"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/pkg/errors"
