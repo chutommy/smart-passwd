@@ -38,7 +38,7 @@ func GetConfig(defCfg *Config, file *File, args []string) (*Config, error) {
 	vi := viper.New()
 
 	if err := setDefault(vi, defCfg); err != nil {
-		return nil, fmt.Errorf("set value: %w", err)
+		return nil, fmt.Errorf("set default values: %w", err)
 	}
 
 	if err := setFromFile(vi, file); err != nil {
@@ -85,10 +85,6 @@ func loadFile(vi *viper.Viper) error {
 	if err := vi.ReadInConfig(); err != nil {
 		if !errors.Is(err, viper.ConfigFileNotFoundError{}) {
 			return fmt.Errorf("read config file: %w", err)
-		}
-
-		if err = vi.SafeWriteConfig(); err != nil {
-			return fmt.Errorf("generate config file: %w", err)
 		}
 	}
 

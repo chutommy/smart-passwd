@@ -36,7 +36,130 @@ func TestGetConfig(t *testing.T) {
 		inp  input
 		out  output
 	}{
-		// TODO: cases
+		{
+			name: "complete",
+			inp: input{
+				defCfg: &Config{
+					HTTPPort: 8080,
+					DBFile:   "data/words-test.db",
+					Debug:    true,
+				},
+				file: &File{
+					Name: "config4",
+					Type: "yaml",
+					Path: "tests",
+				},
+				args: []string{
+					"--" + KeyHTTPPort, "10500",
+					"--" + KeyDBFile, "data/words-prod.db",
+					"--" + KeyDebug,
+				},
+			},
+			out: output{
+				cfg: &Config{
+					HTTPPort: 10500,
+					DBFile:   "data/words-prod.db",
+					Debug:    true,
+				},
+				wantErr: false,
+			},
+		},
+		{
+			name: "default and file values",
+			inp: input{
+				defCfg: &Config{
+					HTTPPort: 8080,
+					DBFile:   "data/words-test.db",
+					Debug:    true,
+				},
+				file: &File{
+					Name: "config4",
+					Type: "yaml",
+					Path: "tests",
+				},
+				args: nil,
+			},
+			out: output{
+				cfg: &Config{
+					HTTPPort: 80,
+					DBFile:   "data/words.db",
+					Debug:    false,
+				},
+				wantErr: false,
+			},
+		},
+		{
+			name: "default and empty config",
+			inp: input{
+				defCfg: &Config{
+					HTTPPort: 8080,
+					DBFile:   "data/words-test.db",
+					Debug:    true,
+				},
+				file: &File{
+					Name: "config5",
+					Type: "yaml",
+					Path: "tests",
+				},
+				args: nil,
+			},
+			out: output{
+				cfg: &Config{
+					HTTPPort: 8080,
+					DBFile:   "data/words-test.db",
+					Debug:    true,
+				},
+				wantErr: false,
+			},
+		},
+		{
+			name: "nil file",
+			inp: input{
+				defCfg: &Config{
+					HTTPPort: 8080,
+					DBFile:   "data/words-test.db",
+					Debug:    true,
+				},
+				file: nil,
+				args: nil,
+			},
+			out: output{
+				cfg:     nil,
+				wantErr: true,
+			},
+		},
+		{
+			name: "nil arguments",
+			inp: input{
+				defCfg: nil,
+				file:   nil,
+				args:   nil,
+			},
+			out: output{
+				cfg:     nil,
+				wantErr: true,
+			},
+		},
+		{
+			name: "invalid flags",
+			inp: input{
+				defCfg: &Config{
+					HTTPPort: 8080,
+					DBFile:   "data/words-test.db",
+					Debug:    true,
+				},
+				file: &File{
+					Name: "config4",
+					Type: "yaml",
+					Path: "tests",
+				},
+				args: []string{"-invalid"},
+			},
+			out: output{
+				cfg:     nil,
+				wantErr: true,
+			},
+		},
 	}
 
 	for _, tt := range tests {
