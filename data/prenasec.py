@@ -15,6 +15,21 @@ import sqlite3
 import sys
 
 
+def retrieve_arguments():
+    args = sys.argv
+    if len(args) != 2:
+        sys.exit(f"""Invalid arguments: {args}
+    USAGE: python3 prenasec.py [SOURCE]""")
+
+    src = args[1]
+    source_path = os.path.join("raw", src)
+
+    trg = os.path.splitext(src)[0] + ".db"
+    target_path = os.path.join("parsed", trg)
+
+    return source_path, target_path
+
+
 class WordList:
     """
     A class WordList represents a simple word list.
@@ -87,15 +102,5 @@ class WordList:
         self.file.close()
 
 
-args = sys.argv
-if len(args) != 2:
-    sys.exit(f"""Invalid arguments: {args}
-    USAGE: python3 prenasec.py [SOURCE]""")
-
-src = args[1]
-sourcePath = os.path.join("raw", src)
-
-trg = os.path.splitext(src)[0] + ".db"
-targetPath = os.path.join("parsed", trg)
-
+sourcePath, targetPath = retrieve_arguments()
 WordList(sourcePath, targetPath, "words")
