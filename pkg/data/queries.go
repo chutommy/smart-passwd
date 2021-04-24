@@ -6,19 +6,19 @@ import (
 )
 
 const (
-	wordCount = `
-	SELECT max(ROWID)
-	FROM words;
-	`
-
-	wordRandom = `
-	SELECT word
-	FROM words
-	WHERE id = (
-		SELECT ABS(random()) % max(ROWID)
-		FROM words
-	);
-	`
+	// wordCount = `
+	// SELECT max(ROWID)
+	// FROM words;
+	// `
+	//
+	// wordRandom = `
+	// SELECT word
+	// FROM words
+	// WHERE id = (
+	// 	SELECT ABS(random()) % max(ROWID)
+	// 	FROM words
+	// );
+	// `
 
 	wordRandomLen = `
 	SELECT word FROM words
