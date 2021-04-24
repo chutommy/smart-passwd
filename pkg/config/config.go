@@ -9,9 +9,6 @@ import (
 	"github.com/spf13/viper"
 )
 
-// ErrNilValue is returned whenever variable with nil value is not expected.
-var ErrNilValue = errors.New("invalid nil value")
-
 // Keys represents the key values of the configuration.
 const (
 	KeyHTTPPort = "HTTPPort"
@@ -53,7 +50,7 @@ func GetConfig(defCfg *Config, file *utils.File, args []string) (*Config, error)
 
 func setDefault(vi *viper.Viper, cfg *Config) error {
 	if cfg == nil {
-		return fmt.Errorf("cfg: %w", ErrNilValue)
+		return fmt.Errorf("cfg: %w", utils.ErrNilValue)
 	}
 
 	vi.SetDefault(KeyHTTPPort, cfg.HTTPPort)
@@ -87,7 +84,7 @@ func loadFile(vi *viper.Viper) error {
 
 func fileData(vi *viper.Viper, f *utils.File) error {
 	if f == nil {
-		return fmt.Errorf("f: %w", ErrNilValue)
+		return fmt.Errorf("f: %w", utils.ErrNilValue)
 	}
 
 	vi.SetConfigName(f.Name)

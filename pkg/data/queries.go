@@ -3,6 +3,8 @@ package data
 import (
 	"database/sql"
 	"errors"
+
+	"github.com/chutified/smart-passwd/pkg/utils"
 )
 
 const (
@@ -36,6 +38,10 @@ var ErrNoWords = errors.New("there are no words in database")
 // database connection. It returns a random string value under
 // the column 'word'.
 func randomWord(db *sql.DB, l int16) (string, error) {
+	if db == nil {
+		return "", utils.ErrNilValue
+	}
+
 	var word string
 
 	err := db.QueryRow(wordRandomLen, l).Scan(&word)
