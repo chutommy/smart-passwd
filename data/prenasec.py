@@ -74,6 +74,10 @@ class WordList:
         self.db.execute(f"DROP TABLE IF EXISTS {self.table}")
         self.db.execute(f"""CREATE TABLE {self.table}
             (id INTEGER PRIMARY KEY AUTOINCREMENT, word TEXT NOT NULL UNIQUE)""")
+        self.db.execute(f"""CREATE UNIQUE INDEX id_index
+            ON {self.table}(id)""")
+        self.db.execute(f"""CREATE UNIQUE INDEX word_index
+            ON {self.table}(word)""")
 
     def add_word(self, word):
         """Inserts a word into the word list table."""
