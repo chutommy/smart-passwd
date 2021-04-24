@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 
+	"github.com/chutified/smart-passwd/pkg/utils"
 	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
 )
@@ -25,16 +26,9 @@ type Config struct {
 	Debug    bool   `yaml:"Debug"`
 }
 
-// File represents metadata of the configuration file.
-type File struct {
-	Name string
-	Type string
-	Path string
-}
-
 // GetConfig sets defaults, replaces them with the values from the configuration file
 // and finally overrides them with flags.
-func GetConfig(defCfg *Config, file *File, args []string) (*Config, error) {
+func GetConfig(defCfg *Config, file *utils.File, args []string) (*Config, error) {
 	vi := viper.New()
 
 	if err := setDefault(vi, defCfg); err != nil {
@@ -69,7 +63,7 @@ func setDefault(vi *viper.Viper, cfg *Config) error {
 	return nil
 }
 
-func setFromFile(vi *viper.Viper, f *File) error {
+func setFromFile(vi *viper.Viper, f *utils.File) error {
 	if err := fileData(vi, f); err != nil {
 		return fmt.Errorf("set file data: %w", err)
 	}
@@ -91,7 +85,7 @@ func loadFile(vi *viper.Viper) error {
 	return nil
 }
 
-func fileData(vi *viper.Viper, f *File) error {
+func fileData(vi *viper.Viper, f *utils.File) error {
 	if f == nil {
 		return fmt.Errorf("f: %w", ErrNilValue)
 	}
