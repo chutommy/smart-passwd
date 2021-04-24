@@ -8,26 +8,29 @@ import (
 )
 
 const (
-	// wordCount = `
-	// SELECT max(ROWID)
-	// FROM words;
-	// `
-	//
-	// wordRandom = `
-	// SELECT word
-	// FROM words
-	// WHERE id = (
-	// 	SELECT ABS(random()) % max(ROWID)
-	// 	FROM words
-	// );
-	// `
+	/*
+		wordCount = `
+		SELECT max(ROWID)
+		FROM words;
+		`
+
+		wordRandom = `
+		SELECT word
+		FROM words
+		WHERE id = (
+			SELECT ABS(random()) % max(ROWID)
+			FROM words
+		);
+		`
+	*/
 
 	wordRandomLen = `
+	-- noinspection SqlResolve
 	SELECT word FROM words
-	WHERE length(word) = ?
-	ORDER BY RANDOM()
-	LIMIT 1;
-	`
+		WHERE length(word) = ?
+		ORDER BY RANDOM()
+		LIMIT 1;
+		`
 )
 
 // ErrNoWords is returned by randomWord when there are no rows
