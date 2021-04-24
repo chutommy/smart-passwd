@@ -3,6 +3,7 @@ package config
 import (
 	"testing"
 
+	"github.com/chutified/smart-passwd/pkg/utils"
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/require"
 )
@@ -22,7 +23,7 @@ func TestGetConfig(t *testing.T) {
 
 	type input struct {
 		defCfg *Config
-		file   *File
+		file   *utils.File
 		args   []string
 	}
 
@@ -44,7 +45,7 @@ func TestGetConfig(t *testing.T) {
 					DBFile:   "data/words-test.db",
 					Debug:    true,
 				},
-				file: &File{
+				file: &utils.File{
 					Name: "config4",
 					Type: "yaml",
 					Path: "tests",
@@ -72,7 +73,7 @@ func TestGetConfig(t *testing.T) {
 					DBFile:   "data/words-test.db",
 					Debug:    true,
 				},
-				file: &File{
+				file: &utils.File{
 					Name: "config4",
 					Type: "yaml",
 					Path: "tests",
@@ -96,7 +97,7 @@ func TestGetConfig(t *testing.T) {
 					DBFile:   "data/words-test.db",
 					Debug:    true,
 				},
-				file: &File{
+				file: &utils.File{
 					Name: "config5",
 					Type: "yaml",
 					Path: "tests",
@@ -148,7 +149,7 @@ func TestGetConfig(t *testing.T) {
 					DBFile:   "data/words-test.db",
 					Debug:    true,
 				},
-				file: &File{
+				file: &utils.File{
 					Name: "config4",
 					Type: "yaml",
 					Path: "tests",
@@ -250,13 +251,13 @@ func TestSetFromFile(t *testing.T) {
 
 	tests := []struct {
 		name    string
-		file    *File
+		file    *utils.File
 		cfg     *Config
 		wantErr bool
 	}{
 		{
 			name: "default",
-			file: &File{
+			file: &utils.File{
 				Name: "config1",
 				Type: "yaml",
 				Path: "tests",
@@ -270,7 +271,7 @@ func TestSetFromFile(t *testing.T) {
 		},
 		{
 			name: "empty",
-			file: &File{
+			file: &utils.File{
 				Name: "config2",
 				Type: "yaml",
 				Path: "tests",
@@ -284,7 +285,7 @@ func TestSetFromFile(t *testing.T) {
 		},
 		{
 			name: "debug",
-			file: &File{
+			file: &utils.File{
 				Name: "config3",
 				Type: "yaml",
 				Path: "tests",
@@ -298,7 +299,7 @@ func TestSetFromFile(t *testing.T) {
 		},
 		{
 			name: "na file",
-			file: &File{
+			file: &utils.File{
 				Name: "na",
 				Type: "yaml",
 				Path: "tests",
