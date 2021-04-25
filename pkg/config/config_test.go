@@ -3,6 +3,7 @@ package config
 import (
 	"testing"
 
+	"github.com/chutified/smart-passwd/pkg/utils"
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/require"
 )
@@ -22,7 +23,7 @@ func TestGetConfig(t *testing.T) {
 
 	type input struct {
 		defCfg *Config
-		file   *File
+		file   *utils.File
 		args   []string
 	}
 
@@ -44,11 +45,7 @@ func TestGetConfig(t *testing.T) {
 					DBFile:   "data/words-test.db",
 					Debug:    true,
 				},
-				file: &File{
-					Name: "config4",
-					Type: "yaml",
-					Path: "tests",
-				},
+				file: utils.NewFile("test", "config4", "yaml"),
 				args: []string{
 					"--" + KeyHTTPPort, "10500",
 					"--" + KeyDBFile, "data/words-prod.db",
@@ -72,11 +69,7 @@ func TestGetConfig(t *testing.T) {
 					DBFile:   "data/words-test.db",
 					Debug:    true,
 				},
-				file: &File{
-					Name: "config4",
-					Type: "yaml",
-					Path: "tests",
-				},
+				file: utils.NewFile("test", "config4", "yaml"),
 				args: nil,
 			},
 			out: output{
@@ -96,11 +89,7 @@ func TestGetConfig(t *testing.T) {
 					DBFile:   "data/words-test.db",
 					Debug:    true,
 				},
-				file: &File{
-					Name: "config5",
-					Type: "yaml",
-					Path: "tests",
-				},
+				file: utils.NewFile("test", "config5", "yaml"),
 				args: nil,
 			},
 			out: output{
@@ -148,11 +137,7 @@ func TestGetConfig(t *testing.T) {
 					DBFile:   "data/words-test.db",
 					Debug:    true,
 				},
-				file: &File{
-					Name: "config4",
-					Type: "yaml",
-					Path: "tests",
-				},
+				file: utils.NewFile("test", "config4", "yaml"),
 				args: []string{"-invalid"},
 			},
 			out: output{
@@ -250,17 +235,13 @@ func TestSetFromFile(t *testing.T) {
 
 	tests := []struct {
 		name    string
-		file    *File
+		file    *utils.File
 		cfg     *Config
 		wantErr bool
 	}{
 		{
 			name: "default",
-			file: &File{
-				Name: "config1",
-				Type: "yaml",
-				Path: "tests",
-			},
+			file: utils.NewFile("test", "config1", "yaml"),
 			cfg: &Config{
 				HTTPPort: 80,
 				DBFile:   "data/words.db",
@@ -270,11 +251,7 @@ func TestSetFromFile(t *testing.T) {
 		},
 		{
 			name: "empty",
-			file: &File{
-				Name: "config2",
-				Type: "yaml",
-				Path: "tests",
-			},
+			file: utils.NewFile("test", "config2", "yaml"),
 			cfg: &Config{
 				HTTPPort: 0,
 				DBFile:   "",
@@ -284,11 +261,7 @@ func TestSetFromFile(t *testing.T) {
 		},
 		{
 			name: "debug",
-			file: &File{
-				Name: "config3",
-				Type: "yaml",
-				Path: "tests",
-			},
+			file: utils.NewFile("test", "config3", "yaml"),
 			cfg: &Config{
 				HTTPPort: 8080,
 				DBFile:   "data/words-test.db",
@@ -297,12 +270,8 @@ func TestSetFromFile(t *testing.T) {
 			wantErr: false,
 		},
 		{
-			name: "na file",
-			file: &File{
-				Name: "na",
-				Type: "yaml",
-				Path: "tests",
-			},
+			name:    "na file",
+			file:    utils.NewFile("test", "na", "yaml"),
 			wantErr: true,
 		},
 		{
@@ -334,7 +303,7 @@ func TestSetFromFile(t *testing.T) {
 	}
 }
 
-// TestLoadFile tests whether loading file without setting
+// TestLoadFile test whether loading file without setting
 // its data returns an error.
 func TestLoadFile(t *testing.T) {
 	t.Parallel()

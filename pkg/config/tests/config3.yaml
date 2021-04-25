@@ -1,4 +1,0 @@
----
-HTTPPort: 8080
-DBFile: data/words-test.db
-Debug: true

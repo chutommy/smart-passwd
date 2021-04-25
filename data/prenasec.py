@@ -17,17 +17,11 @@ import sys
 
 def retrieve_arguments():
     args = sys.argv
-    if len(args) != 2:
+    if len(args) != 3:
         sys.exit(f"""Invalid arguments: {args}
-    USAGE: python3 prenasec.py [SOURCE]""")
+    USAGE: python3 prenasec.py [SOURCE] [TARGET]""")
 
-    src = args[1]
-    source_path = os.path.join("raw", src)
-
-    trg = os.path.splitext(src)[0] + ".db"
-    target_path = os.path.join("parsed", trg)
-
-    return source_path, target_path
+    return args[1], args[2]
 
 
 class WordList:
@@ -80,6 +74,10 @@ class WordList:
         self.db.execute(f"DROP TABLE IF EXISTS {self.table}")
         self.db.execute(f"""CREATE TABLE {self.table}
             (id INTEGER PRIMARY KEY AUTOINCREMENT, word TEXT NOT NULL UNIQUE)""")
+        self.db.execute(f"""CREATE UNIQUE INDEX id_index
+            ON {self.table}(id)""")
+        self.db.execute(f"""CREATE UNIQUE INDEX word_index
+            ON {self.table}(word)""")
 
     def add_word(self, word):
         """Inserts a word into the word list table."""
