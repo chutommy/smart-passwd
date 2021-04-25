@@ -45,7 +45,7 @@ func TestGetConfig(t *testing.T) {
 					DBFile:   "data/words-test.db",
 					Debug:    true,
 				},
-				file: utils.NewFile("tests", "config4", "yaml"),
+				file: utils.NewFile("test", "config4", "yaml"),
 				args: []string{
 					"--" + KeyHTTPPort, "10500",
 					"--" + KeyDBFile, "data/words-prod.db",
@@ -69,7 +69,7 @@ func TestGetConfig(t *testing.T) {
 					DBFile:   "data/words-test.db",
 					Debug:    true,
 				},
-				file: utils.NewFile("tests", "config4", "yaml"),
+				file: utils.NewFile("test", "config4", "yaml"),
 				args: nil,
 			},
 			out: output{
@@ -89,7 +89,7 @@ func TestGetConfig(t *testing.T) {
 					DBFile:   "data/words-test.db",
 					Debug:    true,
 				},
-				file: utils.NewFile("tests", "config5", "yaml"),
+				file: utils.NewFile("test", "config5", "yaml"),
 				args: nil,
 			},
 			out: output{
@@ -137,7 +137,7 @@ func TestGetConfig(t *testing.T) {
 					DBFile:   "data/words-test.db",
 					Debug:    true,
 				},
-				file: utils.NewFile("tests", "config4", "yaml"),
+				file: utils.NewFile("test", "config4", "yaml"),
 				args: []string{"-invalid"},
 			},
 			out: output{
@@ -241,7 +241,7 @@ func TestSetFromFile(t *testing.T) {
 	}{
 		{
 			name: "default",
-			file: utils.NewFile("tests", "config1", "yaml"),
+			file: utils.NewFile("test", "config1", "yaml"),
 			cfg: &Config{
 				HTTPPort: 80,
 				DBFile:   "data/words.db",
@@ -251,7 +251,7 @@ func TestSetFromFile(t *testing.T) {
 		},
 		{
 			name: "empty",
-			file: utils.NewFile("tests", "config2", "yaml"),
+			file: utils.NewFile("test", "config2", "yaml"),
 			cfg: &Config{
 				HTTPPort: 0,
 				DBFile:   "",
@@ -261,7 +261,7 @@ func TestSetFromFile(t *testing.T) {
 		},
 		{
 			name: "debug",
-			file: utils.NewFile("tests", "config3", "yaml"),
+			file: utils.NewFile("test", "config3", "yaml"),
 			cfg: &Config{
 				HTTPPort: 8080,
 				DBFile:   "data/words-test.db",
@@ -271,7 +271,7 @@ func TestSetFromFile(t *testing.T) {
 		},
 		{
 			name:    "na file",
-			file:    utils.NewFile("tests", "na", "yaml"),
+			file:    utils.NewFile("test", "na", "yaml"),
 			wantErr: true,
 		},
 		{
@@ -303,7 +303,7 @@ func TestSetFromFile(t *testing.T) {
 	}
 }
 
-// TestLoadFile tests whether loading file without setting
+// TestLoadFile test whether loading file without setting
 // its data returns an error.
 func TestLoadFile(t *testing.T) {
 	t.Parallel()
