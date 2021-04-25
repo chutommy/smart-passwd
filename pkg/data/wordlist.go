@@ -16,6 +16,10 @@ type WordList struct {
 // Connect connects to the given SQLite3 database and
 // constructs a new WordList linked with the DB.
 func Connect(f *utils.File) (*WordList, error) {
+	if f == nil {
+		return nil, utils.ErrNilValue
+	}
+
 	if _, err := os.Stat(f.FilePath()); err != nil && os.IsNotExist(err) {
 		return nil, fmt.Errorf("read database file: %w", err)
 	}

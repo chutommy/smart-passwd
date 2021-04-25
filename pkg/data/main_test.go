@@ -6,15 +6,25 @@ import (
 	"os"
 	"testing"
 
+	"github.com/chutified/smart-passwd/pkg/utils"
 	_ "github.com/mattn/go-sqlite3"
 )
 
-var testDB *sql.DB
+var (
+	testDBFile *utils.File
+	testDB     *sql.DB
+)
 
 func TestMain(m *testing.M) {
 	var err error
 
-	if testDB, err = sql.Open("sqlite3", "test/wordlist.db"); err != nil {
+	testDBFile = &utils.File{
+		Name: "wordlist",
+		Type: "db",
+		Path: "test",
+	}
+
+	if testDB, err = sql.Open("sqlite3", testDBFile.FilePath()); err != nil {
 		log.Fatal(err)
 	}
 
