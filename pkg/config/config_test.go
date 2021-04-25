@@ -45,11 +45,7 @@ func TestGetConfig(t *testing.T) {
 					DBFile:   "data/words-test.db",
 					Debug:    true,
 				},
-				file: &utils.File{
-					Name: "config4",
-					Type: "yaml",
-					Path: "tests",
-				},
+				file: utils.NewFile("tests", "config4", "yaml"),
 				args: []string{
 					"--" + KeyHTTPPort, "10500",
 					"--" + KeyDBFile, "data/words-prod.db",
@@ -73,11 +69,7 @@ func TestGetConfig(t *testing.T) {
 					DBFile:   "data/words-test.db",
 					Debug:    true,
 				},
-				file: &utils.File{
-					Name: "config4",
-					Type: "yaml",
-					Path: "tests",
-				},
+				file: utils.NewFile("tests", "config4", "yaml"),
 				args: nil,
 			},
 			out: output{
@@ -97,11 +89,7 @@ func TestGetConfig(t *testing.T) {
 					DBFile:   "data/words-test.db",
 					Debug:    true,
 				},
-				file: &utils.File{
-					Name: "config5",
-					Type: "yaml",
-					Path: "tests",
-				},
+				file: utils.NewFile("tests", "config5", "yaml"),
 				args: nil,
 			},
 			out: output{
@@ -149,11 +137,7 @@ func TestGetConfig(t *testing.T) {
 					DBFile:   "data/words-test.db",
 					Debug:    true,
 				},
-				file: &utils.File{
-					Name: "config4",
-					Type: "yaml",
-					Path: "tests",
-				},
+				file: utils.NewFile("tests", "config4", "yaml"),
 				args: []string{"-invalid"},
 			},
 			out: output{
@@ -257,11 +241,7 @@ func TestSetFromFile(t *testing.T) {
 	}{
 		{
 			name: "default",
-			file: &utils.File{
-				Name: "config1",
-				Type: "yaml",
-				Path: "tests",
-			},
+			file: utils.NewFile("tests", "config1", "yaml"),
 			cfg: &Config{
 				HTTPPort: 80,
 				DBFile:   "data/words.db",
@@ -271,11 +251,7 @@ func TestSetFromFile(t *testing.T) {
 		},
 		{
 			name: "empty",
-			file: &utils.File{
-				Name: "config2",
-				Type: "yaml",
-				Path: "tests",
-			},
+			file: utils.NewFile("tests", "config2", "yaml"),
 			cfg: &Config{
 				HTTPPort: 0,
 				DBFile:   "",
@@ -285,11 +261,7 @@ func TestSetFromFile(t *testing.T) {
 		},
 		{
 			name: "debug",
-			file: &utils.File{
-				Name: "config3",
-				Type: "yaml",
-				Path: "tests",
-			},
+			file: utils.NewFile("tests", "config3", "yaml"),
 			cfg: &Config{
 				HTTPPort: 8080,
 				DBFile:   "data/words-test.db",
@@ -298,12 +270,8 @@ func TestSetFromFile(t *testing.T) {
 			wantErr: false,
 		},
 		{
-			name: "na file",
-			file: &utils.File{
-				Name: "na",
-				Type: "yaml",
-				Path: "tests",
-			},
+			name:    "na file",
+			file:    utils.NewFile("tests", "na", "yaml"),
 			wantErr: true,
 		},
 		{

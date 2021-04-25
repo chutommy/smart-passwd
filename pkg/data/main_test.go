@@ -18,12 +18,7 @@ var (
 func TestMain(m *testing.M) {
 	var err error
 
-	testDBFile = &utils.File{
-		Name: "wordlist",
-		Type: "db",
-		Path: "test",
-	}
-
+	testDBFile = utils.NewFile("test", "wordlist", "db")
 	if testDB, err = sql.Open("sqlite3", testDBFile.FilePath()); err != nil {
 		log.Fatal(err)
 	}
