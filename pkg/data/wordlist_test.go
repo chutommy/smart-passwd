@@ -26,12 +26,8 @@ func TestConnect(t *testing.T) {
 			wantErr: true,
 		},
 		{
-			name: "non found file",
-			file: &utils.File{
-				Name: "na",
-				Type: "db",
-				Path: "test",
-			},
+			name:    "non found file",
+			file:    utils.NewFile("test", "na", "db"),
 			wantErr: true,
 		},
 	}
