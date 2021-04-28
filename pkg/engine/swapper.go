@@ -8,7 +8,9 @@ import (
 )
 
 // Swapper represents a random swapper engine which can also generate
-// a truly random letter, number or special character.
+// a truly random letter, number or special character. It can randomly
+// swap similarly looking letters or generate random letter, number
+// or even a special symbol.
 type Swapper struct {
 	rand     *rand.Rand
 	alpha    []rune
@@ -64,4 +66,38 @@ func (s *Swapper) Swap(char rune) rune {
 	i := s.rand.Intn(l)
 
 	return s.swapList[char][i]
+}
+
+// ExtraSec returns a given string with imjected
+// extra layer of security (special symbols/numbers).
+func (s *Swapper) ExtraSec(str string, l int16) string {
+	ss := []rune(str)
+	specs, nums := extras(l)
+
+	// insert numbers
+	for a := int16(0); a < nums; a++ {
+		i := s.rand.Intn(len(ss) + 1)
+		ss = append(append(ss[:i], rune(s.Num())), ss[i:]...)
+	}
+
+	// insert special symbols
+	for a := int16(0); a < specs; a++ {
+		i := s.rand.Intn(len(ss))
+		ss = append(append(ss[:i], s.Special()), ss[i:]...)
+	}
+
+	return string(ss)
+}
+
+// extras returns a number of special symbols and
+// numbers using a security level lvl.
+func extras(lvl int16) (specs, nums int16) {
+	if lvl <= 0 {
+		return 0, 0
+	}
+
+	specs = lvl / 3
+	nums = lvl - specs
+
+	return
 }
