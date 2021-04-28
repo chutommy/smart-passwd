@@ -64,5 +64,10 @@ func (c *Constructor) Distribute(l int16) ([]int16, error) {
 		ll = append(ll, i)
 	}
 
+	// shuffle
+	c.rand.Shuffle(len(ll), func(i, j int) {
+		ll[i], ll[j] = ll[j], ll[i]
+	})
+
 	return ll, nil
 }
