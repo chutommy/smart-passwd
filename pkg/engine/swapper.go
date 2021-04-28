@@ -68,7 +68,7 @@ func (s *Swapper) Swap(char rune) rune {
 	return s.swapList[char][i]
 }
 
-// ExtraSec returns a given string with imjected
+// ExtraSec returns a given string with injected
 // extra layer of security (special symbols/numbers).
 func (s *Swapper) ExtraSec(str string, l int16) string {
 	ss := []rune(str)

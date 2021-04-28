@@ -30,13 +30,13 @@ func NewConstructor(min, max int16) *Constructor {
 // Distribute distributes a length l into a slice of lengths
 // which is limited with the Constructor c.
 func (c *Constructor) Distribute(l int16) ([]int16, error) {
-	if l < 3 {
+	if l < c.min {
 		return nil, fmt.Errorf("%w: %d", ErrInvalidLength, l)
 	}
 
 	var ll []int16
 
-	// sokut l into ll
+	// split l into ll
 	for l > 0 {
 		var i int16
 
@@ -51,7 +51,7 @@ func (c *Constructor) Distribute(l int16) ([]int16, error) {
 			// generate random number in range [min,max]
 			i = int16(c.rand.Intn(int(max-c.min+1))) + c.min
 
-			// check ramainder
+			// check remainder
 			if d := l - i; d < c.min && d != 0 {
 				continue
 			}
