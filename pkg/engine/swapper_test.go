@@ -3,20 +3,19 @@ package engine
 import (
 	"testing"
 
-	"github.com/chutified/smart-passwd/pkg/utils"
 	"github.com/stretchr/testify/require"
 )
 
 func TestNewSwapper(t *testing.T) {
 	t.Parallel()
 
-	require.NotEmpty(t, NewSwapper(utils.Alphabet(), utils.Specials(), utils.SwapList()))
+	require.NotEmpty(t, NewSwapper(Alphabet(), Specials(), SwapList()))
 }
 
 func newSwapper(t *testing.T) *Swapper {
 	t.Helper()
 
-	return NewSwapper(utils.Alphabet(), utils.Specials(), utils.SwapList())
+	return NewSwapper(Alphabet(), Specials(), SwapList())
 }
 
 func TestSwapper_Alpha(t *testing.T) {

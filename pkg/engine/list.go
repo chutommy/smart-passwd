@@ -1,4 +1,4 @@
-package utils
+package engine
 
 // Alphabet returns an array of runes of letters.
 func Alphabet() []rune {
