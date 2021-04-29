@@ -29,6 +29,8 @@ func TestConstructor(t *testing.T) {
 	}{
 		{
 			name:    "invalid",
+			min:     2,
+			max:     8,
 			l:       0,
 			wantErr: true,
 		},
