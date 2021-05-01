@@ -15,16 +15,16 @@ type WordList struct {
 
 // Connect connects to the given SQLite3 database and
 // constructs a new WordList linked with the DB.
-func Connect(f *utils.File) (*WordList, error) {
-	if f == nil {
+func Connect(file *utils.File) (*WordList, error) {
+	if file == nil {
 		return nil, utils.ErrNilValue
 	}
 
-	if _, err := os.Stat(f.FilePath()); err != nil && os.IsNotExist(err) {
+	if _, err := os.Stat(file.FilePath()); err != nil && os.IsNotExist(err) {
 		return nil, fmt.Errorf("read database file: %w", err)
 	}
 
-	db, err := sql.Open("sqlite3", f.FilePath())
+	db, err := sql.Open("sqlite3", file.FilePath())
 	if err != nil {
 		return nil, fmt.Errorf("connect to sqlite3 database: %w", err)
 	}
@@ -33,8 +33,8 @@ func Connect(f *utils.File) (*WordList, error) {
 }
 
 // Word returns a random word with length of l.
-func (wl *WordList) Word(l int16) (string, error) {
-	w, err := randomWord(wl.db, l)
+func (wl *WordList) Word(length int16) (string, error) {
+	w, err := randomWord(wl.db, length)
 	if err != nil {
 		return "", fmt.Errorf("querying for a random word: %w", err)
 	}

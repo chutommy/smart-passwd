@@ -12,11 +12,11 @@ type File struct {
 }
 
 // NewFile constructs a new File.
-func NewFile(p string, n string, t string) *File {
+func NewFile(path string, name string, fType string) *File {
 	return &File{
-		Name: n,
-		Type: t,
-		Path: p,
+		Name: name,
+		Type: fType,
+		Path: path,
 	}
 }
 

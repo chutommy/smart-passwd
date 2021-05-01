@@ -25,10 +25,10 @@ type Config struct {
 
 // GetConfig sets defaults, replaces them with the values from the configuration file
 // and finally overrides them with flags.
-func GetConfig(defCfg *Config, file *utils.File, args []string) (*Config, error) {
+func GetConfig(defaultCfg *Config, file *utils.File, args []string) (*Config, error) {
 	vi := viper.New()
 
-	if err := setDefault(vi, defCfg); err != nil {
+	if err := setDefault(vi, defaultCfg); err != nil {
 		return nil, fmt.Errorf("set default values: %w", err)
 	}
 
