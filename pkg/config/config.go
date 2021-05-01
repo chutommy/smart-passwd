@@ -23,6 +23,15 @@ type Config struct {
 	Debug    bool   `yaml:"Debug"`
 }
 
+// NewConfig is a contructor of the Config struct.
+func NewConfig(httpPort int64, dbFile string, debug bool) *Config {
+	return &Config{
+		HTTPPort: httpPort,
+		DBFile:   dbFile,
+		Debug:    debug,
+	}
+}
+
 // GetConfig sets defaults, replaces them with the values from the configuration file
 // and finally overrides them with flags.
 func GetConfig(defaultCfg *Config, file *utils.File, args []string) (*Config, error) {

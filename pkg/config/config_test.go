@@ -40,12 +40,8 @@ func TestGetConfig(t *testing.T) {
 		{
 			name: "complete",
 			inp: input{
-				defCfg: &Config{
-					HTTPPort: 8080,
-					DBFile:   "data/words-test.db",
-					Debug:    true,
-				},
-				file: utils.NewFile("test", "config4", "yaml"),
+				defCfg: NewConfig(8080, "data/words-test.db", true),
+				file:   utils.NewFile("test", "config4", "yaml"),
 				args: []string{
 					"--" + KeyHTTPPort, "10500",
 					"--" + KeyDBFile, "data/words-prod.db",
@@ -53,64 +49,40 @@ func TestGetConfig(t *testing.T) {
 				},
 			},
 			out: output{
-				cfg: &Config{
-					HTTPPort: 10500,
-					DBFile:   "data/words-prod.db",
-					Debug:    true,
-				},
+				cfg:     NewConfig(10500, "data/words-prod.db", true),
 				wantErr: false,
 			},
 		},
 		{
 			name: "default and file values",
 			inp: input{
-				defCfg: &Config{
-					HTTPPort: 8080,
-					DBFile:   "data/words-test.db",
-					Debug:    true,
-				},
-				file: utils.NewFile("test", "config4", "yaml"),
-				args: nil,
+				defCfg: NewConfig(8080, "data/words-test.db", true),
+				file:   utils.NewFile("test", "config4", "yaml"),
+				args:   nil,
 			},
 			out: output{
-				cfg: &Config{
-					HTTPPort: 80,
-					DBFile:   "data/words.db",
-					Debug:    false,
-				},
+				cfg:     NewConfig(80, "data/words.db", false),
 				wantErr: false,
 			},
 		},
 		{
 			name: "default and empty config",
 			inp: input{
-				defCfg: &Config{
-					HTTPPort: 8080,
-					DBFile:   "data/words-test.db",
-					Debug:    true,
-				},
-				file: utils.NewFile("test", "config5", "yaml"),
-				args: nil,
+				defCfg: NewConfig(8080, "data/words-test.db", true),
+				file:   utils.NewFile("test", "config5", "yaml"),
+				args:   nil,
 			},
 			out: output{
-				cfg: &Config{
-					HTTPPort: 8080,
-					DBFile:   "data/words-test.db",
-					Debug:    true,
-				},
+				cfg:     NewConfig(8080, "data/words-test.db", true),
 				wantErr: false,
 			},
 		},
 		{
 			name: "nil file",
 			inp: input{
-				defCfg: &Config{
-					HTTPPort: 8080,
-					DBFile:   "data/words-test.db",
-					Debug:    true,
-				},
-				file: nil,
-				args: nil,
+				defCfg: NewConfig(8080, "data/words-test.db", true),
+				file:   nil,
+				args:   nil,
 			},
 			out: output{
 				cfg:     nil,
@@ -132,13 +104,9 @@ func TestGetConfig(t *testing.T) {
 		{
 			name: "invalid flags",
 			inp: input{
-				defCfg: &Config{
-					HTTPPort: 8080,
-					DBFile:   "data/words-test.db",
-					Debug:    true,
-				},
-				file: utils.NewFile("test", "config4", "yaml"),
-				args: []string{"-invalid"},
+				defCfg: NewConfig(8080, "data/words-test.db", true),
+				file:   utils.NewFile("test", "config4", "yaml"),
+				args:   []string{"-invalid"},
 			},
 			out: output{
 				cfg:     nil,
@@ -176,30 +144,18 @@ func TestSetDefault(t *testing.T) {
 		wantErr bool
 	}{
 		{
-			name: "empty values",
-			cfg: &Config{
-				HTTPPort: 0,
-				DBFile:   "",
-				Debug:    false,
-			},
+			name:    "empty values",
+			cfg:     NewConfig(0, "", false),
 			wantErr: false,
 		},
 		{
-			name: "default values",
-			cfg: &Config{
-				HTTPPort: 80,
-				DBFile:   "words.db",
-				Debug:    false,
-			},
+			name:    "default values",
+			cfg:     NewConfig(80, "words.db", false),
 			wantErr: false,
 		},
 		{
-			name: "complete",
-			cfg: &Config{
-				HTTPPort: 10503,
-				DBFile:   "data/words-test.db",
-				Debug:    true,
-			},
+			name:    "complete",
+			cfg:     NewConfig(10503, "data/words-test.db", true),
 			wantErr: false,
 		},
 		{
@@ -240,33 +196,21 @@ func TestSetFromFile(t *testing.T) {
 		wantErr bool
 	}{
 		{
-			name: "default",
-			file: utils.NewFile("test", "config1", "yaml"),
-			cfg: &Config{
-				HTTPPort: 80,
-				DBFile:   "data/words.db",
-				Debug:    false,
-			},
+			name:    "default",
+			file:    utils.NewFile("test", "config1", "yaml"),
+			cfg:     NewConfig(80, "data/words.db", false),
 			wantErr: false,
 		},
 		{
-			name: "empty",
-			file: utils.NewFile("test", "config2", "yaml"),
-			cfg: &Config{
-				HTTPPort: 0,
-				DBFile:   "",
-				Debug:    false,
-			},
+			name:    "empty",
+			file:    utils.NewFile("test", "config2", "yaml"),
+			cfg:     NewConfig(0, "", false),
 			wantErr: false,
 		},
 		{
-			name: "debug",
-			file: utils.NewFile("test", "config3", "yaml"),
-			cfg: &Config{
-				HTTPPort: 8080,
-				DBFile:   "data/words-test.db",
-				Debug:    true,
-			},
+			name:    "debug",
+			file:    utils.NewFile("test", "config3", "yaml"),
+			cfg:     NewConfig(8080, "data/words-test.db", true),
 			wantErr: false,
 		},
 		{
@@ -320,33 +264,21 @@ func TestSetFromFlags(t *testing.T) {
 		wantErr bool
 	}{
 		{
-			name: "empty",
-			arg:  []string{},
-			cfg: &Config{
-				HTTPPort: 0,
-				DBFile:   "",
-				Debug:    false,
-			},
+			name:    "empty",
+			arg:     []string{},
+			cfg:     NewConfig(0, "", false),
 			wantErr: false,
 		},
 		{
-			name: "empty with nil",
-			arg:  nil,
-			cfg: &Config{
-				HTTPPort: 0,
-				DBFile:   "",
-				Debug:    false,
-			},
+			name:    "empty with nil",
+			arg:     nil,
+			cfg:     NewConfig(0, "", false),
 			wantErr: false,
 		},
 		{
-			name: "boolean short",
-			arg:  []string{"-d"},
-			cfg: &Config{
-				HTTPPort: 0,
-				DBFile:   "",
-				Debug:    true,
-			},
+			name:    "boolean short",
+			arg:     []string{"-d"},
+			cfg:     NewConfig(0, "", true),
 			wantErr: false,
 		},
 		{
@@ -356,11 +288,7 @@ func TestSetFromFlags(t *testing.T) {
 				"-f", "data/words.db",
 				"-d", "true",
 			},
-			cfg: &Config{
-				HTTPPort: 1313,
-				DBFile:   "data/words.db",
-				Debug:    true,
-			},
+			cfg:     NewConfig(1313, "data/words.db", true),
 			wantErr: false,
 		},
 		{
@@ -370,11 +298,7 @@ func TestSetFromFlags(t *testing.T) {
 				"--" + KeyDBFile, "data/words.db",
 				"--" + KeyDebug, "true",
 			},
-			cfg: &Config{
-				HTTPPort: 1313,
-				DBFile:   "data/words.db",
-				Debug:    true,
-			},
+			cfg:     NewConfig(1313, "data/words.db", true),
 			wantErr: false,
 		},
 		{
@@ -384,11 +308,7 @@ func TestSetFromFlags(t *testing.T) {
 				"-f=data/words.db",
 				"-d=true",
 			},
-			cfg: &Config{
-				HTTPPort: 1313,
-				DBFile:   "data/words.db",
-				Debug:    true,
-			},
+			cfg:     NewConfig(1313, "data/words.db", true),
 			wantErr: false,
 		},
 		{
@@ -398,11 +318,7 @@ func TestSetFromFlags(t *testing.T) {
 				"--" + KeyDBFile + "=data/words.db",
 				"--" + KeyDebug + "=true",
 			},
-			cfg: &Config{
-				HTTPPort: 1313,
-				DBFile:   "data/words.db",
-				Debug:    true,
-			},
+			cfg:     NewConfig(1313, "data/words.db", true),
 			wantErr: false,
 		},
 		{
@@ -455,11 +371,7 @@ func TestDecodeViper(t *testing.T) {
 				vi.Set(KeyDBFile, "data/words-1.db")
 				vi.Set(KeyDebug, false)
 			},
-			cfg: &Config{
-				HTTPPort: 80,
-				DBFile:   "data/words-1.db",
-				Debug:    false,
-			},
+			cfg:     NewConfig(80, "data/words-1.db", false),
 			wantErr: false,
 		},
 		{
@@ -469,11 +381,7 @@ func TestDecodeViper(t *testing.T) {
 				vi.Set(KeyDBFile, "data/words-test.db")
 				vi.Set(KeyDebug, true)
 			},
-			cfg: &Config{
-				HTTPPort: 8080,
-				DBFile:   "data/words-test.db",
-				Debug:    true,
-			},
+			cfg:     NewConfig(8080, "data/words-test.db", true),
 			wantErr: false,
 		},
 		{
