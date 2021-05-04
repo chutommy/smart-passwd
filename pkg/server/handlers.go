@@ -8,7 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// passwordGenHanlder returns a gin.HandlerFunc of the password
+// passwordGenHandler returns a gin.HandlerFunc of the password
 // generation handler.
 func passwordGenHandler(e *engine.Engine) gin.HandlerFunc {
 	return func(c *gin.Context) {
