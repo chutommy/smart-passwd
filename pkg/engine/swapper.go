@@ -2,6 +2,7 @@ package engine
 
 import (
 	"math/rand"
+	"strconv"
 	"unicode"
 
 	"github.com/chutified/smart-passwd/pkg/utils"
@@ -78,7 +79,12 @@ func (s *Swapper) ExtraSec(str string, l int16) string {
 	// insert numbers
 	for a := int16(0); a < nums; a++ {
 		i := s.rand.Intn(len(ss) + 1)
-		ss = append(append(ss[:i], rune(s.Num())), ss[i:]...)
+		n := []rune(strconv.Itoa(int(s.Num())))[0]
+
+		// insert rune 'n' into array 'ss' at index 'i'
+		ss = append(ss, 0)
+		copy(ss[i+1:], ss[i:])
+		ss[i] = n
 	}
 
 	// insert special symbols
