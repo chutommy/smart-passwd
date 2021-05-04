@@ -20,14 +20,15 @@ type Server struct {
 
 // NewServer constructs a new Server from the given dependent modules.
 func NewServer(cfg *config.Config, engine *engine.Engine) *Server {
-	e := gin.New()
-	e.Use(gin.Recovery(), gin.Logger(), cors.Default())
-	setRouter(engine, e)
 	gin.SetMode(gin.ReleaseMode)
 
 	if cfg.Debug {
 		gin.SetMode(gin.DebugMode)
 	}
+
+	e := gin.New()
+	e.Use(gin.Recovery(), gin.Logger(), cors.Default())
+	setRouter(engine, e)
 
 	srv := &http.Server{
 		Addr:              fmt.Sprintf(":%d", cfg.HTTPPort),
