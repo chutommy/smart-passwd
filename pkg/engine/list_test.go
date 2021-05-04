@@ -8,15 +8,15 @@ import (
 
 func TestAlphabet(t *testing.T) {
 	t.Parallel()
-	require.NotEmpty(t, Alphabet())
+	require.NotEmpty(t, alphabet())
 }
 
 func TestSpecials(t *testing.T) {
 	t.Parallel()
-	require.NotEmpty(t, Specials())
+	require.NotEmpty(t, specials())
 }
 
 func TestSwapList(t *testing.T) {
 	t.Parallel()
-	require.NotEmpty(t, SwapList())
+	require.NotEmpty(t, swapList())
 }

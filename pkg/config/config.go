@@ -23,7 +23,7 @@ type Config struct {
 	Debug    bool   `yaml:"Debug"`
 }
 
-// NewConfig is a contructor of the Config struct.
+// NewConfig is a constructor of the Config struct.
 func NewConfig(httpPort int64, dbFile string, debug bool) *Config {
 	return &Config{
 		HTTPPort: httpPort,

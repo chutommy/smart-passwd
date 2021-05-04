@@ -9,13 +9,13 @@ import (
 func TestNewSwapper(t *testing.T) {
 	t.Parallel()
 
-	require.NotEmpty(t, NewSwapper(Alphabet(), Specials(), SwapList()))
+	require.NotEmpty(t, NewSwapper())
 }
 
 func newSwapper(t *testing.T) *Swapper {
 	t.Helper()
 
-	return NewSwapper(Alphabet(), Specials(), SwapList())
+	return NewSwapper()
 }
 
 func TestSwapper_Alpha(t *testing.T) {
