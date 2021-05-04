@@ -22,7 +22,7 @@ func TestMain(m *testing.M) {
 	}
 
 	c := NewConstructor(3, 20)
-	s := NewSwapper(Alphabet(), Specials(), SwapList())
+	s := NewSwapper()
 
 	testEngine = Init(wl, c, s)
 	testInvalidEngine = Init(&data.WordList{}, c, s)
