@@ -21,13 +21,13 @@ type Swapper struct {
 
 // NewSwapper is a constructor for the Swapper. It populates the alphabet,
 // special symbol list and the map swapList with the package-defined values
-// that can be obtained by functions: Alphabet, Specials and SwapList.
+// that can be obtained by functions: alphabet, specials and swapList.
 func NewSwapper() *Swapper {
 	return &Swapper{
 		rand:     utils.Rand(),
-		alpha:    Alphabet(),
-		special:  Specials(),
-		swapList: SwapList(),
+		alpha:    alphabet(),
+		special:  specials(),
+		swapList: swapList(),
 	}
 }
 

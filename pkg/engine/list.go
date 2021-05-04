@@ -1,17 +1,17 @@
 package engine
 
-// Alphabet returns an array of runes of letters.
-func Alphabet() []rune {
+// alphabet returns an array of runes of letters.
+func alphabet() []rune {
 	return []rune{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'}
 }
 
-// Specials returns an array of runes of special symbols.
-func Specials() []rune {
+// specials returns an array of runes of special symbols.
+func specials() []rune {
 	return []rune{'!', '@', '#', '$', '%', '^', '&', '*', '?', '+', '_', '-', '(', ')'}
 }
 
-// SwapList returns a map of runes linked with similar looking characters.
-func SwapList() map[rune][]rune {
+// swapList returns a map of runes linked with similar looking characters.
+func swapList() map[rune][]rune {
 	return map[rune][]rune{
 		'a': {'@', '&', '4'},
 		'b': {'6', '&', 'G', 'd'},
