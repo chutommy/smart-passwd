@@ -2,6 +2,7 @@ package main
 
 import (
 	"errors"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -25,11 +26,7 @@ func main() {
 	logger := log.Default()
 	logger.Printf("setting configuration...\n")
 
-	// load configuration
-	defaultCfg := config.NewConfig(8080, ".", true)
-	fileCfg := utils.NewFile(".", "config", "yaml")
-
-	cfg, err := config.GetConfig(defaultCfg, fileCfg, os.Args)
+	cfg, err := loadConfig()
 	if err != nil {
 		logger.Printf("failed to retrieve configuration: %v\n", err)
 		runtime.Goexit()
@@ -38,18 +35,11 @@ func main() {
 	logger.Printf("configuration successfully retrieved\n")
 	logger.Printf("connecting to a database...\n")
 
-	// connect to database
-	dbDir, dbBase := filepath.Split(cfg.DBFile)
-	dbFileArr := strings.Split(dbBase, ".")
-	dbFile := utils.NewFile(dbDir, dbFileArr[0], dbFileArr[1])
-
-	wl, err := data.Connect(dbFile)
+	wl, err := connectDB(cfg)
 	if err != nil {
 		logger.Printf("failed to connect to the database: %v\n", err)
 		runtime.Goexit()
 	}
-
-	logger.Printf("successfully connected to the database: %s\n", cfg.DBFile)
 
 	defer func() {
 		if err := wl.Close(); err != nil {
@@ -58,13 +48,10 @@ func main() {
 		}
 	}()
 
+	logger.Printf("successfully connected to the database: %s\n", cfg.DBFile)
 	logger.Printf("setting the server...\n")
 
-	// create server instance
-	ctr := engine.NewConstructor(3, 22)
-	swp := engine.NewSwapper()
-	e := engine.Init(wl, ctr, swp)
-	srv := server.NewServer(cfg, e)
+	srv := setServer(wl, cfg)
 
 	logger.Printf("server successfully set\n")
 
@@ -89,4 +76,37 @@ func main() {
 	}
 
 	logger.Printf("server successfully closed\n")
+}
+
+func setServer(wl *data.WordList, cfg *config.Config) *server.Server {
+	ctr := engine.NewConstructor(3, 22)
+	swp := engine.NewSwapper()
+	e := engine.Init(wl, ctr, swp)
+
+	return server.NewServer(cfg, e)
+}
+
+func connectDB(cfg *config.Config) (*data.WordList, error) {
+	dbDir, dbBase := filepath.Split(cfg.DBFile)
+	dbFileArr := strings.Split(dbBase, ".")
+	dbFile := utils.NewFile(dbDir, dbFileArr[0], dbFileArr[1])
+
+	wl, err := data.Connect(dbFile)
+	if err != nil {
+		return nil, fmt.Errorf("data connection: %w", err)
+	}
+
+	return wl, nil
+}
+
+func loadConfig() (*config.Config, error) {
+	defaultCfg := config.NewConfig(8080, ".", true)
+	fileCfg := utils.NewFile(".", "config", "yaml")
+
+	cfg, err := config.GetConfig(defaultCfg, fileCfg, os.Args)
+	if err != nil {
+		return nil, fmt.Errorf("get config: %w", err)
+	}
+
+	return cfg, nil
 }
