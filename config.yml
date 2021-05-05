@@ -1,8 +1,0 @@
----
-Port: 10501
-DB:
-  Host: localhost
-  Port: 5432
-  User: tommychu
-  Password: ferdajekamarad
-  Database_Name: word_list
