@@ -54,6 +54,7 @@ func setRouter(e *engine.Engine, r *gin.Engine) {
 	r.GET("/gen", passwordGenHandler(e))
 
 	r.Static("/assets", "./templates/assets")
+	r.Static("/scripts", "./templates/scripts")
 	r.LoadHTMLFiles("templates/index.html")
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(200, "index.html", nil)
