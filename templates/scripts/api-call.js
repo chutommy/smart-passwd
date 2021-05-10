@@ -1,54 +1,52 @@
-const Url='/api/passwd';
-var counter = 0;
+const Url = '/gen';
+let statusCounter = 0;
 
-// post a request to a server and show the generated values
+// post a request to a server and show generated values
 function generatePasswd() {
+  // retrieve document values
+  const extra = parseInt($("#extra").text());
+  let len = parseInt($("#len").text()) - extra;
+  const helper = document.getElementById("helper").value;
 
-    // get values
-    var	extra = parseInt($("#extra").text());
-    var len = parseInt($("#len").text())-extra;
-    var helper = document.getElementById("helper").value;
+  const request = {
+    len: len,
+    extra: extra,
+    helper: helper
+  };
 
-    // helper exists
-    if (helper != "") {
-        len = 5;
-    }
+  const param = {
+    headers: {
+      "Content-Type": "application/json"
+    },
+    method: "GET",
+    body: JSON.stringify(request)
+  };
 
-    // set request
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", Url, true);
-    xhr.setRequestHeader("Content-Type", "application/json");
+  fetch(Url, param)
+    .then(data => data.json())
+    .then(resp => {
+      document.getElementById("passwd").value = resp.password;
+      document.getElementById("helper-p").value = resp.helper;
 
-    // handle response
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            var resp = JSON.parse(xhr.responseText);
+      document.getElementById("hidBtn").disabled = false;
+      document.getElementById("copyPasswd").disabled = false;
+      document.getElementById("copyHelper").disabled = false;
 
-            // insert into vars
-            document.getElementById("passwd").value = resp.password;
-            document.getElementById("helper-p").value = resp.helper;
+      // status
+      hidBtn.innerHTML = '<i class="fas fa-eye"></i>';
+      document.getElementById("passwd").type = "text";
 
-            // enable copy and hide buttons
-            document.getElementById("hidBtn").disabled = false;
-            document.getElementById("copyPasswd").disabled = false;
-            document.getElementById("copyHelper").disabled = false;
+      statusCounter++;
+      const temp = statusCounter;
 
-            // set the status
-            hidBtn.innerHTML = '<i class="fas fa-eye"></i>';
-            document.getElementById("passwd").type = "text";
-
-              counter++;
-              var temp = counter;
-              // hide after a while
-              setTimeout(function() {
-                  if (temp == counter) {
-                      if (hidBtn.innerHTML == '<i class="fas fa-eye"></i>') {
-                          togglePasswordVisibility();
-                      }
-                  }
-              },3000);
+      // set visibility timeout
+      setTimeout(function () {
+        if (temp === statusCounter) {
+          if (hidBtn.innerHTML === '<i class="fas fa-eye"></i>') {
+            togglePasswordVisibility();
+          }
+        }
+      }, 3000);
     })
-    .catch(error => {
-      console.log(error)
-    })
+    .catch(error => console.log(error))
 }
