@@ -1,268 +1,298 @@
 @media only screen and (min-width: 780px) {
 
-    .sliders {
-        width: 92%;
-    }
+  .sliders {
+    width: 92%;
+  }
 
-    .statusNums {
-        width: 8%;
-    }
+  .statusNums {
+    width: 8%;
+  }
 
-    .eLabel {
-        width: 100%;
-        font-size: 24px;
-    }
+  .eLabel {
+    width: 100%;
+    font-size: 24px;
+  }
 
-    .slider input[type="range"] {
-        margin: 14px 0;
-    }
-    .slider input[type="range"] {
-        height: 40px;
-    }
-    .slider input[type="range"]::-webkit-slider-runnable-track {
-        height: 40px;
-    }
-    .slider input[type="range"]::-webkit-slider-thumb {
-        width: 40px;
-        height: 40px;
-        box-shadow: -1020px 0 0 1000px #e4542f, inset 0 0 0 3px #e4542f;
-    }
-    .slider input[type="range"]:active::-webkit-slider-thumb {
-        box-shadow: -1020px 0 0 1000px #e4542f, inset 0 0 0 3px #e4542f;
-    }
+  .slider input[type="range"] {
+    margin: 14px 0;
+  }
 
-    .nums {
-        width: 50px;
-        height: 50px;
-        padding: 8px 9px;
+  .slider input[type="range"] {
+    height: 40px;
+  }
 
-        background: #fff;
-        border: 3px solid #666;
-        color: #666;
-        text-align: center;
+  .slider input[type="range"]::-webkit-slider-runnable-track {
+    height: 40px;
+  }
 
-        font: 24px Arial, sans-serif;
-    }
+  .slider input[type="range"]::-webkit-slider-thumb {
+    width: 40px;
+    height: 40px;
+    box-shadow: -1020px 0 0 1000px #e4542f, inset 0 0 0 3px #e4542f;
+  }
 
-    #content {
-        margin: 50px 0 60px 0;
-    }
+  .slider input[type="range"]:active::-webkit-slider-thumb {
+    box-shadow: -1020px 0 0 1000px #e4542f, inset 0 0 0 3px #e4542f;
+  }
 
-    #passwd-helper {
-        margin-top: 18px;
-    }
+  .nums {
+    width: 50px;
+    height: 50px;
+    padding: 8px 9px;
 
-    #generated-passwd-container {
-        width: 100%;
-        box-sizing: border-box;
+    background: #fff;
+    border: 3px solid #666;
+    color: #666;
+    text-align: center;
 
-        margin-top: 46px;
+    font: 24px Arial, sans-serif;
+  }
 
-        display: flex;
-        flex-flow: row nowrap;
-    }
+  #content {
+    margin: 50px 0 60px 0;
+  }
 
-    .form__group {
-        padding: 16px 0 0;
-        margin: 16px 0;
-        width: 65%;
-    }
-    #clearBtn {
-        width: 15%;
-    }
-    #generateBtn {
-        width: 20%;
-    }
-    .form__field {
-        font-family: inherit;
-        width: 100%;
-        border: 0;
-        border-bottom: 5px solid #fff;
-        border-radius: 16px;
-        outline: 0;
-        font-size: 1.6rem;
-        color: #fff;
-        padding: 7px 0;
-        background: transparent;
-        transition: border-color 0.2s;
-    }
-    .form__field::placeholder {
-        color: transparent;
-    }
-    .form__field:placeholder-shown ~ .form__label {
-        font-size: 1.4rem;
-        cursor: text;
-        top: 36px;
-    }
-    .form__label {
-        position: absolute;
-        top: 0px;
-        display: block;
-        transition: 0.6s;
-        font-size: 1.6rem;
-        color: #fff;
-        text-align: center;
-    }
-    .form__field:focus {
-        border-image: linear-gradient(to right, #c7c7c7, #38ef7d);
-        border-image-slice: 1;
-    }
-    .form__field:focus ~ .form__label {
-        position: absolute;
-        top: 0;
-        display: block;
-        transition: 0.3s;
-        font-size: 1.5rem;
-        color: #c7c7c7;
-    }
+  #passwd-helper {
+    margin-top: 18px;
+  }
 
-    button.btn2 {
-        width: 50px;
-        height: 50px;
-        position: absolute;
-        background-color: #ffffff;
-        border-radius: 50%;
-        opacity: 1;
-        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-        -webkit-box-shadow: 0px 0px 30px 0px rgba(247, 149, 29, 0.5);
-        -moz-box-shadow: 0px 0px 30px 0px rgba(247, 149, 29, 0.5);
-        box-shadow: 0px 0px 30px 0px rgba(247, 149, 29, 0.5);
-    }
-    button.btn2 > span {
-        background-color: #f5a700;
-        display: block;
-        height: 6px;
-        border-radius: 3px;
-        position: relative;
-        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-        position: absolute;
-        top: 50%;
-        margin-top: -3px;
-        left: 6px;
-        width: 32px;
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-justify-content: space-between;
-        justify-content: space-between;
-        -moz-justify-content: space-between;
-        -ms-justify-content: space-between;
-    }
-    button.btn2 > span span {
-        display: block;
-        background-color: #ed7f00;
-        width: 6px;
-        height: 6px;
-        border-radius: 3px;
-        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-        position: absolute;
-        left: 0;
-        top: 0;
-    }
-    button.btn2 > span.left {
-        transform: rotate(45deg);
-        transform-origin: center;
-    }
-    button.btn2 > span.left .circle-left {
-        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-        margin-left: 0;
-    }
-    button.btn2 > span.left .circle-right {
-        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-        margin-left: 26px;
-    }
-    button.btn2 > span.right {
-        transform: rotate(-45deg);
-        transform-origin: center;
-    }
-    button.btn2 > span.right .circle-left {
-        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-        margin-left: 0;
-    }
-    button.btn2 > span.right .circle-right {
-        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-        margin-left: 26px;
-    }
-    button.btn2:hover > span {
-        background-color: #2faee0;
-        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-    }
-    button.btn2:hover > span span {
-        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-        background-color: #008ac9;
-    }
-    button.btn2:hover > span.left .circle-left {
-        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-        margin-left: 26px;
-    }
-    button.btn2:hover > span.left .circle-right {
-        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-        margin-left: 0;
-    }
-    button.btn2:hover > span.right .circle-left {
-        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-        margin-left: 26px;
-    }
-    button.btn2:hover > span.right .circle-right {
-        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-        margin-left: 0;
-    }
+  #generated-passwd-container {
+    width: 100%;
+    box-sizing: border-box;
 
-    .btn {
-        letter-spacing: 0.1em;
-        font-size: 1.2em;
-        font-weight: 400;
-        line-height: 40px;
-        text-transform: uppercase;
-        width: 100%;
+    margin-top: 46px;
 
-        border-radius: 10px;
-    }
-    .effect01 {
-        border: 3px solid #000;
-    }
-    .effect01:hover {
-        border: 3px solid #666;
-    }
-    #header nav a:before {
-        font-size: 2.3em;
-    }
-    #header nav li {
-        width: 8.2em;
-    }
-    #passwd {
-        width: 70%;
-        font-size: 22px;
-        line-height: 30px;
-    }
+    display: flex;
+    flex-flow: row nowrap;
+  }
 
-    #helper-p {
-        width: 80%;
-        font-size: 22px;
-        line-height: 30px;
-    }
+  .form__group {
+    padding: 16px 0 0;
+    margin: 16px 0;
+    width: 65%;
+  }
 
-    #hidBtn {
-        width: 10%;
-        font-size: 14px;
-    }
-    i {
-        font-size: 2.2rem;
-    }
+  #clearBtn {
+    width: 15%;
+  }
 
-    #copyPasswd {
-        width: 20%;
-        box-sizing: border-box;
-        margin-left: 15px;
-        font-size: 16px;
-    }
+  #generateBtn {
+    width: 20%;
+  }
 
-    #copyHelper {
-        width: 20%;
-        box-sizing: border-box;
-        margin-left: 15px;
-        font-size: 16px;
-    }
+  .form__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 5px solid #fff;
+    border-radius: 16px;
+    outline: 0;
+    font-size: 1.6rem;
+    color: #fff;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+  }
+
+  .form__field::placeholder {
+    color: transparent;
+  }
+
+  .form__field:placeholder-shown ~ .form__label {
+    font-size: 1.4rem;
+    cursor: text;
+    top: 36px;
+  }
+
+  .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.6s;
+    font-size: 1.6rem;
+    color: #fff;
+    text-align: center;
+  }
+
+  .form__field:focus {
+    border-image: linear-gradient(to right, #c7c7c7, #38ef7d);
+    border-image-slice: 1;
+  }
+
+  .form__field:focus ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.3s;
+    font-size: 1.5rem;
+    color: #c7c7c7;
+  }
+
+  button.btn2 {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-color: #ffffff;
+    border-radius: 50%;
+    opacity: 1;
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-box-shadow: 0 0 30px 0 rgba(247, 149, 29, 0.5);
+    -moz-box-shadow: 0 0 30px 0 rgba(247, 149, 29, 0.5);
+    box-shadow: 0 0 30px 0 rgba(247, 149, 29, 0.5);
+  }
+
+  button.btn2 > span {
+    background-color: #f5a700;
+    display: block;
+    height: 6px;
+    border-radius: 3px;
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    top: 50%;
+    margin-top: -3px;
+    left: 6px;
+    width: 32px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+  }
+
+  button.btn2 > span span {
+    display: block;
+    background-color: #ed7f00;
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  button.btn2 > span.left {
+    transform: rotate(45deg);
+    transform-origin: center;
+  }
+
+  button.btn2 > span.left .circle-left {
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    margin-left: 0;
+  }
+
+  button.btn2 > span.left .circle-right {
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    margin-left: 26px;
+  }
+
+  button.btn2 > span.right {
+    transform: rotate(-45deg);
+    transform-origin: center;
+  }
+
+  button.btn2 > span.right .circle-left {
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    margin-left: 0;
+  }
+
+  button.btn2 > span.right .circle-right {
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    margin-left: 26px;
+  }
+
+  button.btn2:hover > span {
+    background-color: #2faee0;
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  button.btn2:hover > span span {
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    background-color: #008ac9;
+  }
+
+  button.btn2:hover > span.left .circle-left {
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    margin-left: 26px;
+  }
+
+  button.btn2:hover > span.left .circle-right {
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    margin-left: 0;
+  }
+
+  button.btn2:hover > span.right .circle-left {
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    margin-left: 26px;
+  }
+
+  button.btn2:hover > span.right .circle-right {
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    margin-left: 0;
+  }
+
+  .btn {
+    letter-spacing: 0.1em;
+    font-size: 1.2em;
+    font-weight: 400;
+    line-height: 40px;
+    text-transform: uppercase;
+    width: 100%;
+
+    border-radius: 10px;
+  }
+
+  .effect01 {
+    border: 3px solid #000;
+  }
+
+  .effect01:hover {
+    border: 3px solid #666;
+  }
+
+  #header nav a:before {
+    font-size: 2.3em;
+  }
+
+  #header nav li {
+    width: 8.2em;
+  }
+
+  #passwd {
+    width: 70%;
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  #helper-p {
+    width: 80%;
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  #hidBtn {
+    width: 10%;
+    font-size: 14px;
+  }
+
+  i {
+    font-size: 2.2rem;
+  }
+
+  #copyPasswd {
+    width: 20%;
+    box-sizing: border-box;
+    margin-left: 15px;
+    font-size: 16px;
+  }
+
+  #copyHelper {
+    width: 20%;
+    box-sizing: border-box;
+    margin-left: 15px;
+    font-size: 16px;
+  }
 }

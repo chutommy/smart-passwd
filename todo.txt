@@ -1,0 +1,11 @@
+index html change
+    swap html up design
+    change max length to 
+    fav icon
+    
+custom art for the project
+documentation
+screenshots
+
+github actions to update packages regularly
+docker build
