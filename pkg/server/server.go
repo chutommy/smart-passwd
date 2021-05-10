@@ -51,7 +51,7 @@ func setRouter(e *engine.Engine, r *gin.Engine) {
 		c.JSON(http.StatusOK, gin.H{"response": "pong"})
 	})
 
-	r.GET("/gen", passwordGenHandler(e))
+	r.POST("/gen", passwordGenHandler(e))
 
 	r.Static("/assets", "./templates/assets")
 	r.Static("/scripts", "./templates/scripts")

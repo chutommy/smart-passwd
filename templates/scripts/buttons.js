@@ -15,7 +15,7 @@ function copyText(id) {
   const text = document.getElementById(id).value;
   navigator.clipboard.writeText(text)
     .then(() => $.notify("Successfully copied", "success"),
-      err => $.notify("Unsuccessfully copied", "error"));
+      () => $.notify("Unsuccessfully copied", "error"));
 }
 
 // button to toggle the password's visibility
