@@ -88,10 +88,10 @@
 
                     <!-- generated password -->
                     <div id="generated-passwd-container">
-                        <button id="hidBtn" onclick="hidePasswd(); return false" disabled><i
+                        <button id="hidBtn" onclick="togglePasswordVisibility(); return false" disabled><i
                                 class="fas fa-eye-slash"></i></button>
                         <input id="passwd" type="text" value="Generated password" disabled>
-                        <button id="copyPasswd" class="btn btn-dark" onclick="copyFunc('passwd'); return false"
+                        <button id="copyPasswd" class="btn btn-dark" onclick="copyText('passwd'); return false"
                                 disabled>Copy
                         </button>
                     </div>
@@ -99,7 +99,7 @@
                     <!-- password's helper -->
                     <div id="passwd-helper">
                         <input id="helper-p" type="text" value="Password reminder" disabled>
-                        <button id="copyHelper" class="btn btn-dark" onclick="copyFunc('helper-p'); return false"
+                        <button id="copyHelper" class="btn btn-dark" onclick="copyText('helper-p'); return false"
                                 disabled>Copy
                         </button>
                     </div>
@@ -146,8 +146,6 @@
 <script src="/scripts/api-call.js"></script>
 <script src="/scripts/helper.js"></script>
 <script src="/scripts/slider.js"></script>
-<script src="/scripts/copy.js"></script>
-<script src="/scripts/clear.js"></script>
-<script src="/scripts/hide.js"></script>
+<script src="/scripts/buttons.js"></script>
 </body>
 </html>

@@ -37,18 +37,18 @@ function generatePasswd() {
             hidBtn.innerHTML = '<i class="fas fa-eye"></i>';
             document.getElementById("passwd").type = "text";
 
-            counter++;
-            var temp = counter;
-            // hide after a while
-            setTimeout(function() {
-                if (temp == counter) {
-                    if (hidBtn.innerHTML == '<i class="fas fa-eye"></i>') {
-                        hidePasswd();
-                    }
-                }
-            },3000);
-        }
-    };
-    var data = JSON.stringify({"len":len,"extra":extra,"helper":helper});
-    xhr.send(data);
+              counter++;
+              var temp = counter;
+              // hide after a while
+              setTimeout(function() {
+                  if (temp == counter) {
+                      if (hidBtn.innerHTML == '<i class="fas fa-eye"></i>') {
+                          togglePasswordVisibility();
+                      }
+                  }
+              },3000);
+    })
+    .catch(error => {
+      console.log(error)
+    })
 }
