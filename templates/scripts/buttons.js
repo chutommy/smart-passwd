@@ -20,14 +20,14 @@ function copyText(id) {
 
 // button to toggle the password's visibility
 function togglePasswordVisibility() {
-  const hidBtn = document.getElementById("hidBtn");
+  const hideButton = document.getElementById("hideButton");
   const field = document.getElementById("passwd");
 
-  if (hidBtn.innerHTML === '<i class="fas fa-eye"></i>') {
-    hidBtn.innerHTML = '<i class="fas fa-eye-slash"></i>';
+  if (hideButton.innerHTML === '<i class="fas fa-eye"></i>') {
+    hideButton.innerHTML = '<i class="fas fa-eye-slash"></i>';
     field.type = "password";
   } else {
-    hidBtn.innerHTML = '<i class="fas fa-eye"></i>';
+    hideButton.innerHTML = '<i class="fas fa-eye"></i>';
     field.type = "text";
   }
 

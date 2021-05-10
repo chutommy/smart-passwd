@@ -29,12 +29,13 @@ function generatePasswd() {
       document.getElementById("passwd").value = resp.password;
       document.getElementById("helper-p").value = resp.helper;
 
-      document.getElementById("hidBtn").disabled = false;
+      document.getElementById("hideButton").disabled = false;
       document.getElementById("copyPasswd").disabled = false;
       document.getElementById("copyHelper").disabled = false;
 
       // status
-      hidBtn.innerHTML = '<i class="fas fa-eye"></i>';
+      const hide = document.getElementById("hideButton");
+      hide.innerHTML = '<i class="fas fa-eye"></i>';
       document.getElementById("passwd").type = "text";
 
       statusCounter++;
@@ -43,7 +44,7 @@ function generatePasswd() {
       // set visibility timeout
       setTimeout(function () {
         if (temp === statusCounter) {
-          if (hidBtn.innerHTML === '<i class="fas fa-eye"></i>') {
+          if (hide.innerHTML === '<i class="fas fa-eye"></i>') {
             togglePasswordVisibility();
           }
         }
