@@ -1,4 +1,5 @@
-const Url = '/gen';
+const URI = '/gen';
+
 let statusCounter = 0;
 
 // post a request to a server and show generated values
@@ -22,7 +23,7 @@ function generatePasswd() {
     body: JSON.stringify(request)
   };
 
-  fetch(Url, param)
+  fetch(URI, param)
     .then(data => data.json())
     .then(resp => {
       document.getElementById("passwd").value = resp.password;
