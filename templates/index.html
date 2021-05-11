@@ -1,145 +1,124 @@
-<!DOCTYPE HTML>
-<!--
+<!DOCTYPE HTML><!--
     Aerial by HTML5 UP
     html5up.net | @ajlkn
     Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
+<html lang="en">
 <head>
-    <title>Smart Password</title>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+  <title>Smart Password</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+  <link rel="icon" type="image/png" href="/assets/styles/images/star.png"/>
 
-    <link rel="icon" type="image/png" href="/assets/styles/images/star.png"/>
-    <link rel="icon" type="image/png" href="/star.png"/>
+  <!-- Stylesheets -->
+  <noscript>
+    <link rel="stylesheet" href="/assets/styles/noscript.css"/>
+  </noscript>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Work+Sans:300,500'>
+  <link rel="stylesheet" href="/assets/styles/main.css"/>
+  <link rel="stylesheet" href="/assets/styles/slider.css">
+  <link rel="stylesheet" href="/assets/styles/numbers.css">
+  <link rel="stylesheet" href="/assets/styles/content.css">
+  <link rel="stylesheet" href="/assets/styles/gen-btn.css">
+  <link rel="stylesheet" href="/assets/styles/clear-btn.css">
+  <link rel="stylesheet" href="/assets/styles/helper-text.css">
+  <link rel="stylesheet" href="/assets/styles/results.css">
 
-    <!-- STYLESHEETS -->
-    <noscript>
-        <link rel="stylesheet" href="/assets/styles/noscript.css"/>
-    </noscript>
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Work+Sans:300,500'>
-    <link rel="stylesheet" href="/assets/styles/main.css"/>
-    <link rel="stylesheet" href="/assets/styles/slider.css">
-    <link rel="stylesheet" href="/assets/styles/numbers.css">
-    <link rel="stylesheet" href="/assets/styles/content.css">
-    <link rel="stylesheet" href="/assets/styles/gen-btn.css">
-    <link rel="stylesheet" href="/assets/styles/clear-btn.css">
-    <link rel="stylesheet" href="/assets/styles/helper-text.css">
-    <link rel="stylesheet" href="/assets/styles/results.css">
-
-    <link rel="stylesheet" href="/assets/styles/mqueries.css">
-    <link rel="stylesheet" href="/assets/styles/mqueries2.css">
-    <link rel="stylesheet" href="/assets/styles/mqueries3.css">
-    <link rel="stylesheet" href="/assets/styles/mqueries4.css">
+  <!-- Media queries -->
+  <link rel="stylesheet" href="/assets/styles/mqueries.css">
+  <link rel="stylesheet" href="/assets/styles/mqueries2.css">
+  <link rel="stylesheet" href="/assets/styles/mqueries3.css">
+  <link rel="stylesheet" href="/assets/styles/mqueries4.css">
 </head>
 <body class="is-preload">
 <div id="wrapper">
-    <div id="bg"></div>
-    <div id="overlay"></div>
-    <div id="main">
+  <div id="bg"></div>
+  <div id="overlay"></div>
+  <div id="main">
 
-        <!-- Header -->
-        <header id="header">
-            <h1>Smart Password Generator</h1>
-            <p>One-click generation &nbsp;&bull;&nbsp; Strong password &nbsp;&bull;&nbsp; Easy to remember</p>
+    <!-- Header -->
+    <header id="header">
+      <h1>Smart Password Generator</h1>
+      <p>One-click generation &nbsp;&bull;&nbsp; Strong password &nbsp;&bull;&nbsp; Easy to remember</p>
+
+      <!-- Body -->
+      <div id="content">
+        <div id="password-gen-body">
+
+          <!-- len slider -->
+          <label for="slider-len" class="pull-left eLabel">Length</label>
+          <div class="sliders">
+            <div class="slider"><input id="slider-len" type="range" value="0" min="0" max="27"></div>
+          </div>
+          <div class="statusNums"><h4 id="len" class="nums">5</h4></div>
+
+          <!-- extra slider -->
+          <label for="slider-extra" class="pull-left eLabel">Strength</label>
+          <div class="sliders">
+            <div class="slider"><input id="slider-extra" type="range" value="0" min="0" max="10"></div>
+          </div>
+          <div class="statusNums"><h4 id="extra" class="nums">0</h4></div>
+
+          <!-- helper -->
+          <div class="form__group field">
+            <input type="text" class="form__field" placeholder="Custom helper" id='helper' autocomplete="off" maxlength="60"> <label for="helper" class="form__label">Custom reminder</label>
+          </div>
+          <div id="clearBtn">
+            <button id="clear" class="btn2" onclick="resetHelper(); return false" disabled>
+							<span class="left">
+								<span class="circle-left"></span>
+								<span class="circle-right"></span>
+							</span><span class="right">
+								<span class="circle-left"></span>
+								<span class="circle-right"></span>
+							</span>
+            </button>
+          </div>
+
+          <!-- gen button -->
+          <div id="generateBtn">
+            <button id="gen" class="btn effect01" onclick="generatePasswd(); return false">
+              <span>GENERATE</span>
+            </button>
+          </div>
 
 
-            <div id="content">
-                <!-- Content box -->
-                <div id="password-gen-body">
+          <!-- generated password -->
+          <div id="generated-passwd-container">
+            <button id="hideButton" onclick="togglePasswordVisibility(); return false" disabled><i class="fas fa-eye-slash"></i></button>
+            <label for="passwd"></label><input id="passwd" type="text" value="Generated password" disabled>
+            <button id="copyPasswd" class="btn btn-dark" onclick="copyText('passwd'); return false" disabled>Copy</button>
+          </div>
 
-                    <!-- len slider -->
-                    <label class="eLabel" for="slider-len" class="pull-left">Length</label>
-                    <div class="sliders">
-                        <div class="slider"><input id="slider-len" type="range" value="0" min="0" max="27"></div>
-                    </div>
-                    <div class="statusNums"><h4 id="len" class="nums">5</h4></div>
+          <!-- password's helper -->
+          <div id="passwd-helper">
+            <label for="helper-p"></label><input id="helper-p" type="text" value="Password reminder" disabled>
+            <button id="copyHelper" class="btn btn-dark" onclick="copyText('helper-p'); return false" disabled>Copy</button>
+          </div>
+        </div>
+      </div>
 
-                    <!-- extra slider -->
-                    <label class="eLabel" for="slider-extra" class="pull-left">Strength</label>
-                    <div class="sliders">
-                        <div class="slider"><input id="slider-extra" type="range" value="0" min="0" max="10"></div>
-                    </div>
-                    <div class="statusNums"><h4 id="extra" class="nums">0</h4></div>
+      <nav>
+        <ul>
+          <li><a href="https://github.com/chutified/smart-passwd/blob/master/README.md" class="fa fa fa-book" target="_blank"><span class="label">Documentation</span></a></li>
+          <li><a href="https://github.com/chutified/smart-passwd" class="fa fa-code" target="_blank"> <span class="label">Source</span></a></li>
+          <li><a href="https://github.com/chutified" class="icon brands fa-github" target="_blank"><span class="label">Github</span></a></li>
+          <li><a href="mailto:tommychu101@gmail.com?subject=Smart%20Password" class="icon solid fa-envelope" target="_blank"><span class="label">Email</span></a></li>
+        </ul>
+      </nav>
+    </header>
 
-                    <!-- helper -->
-                    <div class="form__group field">
-                        <input type="text" class="form__field" placeholder="Custom helper" id='helper'
-                               autocomplete="off" maxlength="60">
-                        <label for="name" class="form__label">Custom reminder</label>
-                    </div>
-                    <div id="clearBtn">
-                        <button id="clear" class="btn2" onclick="resetHelper(); return false" disabled>
-                                    <span class="left">
-                                        <span class="circle-left"></span>
-                                        <span class="circle-right"></span>
-                                    </span>
-                            <span class="right">
-                                        <span class="circle-left"></span>
-                                        <span class="circle-right"></span>
-                                    </span></button>
-                    </div>
-                    <!-- gen button -->
-                    <div id="generateBtn">
-                        <button id="gen" class="btn effect01" onclick="generatePasswd(); return false">
-                            <span>GENERATE</span></button>
-                    </div>
+    <!-- Footer -->
+    <footer id="footer">
+      <span class="copyright"> &copy; CHU Tommy &nbsp;&bull;&nbsp; Design: HTML5 UP. </span>
+    </footer>
 
-
-                    <!-- generated password -->
-                    <div id="generated-passwd-container">
-                        <button id="hideButton" onclick="togglePasswordVisibility(); return false" disabled><i
-                                class="fas fa-eye-slash"></i></button>
-                        <input id="passwd" type="text" value="Generated password" disabled>
-                        <button id="copyPasswd" class="btn btn-dark" onclick="copyText('passwd'); return false"
-                                disabled>Copy
-                        </button>
-                    </div>
-
-                    <!-- password's helper -->
-                    <div id="passwd-helper">
-                        <input id="helper-p" type="text" value="Password reminder" disabled>
-                        <button id="copyHelper" class="btn btn-dark" onclick="copyText('helper-p'); return false"
-                                disabled>Copy
-                        </button>
-                    </div>
-
-                </div>
-                <!-- Content box (end) -->
-                <!-- ----------------- -->
-            </div>
-
-            <nav>
-                <ul>
-                    <li><a href="https://github.com/chutified/smart-passwd/blob/master/README.md" class="fa fa fa-book"
-                           target="_blank"><span class="label">Documentation</span></a></li>
-                    <li><a href="https://github.com/chutified/smart-passwd" class="fa fa-code" target="_blank"><span
-                            class="label">Source</span></a></li>
-                    <li><a href="https://github.com/chutified" class="icon brands fa-github" target="_blank"><span
-                            class="label">Github</span></a></li>
-                    <li><a href="mailto:tommychu101@gmail.com?subject=Smart%20Password" class="icon solid fa-envelope"
-                           target="_blank"><span class="label">Email</span></a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <!-- Footer -->
-        <footer id="footer">
-            <span class="copyright"> &copy; CHU Tommy &nbsp;&bull;&nbsp; Design: HTML5 UP. </span>
-        </footer>
-
-    </div>
+  </div>
 </div>
 <script>
-    window.onload = function () {
-        document.body.classList.remove('is-preload');
-    }
-    window.ontouchmove = function () {
-        return false;
-    }
-    window.onorientationchange = function () {
-        document.body.scrollTop = 0;
-    }
+  window.onload = () => document.body.classList.remove('is-preload');
+  window.ontouchmove = () => false;
+  matchMedia("screen and (orientation:portrait)").onchange = () => document.body.scrollTop = 0;
 </script>
 <script src="/scripts/jquery.min.js"></script>
 <script src="/scripts/notify.min.js"></script>
