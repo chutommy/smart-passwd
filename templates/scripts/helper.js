@@ -1,7 +1,7 @@
 // Execute a function when the user releases a key.
 document.getElementById("helper").addEventListener("keyup", function (event) {
   // submit on enter
-  if (event.keyCode === 13) {
+  if (event.key === "Enter") {
     event.preventDefault(); // cancel default action
     document.getElementById("gen").click(); // trigger button element
   }
