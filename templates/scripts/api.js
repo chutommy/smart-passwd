@@ -6,8 +6,12 @@ let statusCounter = 0;
 function generatePasswd() {
   // retrieve document values
   const extra = parseInt($("#extra").text());
-  let len = parseInt($("#len").text()) - extra;
   const helper = document.getElementById("helper").value;
+
+  let len = parseInt($("#len").text()) - extra;
+  if (helper !== "") {
+    len = 0;
+  }
 
   const request = {
     len: len,
