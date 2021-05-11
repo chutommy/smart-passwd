@@ -30,5 +30,4 @@ function togglePasswordVisibility() {
     hideButton.innerHTML = '<i class="fas fa-eye"></i>';
     field.type = "text";
   }
-
 }
