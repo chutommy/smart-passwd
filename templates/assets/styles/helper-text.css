@@ -1,0 +1,59 @@
+.form__group {
+  position: relative;
+  padding: 25px 0 0;
+  width: 65%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  margin: 32px 0;
+  box-sizing: border-box;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 5px solid #fff;
+  border-radius: 16px;
+  outline: 0;
+  font-size: 1.5rem;
+  color: #fff;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.form__field::placeholder {
+  color: transparent;
+}
+
+.form__field:placeholder-shown ~ .form__label {
+  font-size: 1.8rem;
+  cursor: text;
+  top: 30px;
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.6s;
+  font-size: 1.3rem;
+  color: #fff;
+  text-align: center;
+}
+
+.form__field:focus {
+  border-image: linear-gradient(to right, #c7c7c7, #38ef7d);
+  border-image-slice: 1;
+}
+
+.form__field:focus ~ .form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.3s;
+  font-size: 1.4rem;
+  color: #c7c7c7;
+}
