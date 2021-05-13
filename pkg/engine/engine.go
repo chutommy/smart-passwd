@@ -71,7 +71,8 @@ func (e *Engine) swap(helper []string) string {
 // helper retrieves a helper from the request.
 // If helper is not provided, it generates a new one.
 func (e *Engine) helper(req *Request) ([]string, error) {
-	h := strings.Split(req.helper, " ")
+	hs := strings.ToLower(req.helper)
+	h := strings.Split(hs, " ")
 
 	if req.helper == "" {
 		var err error
