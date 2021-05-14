@@ -44,3 +44,18 @@ bg-render:
 	inkscape --export-filename $(BG_IMAGES)/bg \
 			 --export-type=png -w 2560 -h 1600 \
 			 $(BG_IMAGES)/bg.svg
+
+FAVICONS?=templates/images
+
+.PHONY: favicon
+favicon:
+	inkscape --export-filename $(FAVICONS)/16 \
+			 --export-type=png -w 16 -h 16 \
+			 $(FAVICONS)/favicon.svg
+	inkscape --export-filename $(FAVICONS)/32 \
+			 --export-type=png -w 32 -h 32 \
+			 $(FAVICONS)/favicon.svg
+	inkscape --export-filename $(FAVICONS)/48 \
+			 --export-type=png -w 48 -h 48 \
+			 $(FAVICONS)/favicon.svg
+	convert $(FAVICONS)/16.png $(FAVICONS)/32.png $(FAVICONS)/48.png $(FAVICONS)/favicon.ico
