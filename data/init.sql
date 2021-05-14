@@ -1,0 +1,11 @@
+DROP TABLE IF EXISTS words;
+
+CREATE TABLE words
+(
+    id   INTEGER PRIMARY KEY AUTOINCREMENT,
+    word TEXT NOT NULL UNIQUE
+);
+
+CREATE UNIQUE INDEX id_index ON words (id);
+
+CREATE UNIQUE INDEX word_index ON words (word);
