@@ -2,3 +2,4 @@
 HTTPPort: 80
 DBFile: data/words.db
 Debug: false
+RootPath: .

@@ -14,6 +14,7 @@ const (
 	KeyHTTPPort = "HTTPPort"
 	KeyDBFile   = "DBFile"
 	KeyDebug    = "Debug"
+	KeyRootPath = "RootPath"
 )
 
 // Config represents an application configuration.
@@ -21,14 +22,16 @@ type Config struct {
 	HTTPPort int64  `yaml:"HTTPPort"`
 	DBFile   string `yaml:"DBFile"`
 	Debug    bool   `yaml:"Debug"`
+	RootPath string `yaml:"RootPath"`
 }
 
 // NewConfig is a constructor of the Config struct.
-func NewConfig(httpPort int64, dbFile string, debug bool) *Config {
+func NewConfig(httpPort int64, dbFile string, debug bool, rootPath string) *Config {
 	return &Config{
 		HTTPPort: httpPort,
 		DBFile:   dbFile,
 		Debug:    debug,
+		RootPath: rootPath,
 	}
 }
 
@@ -65,6 +68,7 @@ func setDefault(vi *viper.Viper, cfg *Config) error {
 	vi.SetDefault(KeyHTTPPort, cfg.HTTPPort)
 	vi.SetDefault(KeyDBFile, cfg.DBFile)
 	vi.SetDefault(KeyDebug, cfg.Debug)
+	vi.SetDefault(KeyRootPath, cfg.RootPath)
 
 	return nil
 }
@@ -109,6 +113,7 @@ func setFromFlags(vi *viper.Viper, args []string) error {
 	fs.Int64P(KeyHTTPPort, "p", vi.GetInt64(KeyHTTPPort), "port of the application to serve")
 	fs.StringP(KeyDBFile, "f", vi.GetString(KeyDBFile), "path to SQLite3 database file")
 	fs.BoolP(KeyDebug, "d", vi.GetBool(KeyDebug), "debug mode")
+	fs.StringP(KeyRootPath, "r", vi.GetString(KeyRootPath), "project root directory")
 
 	if err := fs.Parse(args); err != nil {
 		return fmt.Errorf("parse flags: %w", err)

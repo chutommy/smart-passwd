@@ -40,7 +40,7 @@ func TestGetConfig(t *testing.T) {
 		{
 			name: "complete",
 			inp: input{
-				defCfg: NewConfig(8080, "data/words-test.db", true),
+				defCfg: NewConfig(8080, "data/words-test.db", true, "."),
 				file:   utils.NewFile("test", "config4", "yaml"),
 				args: []string{
 					"--" + KeyHTTPPort, "10500",
@@ -49,38 +49,38 @@ func TestGetConfig(t *testing.T) {
 				},
 			},
 			out: output{
-				cfg:     NewConfig(10500, "data/words-prod.db", true),
+				cfg:     NewConfig(10500, "data/words-prod.db", true, "."),
 				wantErr: false,
 			},
 		},
 		{
 			name: "default and file values",
 			inp: input{
-				defCfg: NewConfig(8080, "data/words-test.db", true),
+				defCfg: NewConfig(8080, "data/words-test.db", true, "."),
 				file:   utils.NewFile("test", "config4", "yaml"),
 				args:   nil,
 			},
 			out: output{
-				cfg:     NewConfig(80, "data/words.db", false),
+				cfg:     NewConfig(80, "data/words.db", false, "."),
 				wantErr: false,
 			},
 		},
 		{
 			name: "default and empty config",
 			inp: input{
-				defCfg: NewConfig(8080, "data/words-test.db", true),
+				defCfg: NewConfig(8080, "data/words-test.db", true, "."),
 				file:   utils.NewFile("test", "config5", "yaml"),
 				args:   nil,
 			},
 			out: output{
-				cfg:     NewConfig(8080, "data/words-test.db", true),
+				cfg:     NewConfig(8080, "data/words-test.db", true, "."),
 				wantErr: false,
 			},
 		},
 		{
 			name: "nil file",
 			inp: input{
-				defCfg: NewConfig(8080, "data/words-test.db", true),
+				defCfg: NewConfig(8080, "data/words-test.db", true, "."),
 				file:   nil,
 				args:   nil,
 			},
@@ -104,7 +104,7 @@ func TestGetConfig(t *testing.T) {
 		{
 			name: "invalid flags",
 			inp: input{
-				defCfg: NewConfig(8080, "data/words-test.db", true),
+				defCfg: NewConfig(8080, "data/words-test.db", true, "."),
 				file:   utils.NewFile("test", "config4", "yaml"),
 				args:   []string{"-invalid"},
 			},
@@ -145,17 +145,17 @@ func TestSetDefault(t *testing.T) {
 	}{
 		{
 			name:    "empty values",
-			cfg:     NewConfig(0, "", false),
+			cfg:     NewConfig(0, "", false, "."),
 			wantErr: false,
 		},
 		{
 			name:    "default values",
-			cfg:     NewConfig(80, "words.db", false),
+			cfg:     NewConfig(80, "words.db", false, "."),
 			wantErr: false,
 		},
 		{
 			name:    "complete",
-			cfg:     NewConfig(10503, "data/words-test.db", true),
+			cfg:     NewConfig(10503, "data/words-test.db", true, "."),
 			wantErr: false,
 		},
 		{
@@ -198,19 +198,19 @@ func TestSetFromFile(t *testing.T) {
 		{
 			name:    "default",
 			file:    utils.NewFile("test", "config1", "yaml"),
-			cfg:     NewConfig(80, "data/words.db", false),
+			cfg:     NewConfig(80, "data/words.db", false, "."),
 			wantErr: false,
 		},
 		{
 			name:    "empty",
 			file:    utils.NewFile("test", "config2", "yaml"),
-			cfg:     NewConfig(0, "", false),
+			cfg:     NewConfig(0, "", false, ""),
 			wantErr: false,
 		},
 		{
 			name:    "debug",
 			file:    utils.NewFile("test", "config3", "yaml"),
-			cfg:     NewConfig(8080, "data/words-test.db", true),
+			cfg:     NewConfig(8080, "data/words-test.db", true, "."),
 			wantErr: false,
 		},
 		{
@@ -266,19 +266,19 @@ func TestSetFromFlags(t *testing.T) {
 		{
 			name:    "empty",
 			arg:     []string{},
-			cfg:     NewConfig(0, "", false),
+			cfg:     NewConfig(0, "", false, ""),
 			wantErr: false,
 		},
 		{
 			name:    "empty with nil",
 			arg:     nil,
-			cfg:     NewConfig(0, "", false),
+			cfg:     NewConfig(0, "", false, ""),
 			wantErr: false,
 		},
 		{
 			name:    "boolean short",
 			arg:     []string{"-d"},
-			cfg:     NewConfig(0, "", true),
+			cfg:     NewConfig(0, "", true, ""),
 			wantErr: false,
 		},
 		{
@@ -288,7 +288,7 @@ func TestSetFromFlags(t *testing.T) {
 				"-f", "data/words.db",
 				"-d", "true",
 			},
-			cfg:     NewConfig(1313, "data/words.db", true),
+			cfg:     NewConfig(1313, "data/words.db", true, "."),
 			wantErr: false,
 		},
 		{
@@ -298,7 +298,7 @@ func TestSetFromFlags(t *testing.T) {
 				"--" + KeyDBFile, "data/words.db",
 				"--" + KeyDebug, "true",
 			},
-			cfg:     NewConfig(1313, "data/words.db", true),
+			cfg:     NewConfig(1313, "data/words.db", true, "."),
 			wantErr: false,
 		},
 		{
@@ -308,7 +308,7 @@ func TestSetFromFlags(t *testing.T) {
 				"-f=data/words.db",
 				"-d=true",
 			},
-			cfg:     NewConfig(1313, "data/words.db", true),
+			cfg:     NewConfig(1313, "data/words.db", true, "."),
 			wantErr: false,
 		},
 		{
@@ -318,7 +318,7 @@ func TestSetFromFlags(t *testing.T) {
 				"--" + KeyDBFile + "=data/words.db",
 				"--" + KeyDebug + "=true",
 			},
-			cfg:     NewConfig(1313, "data/words.db", true),
+			cfg:     NewConfig(1313, "data/words.db", true, "."),
 			wantErr: false,
 		},
 		{
@@ -371,7 +371,7 @@ func TestDecodeViper(t *testing.T) {
 				vi.Set(KeyDBFile, "data/words-1.db")
 				vi.Set(KeyDebug, false)
 			},
-			cfg:     NewConfig(80, "data/words-1.db", false),
+			cfg:     NewConfig(80, "data/words-1.db", false, "."),
 			wantErr: false,
 		},
 		{
@@ -381,7 +381,7 @@ func TestDecodeViper(t *testing.T) {
 				vi.Set(KeyDBFile, "data/words-test.db")
 				vi.Set(KeyDebug, true)
 			},
-			cfg:     NewConfig(8080, "data/words-test.db", true),
+			cfg:     NewConfig(8080, "data/words-test.db", true, "."),
 			wantErr: false,
 		},
 		{
