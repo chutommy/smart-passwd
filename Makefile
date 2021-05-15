@@ -12,10 +12,6 @@ test:
 
 .PHONY: build
 build:
-	GOOS=windows go build -o smart-passwd-windows.exe main.go
-	GOOS=darwin go build -o smart-passwd-darwin main.go
-	GOOS=linux go build -o smart-passwd-linux main.go
-
 	GOOS=windows GOARCH=amd64 go build -o bin/windows/smart-passwd-amd64.exe main.go
 	GOOS=windows GOARCH=386 go build -o bin/windows/smart-passwd-386.exe main.go
 	GOOS=windows GOARCH=arm go build -o bin/windows/smart-passwd-arm.exe main.go
