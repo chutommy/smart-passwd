@@ -12,17 +12,8 @@ test:
 
 .PHONY: build
 build:
-	GOOS=windows GOARCH=amd64 go build -o bin/windows/smart-passwd-amd64.exe main.go
-	GOOS=windows GOARCH=386 go build -o bin/windows/smart-passwd-386.exe main.go
-	GOOS=windows GOARCH=arm go build -o bin/windows/smart-passwd-arm.exe main.go
-
-	GOOS=darwin GOARCH=amd64 go build -o bin/darwin/smart-passwd-amd64 main.go
-	GOOS=darwin GOARCH=arm64 go build -o bin/darwin/smart-passwd-arm64 main.go
-
-	GOOS=linux GOARCH=amd64 go build -o bin/linux/smart-passwd-amd64 main.go
-	GOOS=linux GOARCH=386 go build -o bin/linux/smart-passwd-386 main.go
-	GOOS=linux GOARCH=arm go build -o bin/linux/smart-passwd-arm main.go
-	GOOS=linux GOARCH=arm64 go build -o bin/linux/smart-passwd-arm64 main.go
+	export DOCKER_BUILDKIT=1
+	docker build --target export-stage --output bin --file bin/Dockerfile .
 
 BG_IMAGES?=templates/assets/styles/images/background
 
