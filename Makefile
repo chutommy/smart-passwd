@@ -12,8 +12,12 @@ test:
 
 .PHONY: build
 build:
-	export DOCKER_BUILDKIT=1
-	docker build --target export-stage --output bin --file bin/Dockerfile .
+	DOCKER_BUILDKIT=1 docker build --target export-stage --output bin --file bin/Dockerfile .
+
+.PHONY: docker
+docker:
+	DOCKER_BUILDKIT=1 docker build --file Dockerfile -t smart-passwd .
+	docker run -it -p 8080:8080 smart-passwd
 
 BG_IMAGES?=templates/assets/styles/images/background
 
