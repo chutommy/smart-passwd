@@ -100,7 +100,7 @@ func connectDB(cfg *config.Config) (*data.WordList, error) {
 }
 
 func loadConfig() (*config.Config, error) {
-	defaultCfg := config.NewConfig(8080, ".", true)
+	defaultCfg := config.NewConfig(8080, ".", true, ".")
 	fileCfg := utils.NewFile(".", "config", "yaml")
 
 	cfg, err := config.GetConfig(defaultCfg, fileCfg, os.Args)

@@ -12,11 +12,16 @@ function generatePasswd() {
   if (helper !== "") {
     len = 0;
   }
+  
+  if (helper.trim() === "") {
+    resetHelper();
+    return
+  }
 
   const request = {
     len: len,
     extra: extra,
-    helper: helper
+    helper: helper.trim()
   };
 
   const param = {

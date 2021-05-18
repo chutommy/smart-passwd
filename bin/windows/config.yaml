@@ -1,0 +1,5 @@
+---
+HTTPPort: 8080
+DBFile: ../../data/parsed/wordlist-1.db
+Debug: false
+RootPath: ../..

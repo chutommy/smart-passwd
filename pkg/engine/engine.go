@@ -30,6 +30,8 @@ func Init(wordList *data.WordList, constructor *Constructor, swapper *Swapper) *
 
 // Generate generates a new password using a ERequest.
 func (e *Engine) Generate(req *Request) (*Response, error) {
+	req.helper = strings.TrimSpace(req.helper)
+
 	switch {
 	case req.helper != "" && req.length != 0:
 		return nil, fmt.Errorf("%w: both length and helper defined", ErrInvalidRequirements)
@@ -47,7 +49,12 @@ func (e *Engine) Generate(req *Request) (*Response, error) {
 	p := e.swap(h)
 	p = e.s.ExtraSec(p, req.extraSec)
 
-	return NewResponse(p, strings.Join(h, " ")), nil
+	hs := strings.Join(h, " ")
+	if req.helper != "" {
+		hs = req.helper
+	}
+
+	return NewResponse(p, hs), nil
 }
 
 // swap generates a password from the helper and randomly swaps each

@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"net/http"
+	"path/filepath"
 	"time"
 
 	"github.com/chutified/smart-passwd/pkg/config"
@@ -28,7 +29,7 @@ func NewServer(cfg *config.Config, engine *engine.Engine) *Server {
 
 	e := gin.New()
 	e.Use(gin.Recovery(), gin.Logger(), cors.Default())
-	setRouter(engine, e)
+	setRouter(cfg.RootPath, engine, e)
 
 	srv := &http.Server{
 		Addr:              fmt.Sprintf(":%d", cfg.HTTPPort),
@@ -46,16 +47,16 @@ func NewServer(cfg *config.Config, engine *engine.Engine) *Server {
 }
 
 // setRouter sets routes for the engine (gin).
-func setRouter(e *engine.Engine, r *gin.Engine) {
+func setRouter(root string, e *engine.Engine, r *gin.Engine) {
 	r.GET("/ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{"response": "pong"})
 	})
 
 	r.POST("/gen", passwordGenHandler(e))
 
-	r.Static("/assets", "./templates/assets")
-	r.Static("/scripts", "./templates/scripts")
-	r.LoadHTMLFiles("templates/index.html")
+	r.Static("/assets", filepath.Join(root, "templates/assets"))
+	r.Static("/scripts", filepath.Join(root, "templates/scripts"))
+	r.LoadHTMLFiles(filepath.Join(root, "templates/index.html"))
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(200, "index.html", nil)
 	})
