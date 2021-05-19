@@ -13,7 +13,12 @@ function generatePasswd() {
     len = 0;
   }
   
-  if (helper.trim() === "") {
+  if (helper.trim() === "" && len < 5) {
+    resetHelper();
+    return
+  }
+  
+  if (helper.trim() === "" && len < 5) {
     resetHelper();
     return
   }
