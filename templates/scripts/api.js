@@ -17,6 +17,16 @@ function generatePasswd() {
     resetHelper();
     return
   }
+  
+  if (helper.trim() === "" && len < 5) {
+    resetHelper();
+    return
+  }
+  
+  if (helper.trim() === "" && len < 5) {
+    resetHelper();
+    return
+  }
 
   const request = {
     len: len,
