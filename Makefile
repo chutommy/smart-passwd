@@ -1,5 +1,6 @@
 .PHONY: wordlist
 wordlist:
+	touch data/parsed/wordlist-1.db
 	python3 data/prenasec.py data/raw/wordlist-1.txt data/parsed/wordlist-1.db
 
 .PHONY: test-wordlist
