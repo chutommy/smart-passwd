@@ -20,7 +20,6 @@ RUN go mod tidy
 # build binaries
 RUN GOOS=windows GOARCH=amd64 go build -o bin/windows/smart-passwd-amd64.exe main.go
 RUN GOOS=windows GOARCH=386 go build -o bin/windows/smart-passwd-386.exe main.go
-RUN GOOS=windows GOARCH=arm go build -o bin/windows/smart-passwd-arm.exe main.go
 
 RUN GOOS=darwin GOARCH=amd64 go build -o bin/darwin/smart-passwd-amd64 main.go
 RUN GOOS=darwin GOARCH=arm64 go build -o bin/darwin/smart-passwd-arm64 main.go
