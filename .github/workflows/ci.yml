@@ -8,7 +8,7 @@ on:
 
 jobs:
   data:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
 
@@ -21,29 +21,29 @@ jobs:
       - name: Build testing wordlists
         run: make test-wordlist
 
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Set up Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: 1.16
-
-      - name: Clean up
-        run: go mod tidy
-
-      - name: Build
-        run: go build -v ./...
-
-      - name: Test
-        run: make test
-
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Build binaries
-        run: make build
+#  test:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#
+#      - name: Set up Go
+#        uses: actions/setup-go@v2
+#        with:
+#          go-version: 1.16
+#
+#      - name: Clean up
+#        run: go mod tidy
+#
+#      - name: Build
+#        run: go build -v ./...
+#
+#      - name: Test
+#        run: make test
+#
+#  build:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#
+#      - name: Build binaries
+#        run: make build
