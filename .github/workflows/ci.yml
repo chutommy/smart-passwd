@@ -25,10 +25,11 @@ jobs:
         run: |
           git config --global user.name "chutified"
           git config --global user.email "tommychu2256@gmail.com"
+          git config pull.rebase true
           git add -A
           git commit -m "Update wordlist databases [GitHub Action]"
-          git pull origin
-          git push
+          git pull origin master
+          git push origin master
 
   test:
     needs: [data]
@@ -62,7 +63,8 @@ jobs:
         run: |
           git config --global user.name "chutified"
           git config --global user.email "tommychu2256@gmail.com"
+          git config pull.rebase true
           git add -A
           git commit -m "Build binaries [GitHub Action]"
-          git pull origin
-          git push
+          git pull origin master
+          git push origin master
