@@ -3,6 +3,7 @@ package data
 import (
 	"database/sql"
 	"errors"
+	"fmt"
 
 	"github.com/chutified/smart-passwd/pkg/utils"
 )
@@ -49,7 +50,7 @@ func randomWord(db *sql.DB, l int16) (string, error) {
 
 	err := db.QueryRow(wordRandomLen, l).Scan(&word)
 	if err != nil {
-		return "", ErrNoWords
+		return "", fmt.Errorf("failed to query for a random word of length: %d: %w", l, err)
 	}
 
 	return word, nil

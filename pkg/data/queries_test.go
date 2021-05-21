@@ -23,10 +23,10 @@ func TestRandomWord(t *testing.T) {
 		t.Parallel()
 
 		_, err := randomWord(testDB, 0)
-		require.True(t, errors.Is(err, ErrNoWords))
+		require.Error(t, err)
 
 		_, err = randomWord(testDB, 25)
-		require.True(t, errors.Is(err, ErrNoWords))
+		require.Error(t, err)
 	})
 
 	for i := int16(1); i <= 22; i++ {
