@@ -27,42 +27,32 @@ jobs:
           git config --global user.email "tommychu2256@gmail.com"
           git add -A
           git commit -m "Update wordlist databases [GitHub Action]"
-          git pull origin
           git push
 
-  test:
-    needs: [data]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Set up Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: 1.16
-
-      - name: Clean up
-        run: go mod tidy
-
-      - name: Build
-        run: go build -v ./...
-
-      - name: Test
-        run: make test
-
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Build binaries
-        run: make build
-
-      - name: Commit and push changes
-        run: |
-          git config --global user.name "chutified"
-          git config --global user.email "tommychu2256@gmail.com"
-          git add -A
-          git commit -m "Build binaries [GitHub Action]"
-          git pull origin
-          git push
+#  test:
+#    needs: [data]
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#
+#      - name: Set up Go
+#        uses: actions/setup-go@v2
+#        with:
+#          go-version: 1.16
+#
+#      - name: Clean up
+#        run: go mod tidy
+#
+#      - name: Build
+#        run: go build -v ./...
+#
+#      - name: Test
+#        run: make test
+#
+#  build:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#
+#      - name: Build binaries
+#        run: make build
