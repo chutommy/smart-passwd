@@ -1,6 +1,6 @@
 module github.com/chutified/smart-passwd
 
-go 1.14
+go 1.16
 
 require (
 	github.com/chutified/rand v0.0.0-20210214192546-2404aafca3a1
