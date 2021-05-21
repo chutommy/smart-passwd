@@ -17,7 +17,7 @@ import (
 	"github.com/chutified/smart-passwd/pkg/engine"
 	"github.com/chutified/smart-passwd/pkg/server"
 	"github.com/chutified/smart-passwd/pkg/utils"
-	_ "github.com/mattn/go-sqlite3"
+	_ "modernc.org/sqlite"
 )
 
 func main() {
