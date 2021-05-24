@@ -29,6 +29,8 @@ RUN GOOS=linux GOARCH=386 go build -o bin/linux/SmartPasswd-386 main.go
 RUN GOOS=linux GOARCH=arm go build -o bin/linux/SmartPasswd-arm main.go
 RUN GOOS=linux GOARCH=arm64 go build -o bin/linux/SmartPasswd-arm64 main.go
 
+RUN GOOS=android GOARCH=arm64 go build -o bin/android/SmartPasswd-arm64 main.go
+
 
 FROM scratch AS export-stage
 # store binaries
