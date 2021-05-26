@@ -58,6 +58,7 @@ func setRouter(root string, e *engine.Engine, r *gin.Engine) {
 	r.Static("/scripts", filepath.Join(root, "templates/scripts"))
 	r.LoadHTMLFiles(filepath.Join(root, "templates/index.html"))
 	r.GET("/", func(c *gin.Context) {
+		c.Header("Cache-Control", "public, max-age=31536000")
 		c.HTML(200, "index.html", nil)
 	})
 }
