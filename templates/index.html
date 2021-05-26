@@ -7,14 +7,16 @@
 <head>
   <title>Smart Password</title>
   <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
   <link rel="icon" type="image/ico" href="./assets/images/favicon.ico"/>
+
+  <link rel="preconnect" as="font" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900&display=swap">
+  <link rel="preconnect" as="style" href="./assets/styles/main.css">
 
   <!-- Stylesheets -->
   <noscript>
     <link rel="stylesheet" href="./assets/styles/noscript.css"/>
   </noscript>
-  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Work+Sans:300,500'>
   <link rel="stylesheet" href="./assets/styles/main.css"/>
   <link rel="stylesheet" href="./assets/styles/slider.css">
   <link rel="stylesheet" href="./assets/styles/numbers.css">
@@ -25,9 +27,9 @@
   <link rel="stylesheet" href="./assets/styles/results.css">
 
   <!-- Media queries -->
-  <link rel="stylesheet" href="./assets/styles/mqueries.css">
-  <link rel="stylesheet" href="./assets/styles/mqueries2.css">
-  <link rel="stylesheet" href="./assets/styles/mqueries3.css">
+  <link rel="stylesheet" media="screen" href="./assets/styles/mqueries.css">
+  <link rel="stylesheet" media="screen" href="./assets/styles/mqueries2.css">
+  <link rel="stylesheet" media="screen" href="./assets/styles/mqueries3.css">
 </head>
 <body class="is-preload">
 <div id="wrapper">
@@ -49,21 +51,21 @@
           <div class="sliders">
             <div class="slider"><input id="slider-len" type="range" value="0" min="0" max="27"></div>
           </div>
-          <div class="statusNums"><h4 id="len" class="nums">5</h4></div>
+          <div class="statusNums"><h2 id="len" class="nums">5</h2></div>
 
           <!-- extra slider -->
           <label for="slider-extra" class="pull-left eLabel">Strength</label>
           <div class="sliders">
             <div class="slider"><input id="slider-extra" type="range" value="0" min="0" max="10"></div>
           </div>
-          <div class="statusNums"><h4 id="extra" class="nums">0</h4></div>
+          <div class="statusNums"><h2 id="extra" class="nums">0</h2></div>
 
           <!-- helper -->
           <div class="form__group field">
             <input type="text" class="form__field" placeholder="Custom helper" id='helper' autocomplete="off" maxlength="60"> <label for="helper" class="form__label">Custom reminder</label>
           </div>
           <div id="clearBtn">
-            <button id="clear" class="btn2" onclick="resetHelper(); return false" disabled>
+            <button id="clear" class="btn2" onclick="resetHelper(); return false" aria-label="Clear reminder" disabled>
 							<span class="left">
 								<span class="circle-left"></span>
 								<span class="circle-right"></span>
@@ -76,7 +78,7 @@
 
           <!-- gen button -->
           <div id="generateBtn">
-            <button id="gen" class="btn effect01" onclick="generatePasswd(); return false">
+            <button id="gen" class="btn effect01" onclick="generatePasswd(); return false" aria-label="Generate password">
               <span>GENERATE</span>
             </button>
           </div>
@@ -84,25 +86,25 @@
 
           <!-- generated password -->
           <div id="generated-passwd-container">
-            <button id="hideButton" onclick="togglePasswordVisibility(); return false" disabled><i class="fas fa-eye-slash"></i></button>
-            <label for="passwd"></label><input id="passwd" type="text" value="Generated password" disabled>
-            <button id="copyPasswd" class="btn btn-dark" onclick="copyText('passwd'); return false" disabled>Copy</button>
+            <button id="hideButton" onclick="togglePasswordVisibility(); return false" aria-label="Hide password" disabled><i class="fas fa-eye-slash"></i></button>
+            <input aria-label="Password" id="passwd" type="text" value="Generated password" disabled>
+            <button id="copyPasswd" class="btn btn-dark" onclick="copyText('passwd'); return false" aria-label="Copy password" disabled>Copy</button>
           </div>
 
           <!-- password's helper -->
           <div id="passwd-helper">
-            <label for="helper-p"></label><input id="helper-p" type="text" value="Password reminder" disabled>
-            <button id="copyHelper" class="btn btn-dark" onclick="copyText('helper-p'); return false" disabled>Copy</button>
+            <input aria-label="Password reminder" id="helper-p" type="text" value="Password reminder" disabled>
+            <button id="copyHelper" class="btn btn-dark" onclick="copyText('helper-p'); return false" aria-label="Copy reminder" disabled>Copy</button>
           </div>
         </div>
       </div>
 
       <nav>
         <ul>
-          <li><a href="https://chutified.github.io" class="fas fa-user" target="_blank"><span class="label">Author</span></a></li>
-          <li><a href="https://github.com/chutified" class="icon brands fa-github" target="_blank"><span class="label">Author GH</span></a></li>
-          <li><a href="https://github.com/chutified/smart-passwd" class="fa fa-code" target="_blank"> <span class="label">Source</span></a></li>
-          <li><a href="mailto:chutommy101@gmail.com?subject=Smart%20Password" class="icon solid fa-envelope" target="_blank"><span class="label">Email</span></a></li>
+          <li><a href="https://chutified.github.io" aria-label="Author's personal website" class="fas fa-user" target="_blank" rel="noopener"><span class="label">Author</span></a></li>
+          <li><a href="https://github.com/chutified" aria-label="Author's GitHub page" class="icon brands fa-github" target="_blank" rel="noopener"><span class="label">Author GH</span></a></li>
+          <li><a href="https://github.com/chutified/smart-passwd" class="fa fa-code" aria-label="Source code" target="_blank" rel="noopener"><span class="label">Source</span></a></li>
+          <li><a href="https://www.cisecurity.org/newsletter/why-strong-unique-passwords-matter" aria-label="Password security" class="fas fa-shield-alt" target="_blank" rel="noopener"><span class="label">Password security</span></a></li>
         </ul>
       </nav>
     </header>
@@ -119,11 +121,11 @@
   window.ontouchmove = () => false;
   matchMedia("screen and (orientation:portrait)").onchange = () => document.body.scrollTop = 0;
 </script>
-<script src="./scripts/jquery.min.js"></script>
-<script src="./scripts/notify.min.js"></script>
-<script src="./scripts/api.js"></script>
-<script src="./scripts/helper.js"></script>
-<script src="./scripts/slider.js"></script>
-<script src="./scripts/buttons.js"></script>
+<script src="./scripts/jquery-3.6.0.min.js"  async></script>
+<script src="./scripts/notify.min.js" async></script>
+<script src="./scripts/api.js" async></script>
+<script src="./scripts/helper.js" async></script>
+<script src="./scripts/slider.js" async></script>
+<script src="./scripts/buttons.js" async></script>
 </body>
 </html>
