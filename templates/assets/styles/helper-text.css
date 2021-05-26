@@ -42,6 +42,7 @@
   font-size: 1.3rem;
   color: #fff;
   text-align: center;
+  pointer-events: none;
 }
 
 .form__field:focus {
