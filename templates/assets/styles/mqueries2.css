@@ -1,16 +1,16 @@
 @media only screen and (min-width: 420px) {
 
   .sliders {
-    width: 70%;
+    width: 60%;
   }
 
   .eLabel {
-    width: 18%;
+    width: 25%;
     font-size: 20px;
   }
 
   .statusNums {
-    width: 12%;
+    width: 15%;
   }
 
   .slider input[type="range"] {

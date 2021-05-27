@@ -5,12 +5,12 @@
   }
 
   .eLabel {
-    width: 20%;
+    width: 25%;
     vertical-align: center;
   }
 
   .statusNums {
-    width: 20%;
+    width: 15%;
   }
 
   .slider input[type="range"] {
@@ -259,5 +259,13 @@
 
   #header nav li {
     width: 2.95em;
+  }
+  
+  #header h1 {
+    font-size: 1.5em;
+  }
+  
+  #header > p, #footer {
+    display: none;
   }
 }
