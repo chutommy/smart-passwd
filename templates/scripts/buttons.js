@@ -35,7 +35,7 @@ function copyDisabledElement(e) {
   try {
     document.execCommand("copy");
     removeSelection();
-  $.notify("Successfully copied", "success");
+    $.notify("Successfully copied", "success");
   } catch (err) {
     $.notify("Unsuccessfully copied", "error");
   }
