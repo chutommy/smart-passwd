@@ -48,19 +48,13 @@ func NewServer(cfg *config.Config, engine *engine.Engine) *Server {
 
 // setRouter sets routes for the engine (gin).
 func setRouter(root string, e *engine.Engine, r *gin.Engine) {
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{"response": "pong"})
-	})
-
+	r.GET("/ping", pingHandler())
 	r.POST("/gen", passwordGenHandler(e))
 
 	r.Static("/assets", filepath.Join(root, "templates/assets"))
 	r.Static("/scripts", filepath.Join(root, "templates/scripts"))
 	r.LoadHTMLFiles(filepath.Join(root, "templates/index.html"))
-	r.GET("/", func(c *gin.Context) {
-		c.Header("Cache-Control", "public, max-age=31536000")
-		c.HTML(200, "index.html", nil)
-	})
+	r.GET("/", homePageHandler())
 }
 
 // Start initializes the Server.
