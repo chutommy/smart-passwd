@@ -59,11 +59,7 @@ func setRouter(root string, e *engine.Engine, r *gin.Engine) {
 
 // Start initializes the Server.
 func (s *Server) Start() error {
-	if err := s.srv.ListenAndServe(); err != nil {
-		return fmt.Errorf("initiating server: %w", err)
-	}
-
-	return nil
+	return fmt.Errorf("server listens and servers: %w", s.srv.ListenAndServe())
 }
 
 // Shutdown gracefully shutdowns the Server. During the given
