@@ -8,21 +8,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// homePageHandler serves the home page.
-func homePageHandler() func(c *gin.Context) {
-	return func(c *gin.Context) {
-		c.Header("Cache-Control", "public, max-age=31536000")
-		c.HTML(200, "index.html", nil)
-	}
-}
-
-// pingHandler serves ping requests.
-func pingHandler() func(c *gin.Context) {
-	return func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{"status": "online"})
-	}
-}
-
 // passwordGenHandler returns a gin.HandlerFunc of the password
 // generation handler.
 func passwordGenHandler(e *engine.Engine) gin.HandlerFunc {
