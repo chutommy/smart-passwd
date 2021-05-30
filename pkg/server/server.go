@@ -66,10 +66,6 @@ func (s *Server) Start() error {
 // duration time the Server won't receive any new requests but it will
 // finish all pending processes.
 func (s *Server) Shutdown(duration time.Duration) (err error) {
-	defer func() {
-		err = s.srv.Close()
-	}()
-
 	ctx, cancel := context.WithTimeout(context.Background(), duration)
 	defer cancel()
 
