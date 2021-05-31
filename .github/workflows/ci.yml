@@ -52,6 +52,7 @@ jobs:
         run: make test
 
   build:
+    needs: [data]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -72,6 +73,7 @@ jobs:
           fi
 
   wasm:
+    needs: [data, build]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
