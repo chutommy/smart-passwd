@@ -17,6 +17,10 @@ test:
 build:
 	DOCKER_BUILDKIT=1 docker build --target export-stage --output bin --file bin/Dockerfile .
 
+.PHONY: wasm
+wasm:
+	DOCKER_BUILDKIT=1 docker build --target export-stage --output templates --file wasm/Dockerfile .
+
 .PHONY: docker
 docker:
 	DOCKER_BUILDKIT=1 docker build --file Dockerfile -t smart-passwd .
