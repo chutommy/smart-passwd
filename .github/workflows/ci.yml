@@ -19,6 +19,11 @@ jobs:
       - name: Build testing wordlists
         run: make test-wordlist
 
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+
       - name: Commit and push changes
         run: |
           git config --global user.name "chutified"
@@ -27,8 +32,8 @@ jobs:
           if [ -n "$(git status --porcelain)" ]; then
             git add -A
             git commit -m "Update wordlist databases [GitHub Action]"
-            git pull -X ours origin ${GITHUB_REF##*/}
-            git push origin HEAD:${GITHUB_REF##*/}
+            git pull -X ours origin ${{ steps.extract_branch.outputs.branch }}
+            git push origin HEAD:${{ steps.extract_branch.outputs.branch }}
           fi
 
   test:
@@ -60,6 +65,11 @@ jobs:
       - name: Build binaries
         run: make build
 
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+
       - name: Commit and push changes
         run: |
           git config --global user.name "chutified"
@@ -68,8 +78,8 @@ jobs:
           if [ -n "$(git status --porcelain)" ]; then
             git add -A
             git commit -m "Build binaries [GitHub Action]"
-            git pull -X ours origin ${GITHUB_REF##*/}
-            git push origin HEAD:${GITHUB_REF##*/}
+            git pull -X ours origin ${{ steps.extract_branch.outputs.branch }}
+            git push origin HEAD:${{ steps.extract_branch.outputs.branch }}
           fi
 
   wasm:
@@ -81,6 +91,11 @@ jobs:
       - name: Regenerate webassembly binaries
         run: make wasm
 
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+
       - name: Commit and push changes
         run: |
           git config --global user.name "chutified"
@@ -89,6 +104,6 @@ jobs:
           if [ -n "$(git status --porcelain)" ]; then
             git add -A
             git commit -m "Build wasm [GitHub Action]"
-            git pull -X ours origin master
-            git push origin HEAD:master
+            git pull -X ours origin ${{ steps.extract_branch.outputs.branch }}
+            git push origin HEAD:${{ steps.extract_branch.outputs.branch }}
           fi
