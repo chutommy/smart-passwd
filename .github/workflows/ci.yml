@@ -70,3 +70,23 @@ jobs:
             git pull -X ours origin master
             git push origin HEAD:master
           fi
+
+  wasm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Regenerate webassembly binaries
+        run: make wasm
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "chutified"
+          git config --global user.email "tommychu2256@gmail.com"
+          git config pull.rebase true
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "Build wasm [GitHub Action]"
+            git pull -X ours origin master
+            git push origin HEAD:master
+          fi
