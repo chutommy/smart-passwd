@@ -27,8 +27,8 @@ jobs:
           if [ -n "$(git status --porcelain)" ]; then
             git add -A
             git commit -m "Update wordlist databases [GitHub Action]"
-            git pull -X ours origin master
-            git push origin HEAD:master
+            git pull -X ours origin ${GITHUB_REF##*/}
+            git push origin HEAD:${GITHUB_REF##*/}
           fi
 
   test:
@@ -68,8 +68,8 @@ jobs:
           if [ -n "$(git status --porcelain)" ]; then
             git add -A
             git commit -m "Build binaries [GitHub Action]"
-            git pull -X ours origin master
-            git push origin HEAD:master
+            git pull -X ours origin ${GITHUB_REF##*/}
+            git push origin HEAD:${GITHUB_REF##*/}
           fi
 
   wasm:
