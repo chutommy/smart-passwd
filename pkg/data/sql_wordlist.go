@@ -8,14 +8,14 @@ import (
 	"github.com/chutified/smart-passwd/pkg/utils"
 )
 
-// SQLWordList represents a SQL-based implementation for WordList interface.
-type SQLWordList struct {
+// SQLiteWordList represents a SQL-based implementation for WordList interface.
+type SQLiteWordList struct {
 	db *sql.DB
 }
 
 // ConnectSQLite connects to the given SQLite3 database and
-// constructs a new SQLWordList linked with the DB.
-func ConnectSQLite(file *utils.File) (*SQLWordList, error) {
+// constructs a new SQLiteWordList linked with the DB.
+func ConnectSQLite(file *utils.File) (*SQLiteWordList, error) {
 	if file == nil {
 		return nil, utils.ErrNilValue
 	}
@@ -29,11 +29,11 @@ func ConnectSQLite(file *utils.File) (*SQLWordList, error) {
 		return nil, fmt.Errorf("connect to sqlite database: %w", err)
 	}
 
-	return &SQLWordList{db}, nil
+	return &SQLiteWordList{db}, nil
 }
 
 // Word returns a random word with length of l.
-func (wl *SQLWordList) Word(length int16) (string, error) {
+func (wl *SQLiteWordList) Word(length int16) (string, error) {
 	w, err := randomWord(wl.db, length)
 	if err != nil {
 		return "", fmt.Errorf("querying for a random word: %w", err)
@@ -43,7 +43,7 @@ func (wl *SQLWordList) Word(length int16) (string, error) {
 }
 
 // Close properly close the database connection.
-func (wl *SQLWordList) Close() error {
+func (wl *SQLiteWordList) Close() error {
 	if err := wl.db.Close(); err != nil {
 		return fmt.Errorf("close wordlist: %w", err)
 	}
