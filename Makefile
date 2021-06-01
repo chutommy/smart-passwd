@@ -1,13 +1,13 @@
 .PHONY: wordlist
 wordlist:
 	touch data/parsed/wordlist-1.db
-	python3 data/prenasec.py data/raw/wordlist-1.txt data/parsed/wordlist-1.db
+	python3 data/prenasec_sqlite.py data/raw/wordlist-1.txt data/parsed/wordlist-1.db
 
 .PHONY: test-wordlist
 test-wordlist:
-	python3 data/prenasec.py data/raw/wordlist-1.txt pkg/data/test/wordlist.db
-	python3 data/prenasec.py data/raw/wordlist-1.txt pkg/engine/test/wordlist.db
-	python3 data/prenasec.py data/raw/wordlist-1.txt pkg/server/test/wordlist.db
+	python3 data/prenasec_sqlite.py data/raw/wordlist-1.txt pkg/data/test/wordlist.db
+	python3 data/prenasec_sqlite.py data/raw/wordlist-1.txt pkg/engine/test/wordlist.db
+	python3 data/prenasec_sqlite.py data/raw/wordlist-1.txt pkg/server/test/wordlist.db
 
 .PHONY: test
 test:

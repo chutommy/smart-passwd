@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""Prenasec.py parses a word list from a source file to the SQLite3 database."""
+"""prenasec_sqlite.py parses a word list from a source file to the SQLite3 database."""
 
 __author__ = "Tommy Ch., Joly S."
 __copyright__ = "Copyright 2021, SmartPasswd"
@@ -19,7 +19,7 @@ def retrieve_arguments():
     args = sys.argv
     if len(args) != 3:
         sys.exit(f"""Invalid arguments: {args}
-    USAGE: python3 prenasec.py [SOURCE] [TARGET]""")
+    USAGE: python3 prenasec_sqlite.py [SOURCE] [TARGET]""")
 
     return args[1], args[2]
 
