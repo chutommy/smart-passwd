@@ -83,7 +83,7 @@ func TestWordList_Word(t *testing.T) {
 		},
 	}
 
-	wl := WordList{testDB}
+	wl := SQLWordList{testDB}
 
 	for _, tt := range tests {
 		tt := tt

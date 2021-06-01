@@ -25,7 +25,7 @@ func TestMain(m *testing.M) {
 	s := NewSwapper()
 
 	testEngine = Init(wl, c, s)
-	testInvalidEngine = Init(&data.WordList{}, c, s)
+	testInvalidEngine = Init(&data.SQLWordList{}, c, s)
 
 	os.Exit(m.Run())
 }

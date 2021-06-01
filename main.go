@@ -78,7 +78,7 @@ func main() {
 	logger.Printf("server successfully closed\n")
 }
 
-func setServer(wl *data.WordList, cfg *config.Config) *server.Server {
+func setServer(wl *data.SQLWordList, cfg *config.Config) *server.Server {
 	ctr := engine.NewConstructor(3, 22)
 	swp := engine.NewSwapper()
 	e := engine.Init(wl, ctr, swp)
@@ -86,7 +86,7 @@ func setServer(wl *data.WordList, cfg *config.Config) *server.Server {
 	return server.NewServer(cfg, e)
 }
 
-func connectDB(cfg *config.Config) (*data.WordList, error) {
+func connectDB(cfg *config.Config) (*data.SQLWordList, error) {
 	dbDir, dbBase := filepath.Split(cfg.DBFile)
 	dbFileArr := strings.Split(dbBase, ".")
 	dbFile := utils.NewFile(dbDir, dbFileArr[0], dbFileArr[1])
