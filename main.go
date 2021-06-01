@@ -78,7 +78,7 @@ func main() {
 	logger.Printf("server successfully closed\n")
 }
 
-func setServer(wl *data.SQLiteWordList, cfg *config.Config) *server.Server {
+func setServer(wl data.WordList, cfg *config.Config) *server.Server {
 	ctr := engine.NewConstructor(3, 22)
 	swp := engine.NewSwapper()
 	e := engine.Init(wl, ctr, swp)

@@ -108,6 +108,7 @@ func TestServer_Shutdown(t *testing.T) {
 	srvOk := NewServer(testConfig, testEngine)
 
 	wg.Add(1)
+
 	go func() {
 		require.NoError(t, srvOk.Shutdown(500*time.Millisecond))
 		wg.Done()
@@ -119,6 +120,7 @@ func TestServer_Shutdown(t *testing.T) {
 	srvErr := NewServer(testConfig, testEngine)
 
 	wg.Add(1)
+
 	go func() {
 		require.Error(t, srvErr.Shutdown(0))
 		wg.Done()

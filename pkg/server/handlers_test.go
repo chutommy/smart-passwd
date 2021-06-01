@@ -3,7 +3,6 @@ package server
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"io"
 	"io/ioutil"
 	"net/http"
@@ -105,8 +104,6 @@ func TestPasswordGenHandler(t *testing.T) {
 			req, err := http.NewRequestWithContext(context.Background(), "POST", "/gen", tt.reqBody)
 			require.NoError(t, err)
 			r.ServeHTTP(w, req)
-
-			fmt.Println("====", w.Body.String())
 
 			require.Equal(t, tt.expCode, w.Code)
 			require.Equal(t, "application/json; charset=utf-8", w.Header().Get("content-type"))
