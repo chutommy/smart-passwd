@@ -8,7 +8,7 @@ import (
 	"github.com/chutified/smart-passwd/pkg/utils"
 )
 
-// SQLWordList represents a list of words.
+// SQLWordList represents a SQL-based implementation for WordList interface.
 type SQLWordList struct {
 	db *sql.DB
 }

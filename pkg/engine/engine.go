@@ -14,13 +14,13 @@ var ErrInvalidRequirements = errors.New("invalid requirements")
 
 // Engine represents a password generator engine.
 type Engine struct {
-	w *data.SQLWordList
+	w data.WordList
 	c *Constructor
 	s *Swapper
 }
 
 // Init initializes a new Engine.
-func Init(wordList *data.SQLWordList, constructor *Constructor, swapper *Swapper) *Engine {
+func Init(wordList data.WordList, constructor *Constructor, swapper *Swapper) *Engine {
 	return &Engine{
 		w: wordList,
 		c: constructor,
