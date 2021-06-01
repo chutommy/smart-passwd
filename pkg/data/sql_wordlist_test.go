@@ -38,7 +38,7 @@ func TestConnect(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
 
-			wl, err := Connect(tt.file)
+			wl, err := ConnectSQLite(tt.file)
 			if tt.wantErr {
 				require.Error(t, err)
 				require.Nil(t, wl)

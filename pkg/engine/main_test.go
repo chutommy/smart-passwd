@@ -16,7 +16,7 @@ var (
 )
 
 func TestMain(m *testing.M) {
-	wl, err := data.Connect(utils.NewFile("test", "wordlist", "db"))
+	wl, err := data.ConnectSQLite(utils.NewFile("test", "wordlist", "db"))
 	if err != nil {
 		log.Fatal(err)
 	}

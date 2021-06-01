@@ -13,9 +13,9 @@ type SQLWordList struct {
 	db *sql.DB
 }
 
-// Connect connects to the given SQLite3 database and
+// ConnectSQLite connects to the given SQLite3 database and
 // constructs a new SQLWordList linked with the DB.
-func Connect(file *utils.File) (*SQLWordList, error) {
+func ConnectSQLite(file *utils.File) (*SQLWordList, error) {
 	if file == nil {
 		return nil, utils.ErrNilValue
 	}

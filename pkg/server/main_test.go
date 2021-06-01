@@ -22,12 +22,12 @@ var (
 func TestMain(m *testing.M) {
 	gin.SetMode(gin.TestMode)
 
-	wl, err := data.Connect(utils.NewFile("test", "wordlist", "db"))
+	wl, err := data.ConnectSQLite(utils.NewFile("test", "wordlist", "db"))
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	iwl, err := data.Connect(utils.NewFile("test", "invalid-wordlist", "db"))
+	iwl, err := data.ConnectSQLite(utils.NewFile("test", "invalid-wordlist", "db"))
 	if err != nil {
 		log.Fatal(err)
 	}

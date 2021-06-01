@@ -91,7 +91,7 @@ func connectDB(cfg *config.Config) (*data.SQLWordList, error) {
 	dbFileArr := strings.Split(dbBase, ".")
 	dbFile := utils.NewFile(dbDir, dbFileArr[0], dbFileArr[1])
 
-	wl, err := data.Connect(dbFile)
+	wl, err := data.ConnectSQLite(dbFile)
 	if err != nil {
 		return nil, fmt.Errorf("data connection: %w", err)
 	}
