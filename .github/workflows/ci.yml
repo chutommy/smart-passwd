@@ -14,10 +14,10 @@ jobs:
         uses: actions/setup-python@v2.2.2
 
       - name: Build wordlist
-        run: make wordlist
+        run: make wordlist-sql
 
       - name: Build testing wordlists
-        run: make test-wordlist
+        run: make test-wordlist-sql
 
       - name: Extract branch name
         shell: bash

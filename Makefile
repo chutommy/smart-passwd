@@ -1,10 +1,10 @@
-.PHONY: wordlist
-wordlist:
+.PHONY: wordlist-sql
+wordlist-sql:
 	touch data/parsed/wordlist-1.db
 	python3 data/prenasec_sqlite.py data/raw/wordlist-1.txt data/parsed/wordlist-1.db
 
-.PHONY: test-wordlist
-test-wordlist:
+.PHONY: test-wordlist-sql
+test-wordlist-sql:
 	python3 data/prenasec_sqlite.py data/raw/wordlist-1.txt pkg/data/test/wordlist.db
 	python3 data/prenasec_sqlite.py data/raw/wordlist-1.txt pkg/engine/test/wordlist.db
 	python3 data/prenasec_sqlite.py data/raw/wordlist-1.txt pkg/server/test/wordlist.db
