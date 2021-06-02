@@ -13,10 +13,15 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v2.2.2
 
-      - name: Build wordlist
+      - name: Build MongoDB wordlist
+        env:
+          SMART_PASSWD_MONGODB_URI: ${{ secrets.MONGODB_CONN_STRING }}
+        run: make wordlist-mongo
+
+      - name: Build SQL wordlist
         run: make wordlist-sql
 
-      - name: Build testing wordlists
+      - name: Build testing SQL wordlists
         run: make test-wordlist-sql
 
       - name: Extract branch name
