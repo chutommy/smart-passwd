@@ -1,3 +1,7 @@
+.PHONY: wordlist-mongo
+wordlist-mongo:
+	python3 data/prenasec_mongo.py data/raw/wordlist-1.txt $(SMART_PASSWD_MONGODB_URI)
+
 .PHONY: wordlist-sql
 wordlist-sql:
 	touch data/parsed/wordlist-1.db
