@@ -31,11 +31,11 @@ class WordList:
 
     Attributes
     ----------
-    # col : Collection
-    #     The database collection to insert
-    # file: textIO
-    #     The representation of the source text file
-    # """
+     col : Collection
+         The database collection to insert
+     file: textIO
+         The representation of the source text file
+     """
 
     def __init__(self, source, conn):
         """
