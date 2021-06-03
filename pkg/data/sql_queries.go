@@ -2,7 +2,6 @@ package data
 
 import (
 	"database/sql"
-	"errors"
 	"fmt"
 
 	"github.com/chutified/smart-passwd/pkg/utils"
@@ -33,10 +32,6 @@ const (
 		LIMIT 1;
 		`
 )
-
-// ErrNoWords is returned by randomWord when there are no rows
-// that satisfy the length condition.
-var ErrNoWords = errors.New("there are no words in database")
 
 // randomWords queries the table 'word' with the given sql
 // database connection. It returns a random string value under
