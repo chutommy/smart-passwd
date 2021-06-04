@@ -15,17 +15,17 @@ func TestRandomWord(t *testing.T) {
 	t.Run("nil db", func(t *testing.T) {
 		t.Parallel()
 
-		_, err := randomWord(nil, 8)
+		_, err := (&SQLiteWordList{db: nil}).randomWord(8)
 		require.True(t, errors.Is(err, utils.ErrNilValue))
 	})
 
 	t.Run("no words", func(t *testing.T) {
 		t.Parallel()
 
-		_, err := randomWord(testDB, 0)
+		_, err := testSQLWordList.randomWord(0)
 		require.Error(t, err)
 
-		_, err = randomWord(testDB, 25)
+		_, err = testSQLWordList.randomWord(25)
 		require.Error(t, err)
 	})
 
@@ -34,8 +34,8 @@ func TestRandomWord(t *testing.T) {
 		t.Run(fmt.Sprintf("len-%d", i), func(t *testing.T) {
 			t.Parallel()
 
-			w1, err1 := randomWord(testDB, i)
-			w2, err2 := randomWord(testDB, i)
+			w1, err1 := testSQLWordList.randomWord(i)
+			w2, err2 := testSQLWordList.randomWord(i)
 
 			require.NoError(t, err1)
 			require.NoError(t, err2)
@@ -51,7 +51,7 @@ func TestRandomWord(t *testing.T) {
 					break
 				}
 
-				w2, err2 = randomWord(testDB, i)
+				w2, err2 = testSQLWordList.randomWord(i)
 				require.NoError(t, err2)
 				require.NotEmpty(t, w2)
 			}

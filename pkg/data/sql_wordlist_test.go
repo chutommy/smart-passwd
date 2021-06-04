@@ -83,15 +83,13 @@ func TestWordList_Word(t *testing.T) {
 		},
 	}
 
-	wl := SQLiteWordList{testDB}
-
 	for _, tt := range tests {
 		tt := tt
 
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
 
-			w, err := wl.Word(tt.len)
+			w, err := testSQLWordList.Word(tt.len)
 			if tt.wantErr {
 				require.Error(t, err)
 				require.Empty(t, w)

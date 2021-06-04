@@ -11,23 +11,25 @@ import (
 )
 
 var (
-	testDBFile *utils.File
-	testDB     *sql.DB
+	testDBFile      *utils.File
+	testSQLWordList *SQLiteWordList
 )
 
 func TestMain(m *testing.M) {
 	var err error
 
 	testDBFile = utils.NewFile("test", "wordlist", "db")
-	if testDB, err = sql.Open("sqlite", testDBFile.FilePath()); err != nil {
+	testSQLWordList = &SQLiteWordList{}
+
+	if testSQLWordList.db, err = sql.Open("sqlite", testDBFile.FilePath()); err != nil {
 		log.Fatal(err)
 	}
 
-	if testDB == nil {
+	if testSQLWordList.db == nil {
 		log.Fatal("nil value of testDB")
 	}
 
-	if err = testDB.Ping(); err != nil {
+	if err = testSQLWordList.db.Ping(); err != nil {
 		log.Fatal(err)
 	}
 
