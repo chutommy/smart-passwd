@@ -1,6 +1,7 @@
 package data
 
 import (
+	"context"
 	"database/sql"
 	"fmt"
 	"os"
@@ -33,7 +34,7 @@ func ConnectSQLite(file *utils.File) (*SQLiteWordList, error) {
 }
 
 // Word returns a random word with length of l.
-func (wl *SQLiteWordList) Word(length int16) (string, error) {
+func (wl *SQLiteWordList) Word(_ context.Context, length int16) (string, error) {
 	w, err := wl.randomWord(length)
 	if err != nil {
 		return "", fmt.Errorf("querying for a random word: %w", err)
@@ -43,7 +44,7 @@ func (wl *SQLiteWordList) Word(length int16) (string, error) {
 }
 
 // Close properly close the database connection.
-func (wl *SQLiteWordList) Close() error {
+func (wl *SQLiteWordList) Close(_ context.Context) error {
 	if err := wl.db.Close(); err != nil {
 		return fmt.Errorf("close wordlist: %w", err)
 	}

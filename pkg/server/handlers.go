@@ -34,7 +34,7 @@ func passwordGenHandler(e *engine.Engine) gin.HandlerFunc {
 			return
 		}
 
-		resp, err := e.Generate(engine.NewRequest(
+		resp, err := e.Generate(c, engine.NewRequest(
 			int16(req.Length),
 			int16(req.ExtraSecurity),
 			req.Helper,

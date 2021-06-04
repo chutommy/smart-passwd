@@ -1,6 +1,7 @@
 package engine
 
 import (
+	"context"
 	"strings"
 	"testing"
 
@@ -55,7 +56,7 @@ func TestEngine_helperGen(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
 
-			ll, err := e.helperGen(tt.length)
+			ll, err := e.helperGen(context.Background(), tt.length)
 			if tt.wantErr {
 				require.Error(t, err)
 				require.Nil(t, ll)
@@ -70,7 +71,7 @@ func TestEngine_helperGen(t *testing.T) {
 
 	// test invalid wordlist
 	t.Run("invalid wordlist", func(t *testing.T) {
-		ll, err := ei.helperGen(10)
+		ll, err := ei.helperGen(context.Background(), 10)
 		require.Error(t, err)
 		require.Nil(t, ll)
 	})
@@ -125,7 +126,7 @@ func TestEngine_helper(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
 
-			h, err := e.helper(NewRequest(tt.length, 0, tt.helper))
+			h, err := e.helper(context.Background(), NewRequest(tt.length, 0, tt.helper))
 			if tt.wantErr {
 				require.Error(t, err)
 				require.Nil(t, h)
@@ -281,7 +282,7 @@ func TestEngine_Generate(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
 
-			resp, err := e.Generate(tt.req)
+			resp, err := e.Generate(context.Background(), tt.req)
 			if tt.wantErr {
 				require.Error(t, err)
 				require.Nil(t, resp)

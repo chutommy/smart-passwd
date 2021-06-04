@@ -1,6 +1,7 @@
 package engine
 
 import (
+	"context"
 	"errors"
 	"fmt"
 	"strings"
@@ -29,7 +30,7 @@ func Init(wordList data.WordList, constructor *Constructor, swapper *Swapper) *E
 }
 
 // Generate generates a new password using a ERequest.
-func (e *Engine) Generate(req *Request) (*Response, error) {
+func (e *Engine) Generate(ctx context.Context, req *Request) (*Response, error) {
 	req.helper = strings.TrimSpace(req.helper)
 
 	switch {
@@ -41,7 +42,7 @@ func (e *Engine) Generate(req *Request) (*Response, error) {
 		return nil, fmt.Errorf("%w: negative extra security value", ErrInvalidRequirements)
 	}
 
-	h, err := e.helper(req)
+	h, err := e.helper(ctx, req)
 	if err != nil {
 		return nil, err
 	}
@@ -77,14 +78,14 @@ func (e *Engine) swap(helper []string) string {
 
 // helper retrieves a helper from the request.
 // If helper is not provided, it generates a new one.
-func (e *Engine) helper(req *Request) ([]string, error) {
+func (e *Engine) helper(ctx context.Context, req *Request) ([]string, error) {
 	hs := strings.ToLower(req.helper)
 	h := strings.Split(hs, " ")
 
 	if req.helper == "" {
 		var err error
 
-		h, err = e.helperGen(req.length)
+		h, err = e.helperGen(ctx, req.length)
 		if err != nil {
 			return nil, fmt.Errorf("generate helper: %w", err)
 		}
@@ -94,7 +95,7 @@ func (e *Engine) helper(req *Request) ([]string, error) {
 }
 
 // helperGen generates a helper with a given length.
-func (e *Engine) helperGen(length int16) ([]string, error) {
+func (e *Engine) helperGen(ctx context.Context, length int16) ([]string, error) {
 	// split length
 	ll, err := e.c.Distribute(length)
 	if err != nil {
@@ -105,7 +106,7 @@ func (e *Engine) helperGen(length int16) ([]string, error) {
 	words := make([]string, len(ll))
 
 	for i, l := range ll {
-		w, err := e.w.Word(l)
+		w, err := e.w.Word(ctx, l)
 		if err != nil {
 			return nil, fmt.Errorf("generate word with length: %d: %w", l, err)
 		}

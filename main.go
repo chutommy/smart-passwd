@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"errors"
 	"fmt"
 	"log"
@@ -42,7 +43,7 @@ func main() {
 	}
 
 	defer func() {
-		if err := wl.Close(); err != nil {
+		if err := wl.Close(context.Background()); err != nil {
 			logger.Printf("failed to close the database connection: %v\n", err)
 			runtime.Goexit()
 		}

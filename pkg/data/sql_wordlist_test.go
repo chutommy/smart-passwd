@@ -1,6 +1,7 @@
 package data
 
 import (
+	"context"
 	"testing"
 
 	"github.com/chutified/smart-passwd/pkg/utils"
@@ -46,7 +47,7 @@ func TestConnect(t *testing.T) {
 				require.NoError(t, err)
 				require.NotEmpty(t, wl)
 
-				err = wl.Close()
+				err = wl.Close(context.Background())
 				require.NoError(t, err)
 			}
 		})
@@ -89,7 +90,7 @@ func TestWordList_Word(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
 
-			w, err := testSQLWordList.Word(tt.len)
+			w, err := testSQLWordList.Word(context.Background(), tt.len)
 			if tt.wantErr {
 				require.Error(t, err)
 				require.Empty(t, w)
