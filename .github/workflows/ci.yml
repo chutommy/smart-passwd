@@ -28,7 +28,7 @@ jobs:
 
       - name: Build MongoDB wordlist
         env:
-          SMART_PASSWD_MONGODB_URI: ${{ secrets.MONGODB_CONN_STRING }}
+          SMART_PASSWD_MONGODB_URI: ${{ secrets.MONGODB_WR_CS }}
         run: make wordlist-mongo
 
       - name: Build SQL wordlist
