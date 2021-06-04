@@ -34,7 +34,7 @@ func ConnectSQLite(file *utils.File) (*SQLiteWordList, error) {
 
 // Word returns a random word with length of l.
 func (wl *SQLiteWordList) Word(length int16) (string, error) {
-	w, err := randomWord(wl.db, length)
+	w, err := wl.randomWord(length)
 	if err != nil {
 		return "", fmt.Errorf("querying for a random word: %w", err)
 	}

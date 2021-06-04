@@ -1,7 +1,6 @@
 package data
 
 import (
-	"database/sql"
 	"fmt"
 
 	"github.com/chutified/smart-passwd/pkg/utils"
@@ -36,14 +35,14 @@ const (
 // randomWords queries the table 'word' with the given sql
 // database connection. It returns a random string value under
 // the column 'word'.
-func randomWord(db *sql.DB, l int16) (string, error) {
-	if db == nil {
+func (wl *SQLiteWordList) randomWord(l int16) (string, error) {
+	if wl.db == nil {
 		return "", utils.ErrNilValue
 	}
 
 	var word string
 
-	err := db.QueryRow(wordRandomLen, l).Scan(&word)
+	err := wl.db.QueryRow(wordRandomLen, l).Scan(&word)
 	if err != nil {
 		return "", fmt.Errorf("failed to query for a random word of length: %d: %w", l, err)
 	}
