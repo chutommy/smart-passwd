@@ -46,7 +46,7 @@ func main() {
 //
 // 	return js.ValueOf(w)
 // }
-//
+
 // func stop(js.Value, []js.Value) interface{} {
 // 	if err := Runner.Stop(); err != nil {
 // 		return fmt.Sprintf("failed to retrieve a random word: %s", err.Error())
