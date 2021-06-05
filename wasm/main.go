@@ -16,28 +16,28 @@ package main
 // 	MongoReadURI string = `**********************************************************************************************************`
 // 	Runner       *wasm.Runner
 // )
-//
-// func main() {
-// 	defer os.Exit(0)
-// 	c := make(chan struct{}, 0)
-//
-// 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
-// 	defer cancel()
-//
-// 	wl, err := data.ConnectMongo(ctx, MongoReadURI)
-// 	if err != nil {
-// 		fmt.Printf("failed to connect to mongo database: %s\n", err.Error())
-// 		runtime.Goexit()
-// 	}
-//
-// 	Runner = wasm.NewRunner(wl)
-//
-// 	js.Global().Set("gen", js.FuncOf(gen))
-// 	js.Global().Set("stop", js.FuncOf(stop))
-//
-// 	<-c
-// }
-//
+
+func main() {
+	// 	defer os.Exit(0)
+	// 	c := make(chan struct{}, 0)
+	//
+	// 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	// 	defer cancel()
+	//
+	// 	wl, err := data.ConnectMongo(ctx, MongoReadURI)
+	// 	if err != nil {
+	// 		fmt.Printf("failed to connect to mongo database: %s\n", err.Error())
+	// 		runtime.Goexit()
+	// }
+	// 
+	// 	Runner = wasm.NewRunner(wl)
+	//
+	// 	js.Global().Set("gen", js.FuncOf(gen))
+	// 	js.Global().Set("stop", js.FuncOf(stop))
+	//
+	// 	<-c
+}
+
 // func gen(_ js.Value, p []js.Value) interface{} {
 // 	w, err := Runner.Gen(int16(p[0].Int()))
 // 	if err != nil {
