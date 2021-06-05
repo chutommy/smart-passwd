@@ -29,7 +29,7 @@ func main() {
 	// 		fmt.Printf("failed to connect to mongo database: %s\n", err.Error())
 	// 		runtime.Goexit()
 	// }
-	// 
+	//
 	// 	Runner = wasm.NewRunner(wl)
 	//
 	// 	js.Global().Set("gen", js.FuncOf(gen))

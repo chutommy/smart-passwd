@@ -18,7 +18,8 @@ RUN go mod download
 RUN go mod tidy
 
 # build binary
-RUN GOOS=js GOARCH=wasm go build -o bin/main.wasm wasm/main.go
+RUN GOOS=js GOARCH=wasm go build -o bin/sqlite-main.wasm wasm/sqlite/main.go
+RUN GOOS=js GOARCH=wasm go build -o bin/mongo-main.wasm wasm/mongo/main.go
 # get the js support file
 RUN mkdir scripts
 RUN cp "$(go env GOROOT)/misc/wasm/wasm_exec.js" scripts/
