@@ -68,9 +68,6 @@ jobs:
       - name: Clean up
         run: go mod tidy
 
-      - name: Build
-        run: go build -v ./...
-
       - name: Test
         run: make test
 
