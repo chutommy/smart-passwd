@@ -16,7 +16,7 @@ test-wordlist-sql:
 
 .PHONY: test
 test:
-	go test -v ./...
+	go test -v ./pkg/...
 
 .PHONY: build
 build:
