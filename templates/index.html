@@ -128,14 +128,24 @@
 <script src="./scripts/slider.js" async></script>
 <script src="./scripts/buttons.js" async></script>
 
-<!--wasm-->
-<!--<script src="./scripts/wasm_exec.js"></script>-->
-<!--<script>-->
-<!--  const go = new Go();-->
-<!--  WebAssembly.instantiateStreaming(fetch("./wasm/main.wasm"), go.importObject)-->
-<!--    .then((result) => {-->
-<!--      go.run(result.instance);-->
-<!--    });-->
-<!--</script>-->
+<!--data-->
+<script src="./node_modules/sql.js/dist/sql-wasm.js"></script>
+<script>
+  const sqlPromise = initSqlJs({
+    locateFile: file => `./node_modules/sql.js/dist/${file}`
+  });
+  const dataPromise = fetch("./db/wordlist.db").then(res => res.arrayBuffer());
+</script>
+<script src="./scripts/sql-data.js"></script>
+
+<!--password retarder engine-->
+<script src="./scripts/wasm_exec.js"></script>
+<script>
+  const go = new Go();
+  WebAssembly.instantiateStreaming(fetch("./wasm/sqlite-main.wasm"), go.importObject)
+    .then((result) => {
+      go.run(result.instance);
+    });
+</script>
 </body>
 </html>
