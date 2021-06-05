@@ -21,6 +21,9 @@ import (
 	_ "modernc.org/sqlite"
 )
 
+// MongoAppURI is a connection string of the SmartPasswd Mongo Atlas database with a read-only user.
+var MongoAppURI = "mongodb+srv://appclient:JEZt8LMrj2riAB0C@production.iz3mf.mongodb.net/wordlist?retryWrites=true&w=majority"
+
 func main() {
 	defer os.Exit(0)
 
@@ -37,6 +40,7 @@ func main() {
 	logger.Printf("connecting to a database...\n")
 
 	wl, err := connectDB(cfg)
+	// wl, err := data.ConnectMongo(context.Background(), MongoAppURI)
 	if err != nil {
 		logger.Printf("failed to connect to the database: %v\n", err)
 		runtime.Goexit()
