@@ -12,6 +12,7 @@ test-wordlist-sql:
 	python3 data/prenasec_sqlite.py data/raw/wordlist-1.txt pkg/data/test/wordlist.db
 	python3 data/prenasec_sqlite.py data/raw/wordlist-1.txt pkg/engine/test/wordlist.db
 	python3 data/prenasec_sqlite.py data/raw/wordlist-1.txt pkg/server/test/wordlist.db
+	python3 data/prenasec_sqlite.py data/raw/wordlist-1.txt templates/db/wordlist.db
 
 .PHONY: test
 test:
