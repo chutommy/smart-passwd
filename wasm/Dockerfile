@@ -27,5 +27,6 @@ RUN cp "$(go env GOROOT)/misc/wasm/wasm_exec.js" scripts/
 
 FROM scratch AS export-stage
 # store binaries
-COPY --from=build-stage /build/bin/main.wasm /wasm/
+COPY --from=build-stage /build/bin/sqlite-main.wasm /wasm/
+COPY --from=build-stage /build/bin/mongo-main.wasm /wasm/
 COPY --from=build-stage /build/scripts/wasm_exec.js /scripts/
