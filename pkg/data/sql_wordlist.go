@@ -25,7 +25,7 @@ func ConnectSQLite(file *utils.File) (*SQLiteWordList, error) {
 		return nil, fmt.Errorf("read database file: %w", err)
 	}
 
-	db, err := sql.Open("sqlite", file.FilePath())
+	db, err := sql.Open("sqlite3", file.FilePath())
 	if err != nil {
 		return nil, fmt.Errorf("connect to sqlite database: %w", err)
 	}

@@ -18,7 +18,7 @@ import (
 	"github.com/chutified/smart-passwd/pkg/engine"
 	"github.com/chutified/smart-passwd/pkg/server"
 	"github.com/chutified/smart-passwd/pkg/utils"
-	_ "modernc.org/sqlite"
+	_ "github.com/mattn/go-sqlite3"
 )
 
 // MongoAppURI is a connection string of the SmartPasswd Mongo Atlas database with a read-only user.

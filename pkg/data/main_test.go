@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/chutified/smart-passwd/pkg/utils"
-	_ "modernc.org/sqlite"
+	_ "github.com/mattn/go-sqlite3"
 )
 
 var (
@@ -21,7 +21,7 @@ func TestMain(m *testing.M) {
 	testDBFile = utils.NewFile("test", "wordlist", "db")
 	testSQLWordList = &SQLiteWordList{}
 
-	if testSQLWordList.db, err = sql.Open("sqlite", testDBFile.FilePath()); err != nil {
+	if testSQLWordList.db, err = sql.Open("sqlite3", testDBFile.FilePath()); err != nil {
 		log.Fatal(err)
 	}
 

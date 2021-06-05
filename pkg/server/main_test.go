@@ -10,7 +10,7 @@ import (
 	"github.com/chutified/smart-passwd/pkg/engine"
 	"github.com/chutified/smart-passwd/pkg/utils"
 	"github.com/gin-gonic/gin"
-	_ "modernc.org/sqlite"
+	_ "github.com/mattn/go-sqlite3"
 )
 
 var (
