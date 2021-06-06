@@ -16,7 +16,8 @@ test-wordlist-sql:
 
 .PHONY: test
 test:
-	go test -v ./pkg/...
+	GOOS=linux GOARCH=amd64 go test -v ./pkg/...
+	GOOS=js GOARCH=wasm go test -v ./wasm/...
 
 .PHONY: build
 build:
