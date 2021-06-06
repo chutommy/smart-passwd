@@ -2,6 +2,7 @@ package wasm
 
 import (
 	"context"
+	"fmt"
 	"time"
 
 	"github.com/chutified/smart-passwd/pkg/data"
@@ -27,13 +28,18 @@ func NewRunner(wl *data.MongoWordList) *Runner {
 
 // Gen generates a random word with length of l.
 func (r *Runner) Gen(l int16) (string, error) {
-	return r.WordList.Word(r.ctx, l)
+	w, err := r.WordList.Word(r.ctx, l)
+	if err != nil {
+		return "", fmt.Errorf("generate word from wordlist: %w", err)
+	}
+
+	return w, nil
 }
 
 // Stop stops all idle connections.
 func (r *Runner) Stop() error {
 	if err := r.WordList.Close(r.ctx); err != nil {
-		return err
+		return fmt.Errorf("closing wordlist: %w", err)
 	}
 
 	r.cancel()

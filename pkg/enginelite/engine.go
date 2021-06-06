@@ -38,10 +38,7 @@ func (e *Engine) Generate(_ context.Context, req *Request) (*Response, error) {
 		return nil, fmt.Errorf("%w: negative extra security value", ErrInvalidRequirements)
 	}
 
-	h, err := e.helper(req)
-	if err != nil {
-		return nil, err
-	}
+	h := e.helper(req)
 
 	p := e.swap(h)
 	p = e.s.ExtraSec(p, req.extraSec)
@@ -74,9 +71,9 @@ func (e *Engine) swap(helper []string) string {
 
 // helper retrieves a helper from the request.
 // If helper is not provided, it generates a new one.
-func (e *Engine) helper(req *Request) ([]string, error) {
+func (e *Engine) helper(req *Request) []string {
 	hs := strings.ToLower(req.helper)
 	h := strings.Split(hs, " ")
 
-	return h, nil
+	return h
 }

@@ -22,7 +22,7 @@ import (
 )
 
 // MongoAppURI is a connection string of the SmartPasswd Mongo Atlas database with a read-only user.
-var MongoAppURI = "mongodb+srv://appclient:JEZt8LMrj2riAB0C@production.iz3mf.mongodb.net/wordlist?retryWrites=true&w=majority"
+var _ = "mongodb+srv://appclient:JEZt8LMrj2riAB0C@production.iz3mf.mongodb.net/wordlist?retryWrites=true&w=majority"
 
 func main() {
 	defer os.Exit(0)
