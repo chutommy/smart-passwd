@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 	"runtime"
-	js "syscall/js"
+	"syscall/js"
 	"time"
 
 	"github.com/chutified/smart-passwd/pkg/data"
