@@ -53,9 +53,40 @@ jobs:
             git pull -X ours origin ${{ steps.extract_branch.outputs.branch }}
             git push origin HEAD:${{ steps.extract_branch.outputs.branch }}
           fi
+  
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.16
+
+      - name: Go mod tidy
+        run: go mod tidy
+        
+      - name: NPM update
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+        run: make npmu
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "chutified"
+          git config --global user.email "tommychu2256@gmail.com"
+          git config pull.rebase true
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "Build binaries [GitHub Action]"
+            git pull -X ours origin ${{ steps.extract_branch.outputs.branch }}
+            git push origin HEAD:${{ steps.extract_branch.outputs.branch }}
+          fi
 
   test:
-    needs: [data]
+    needs: [data, update]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -72,7 +103,7 @@ jobs:
         run: make test
 
   build:
-    needs: [data]
+    needs: [data, update]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

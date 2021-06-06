@@ -33,7 +33,12 @@ docker:
 	docker run -it -p 8080:8080 smart-passwd
 
 .PHONY: npmi
+npmi:
 	npm install --prefix ./templates --only=production
+
+.PHONY: npmu
+npmu:
+	npm update --prefix ./templates
 
 BG_IMAGES?=templates/assets/styles/images/background
 
