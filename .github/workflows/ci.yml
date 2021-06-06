@@ -44,8 +44,8 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git config --global user.name "chutified"
-          git config --global user.email "tommychu2256@gmail.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config pull.rebase true
           if [ -n "$(git status --porcelain)" ]; then
             git add -A
@@ -75,8 +75,8 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git config --global user.name "chutified"
-          git config --global user.email "tommychu2256@gmail.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config pull.rebase true
           if [ -n "$(git status --porcelain)" ]; then
             git add -A
@@ -118,8 +118,8 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git config --global user.name "chutified"
-          git config --global user.email "tommychu2256@gmail.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config pull.rebase true
           if [ -n "$(git status --porcelain)" ]; then
             git add -A
@@ -144,8 +144,8 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git config --global user.name "chutified"
-          git config --global user.email "tommychu2256@gmail.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config pull.rebase true
           if [ -n "$(git status --porcelain)" ]; then
             git add -A
