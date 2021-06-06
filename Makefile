@@ -32,6 +32,9 @@ docker:
 	DOCKER_BUILDKIT=1 docker build --file Dockerfile -t smart-passwd .
 	docker run -it -p 8080:8080 smart-passwd
 
+.PHONY: npmi
+	npm install --prefix ./templates --only=production
+
 BG_IMAGES?=templates/assets/styles/images/background
 
 .PHONY: bg-build

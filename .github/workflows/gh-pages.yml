@@ -14,6 +14,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Install node modules
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: make npmi
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
