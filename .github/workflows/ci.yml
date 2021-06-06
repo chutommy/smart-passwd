@@ -73,6 +73,11 @@ jobs:
           node-version: '14'
       - run: make npmu
 
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+
       - name: Commit and push changes
         run: |
           git config --global user.name "github-actions[bot]"
