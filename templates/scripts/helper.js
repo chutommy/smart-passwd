@@ -15,7 +15,7 @@ document.getElementById("helper").addEventListener("keyup", function (event) {
     document.getElementById("slider-len").max = 60;
   } else {
     document.getElementById("clear").disabled = true;
-    document.getElementById("len").innerHTML = 5 + parseInt(document.getElementById("extra").innerHTML);
+    document.getElementById("len").innerHTML = (5 + parseInt(document.getElementById("extra").innerHTML)).toString();
     document.getElementById("slider-len").value = 0;
     document.getElementById('slider-len').disabled = false;
     $('[id="slider-len"], [id="len"]>span').css('filter', 'opacity(100%)');

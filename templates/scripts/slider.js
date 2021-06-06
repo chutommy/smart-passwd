@@ -1,9 +1,10 @@
 // length slider
 $(function () {
-  let rangeVal = $('[id="slider-len"]').val();
+  let $lenSlider = jQuery('[id="slider-len"]');
+  let rangeVal = $lenSlider.val();
   $('[id="slider-len"]').on('change input', function () {
-    rangeVal = parseInt($('[id="slider-len"]').val());
-    $('[id="len"]').html(5 + parseInt($('[id="slider-len"]').val()) + parseInt($('[id="slider-extra"]').val())); // update len
+    rangeVal = parseInt($lenSlider.val());
+    $('[id="len"]').html(5 + parseInt($lenSlider.val()) + parseInt($('[id="slider-extra"]').val())); // update len
     if (rangeVal < 20) {
       $('[id="slider-len"], [id="len"]>span').css('filter', 'hue-rotate(' + rangeVal * 100 / 27 * 1.5 + 'deg)');
     } else {
@@ -14,9 +15,10 @@ $(function () {
 
 // extra security value slider
 $(function () {
-  let rangeVal = $('[id="slider-extra"]').val();
-  $('[id="slider-extra"]').on('change input', function () {
-    rangeVal = parseInt($('[id="slider-extra"]').val());
+  let $extraSlider = jQuery('[id="slider-extra"]');
+  let rangeVal = $extraSlider.val();
+  $extraSlider.on('change input', function () {
+    rangeVal = parseInt($extraSlider.val());
     $('[id="extra"]').html(rangeVal);
     if (document.getElementById('slider-len').disabled === true) {
       $('[id="len"]').html(parseInt($('[id="slider-len"]').val()) + parseInt($('[id="slider-extra"]').val())); // update len
