@@ -15,7 +15,7 @@ type Runner struct {
 	cancel   context.CancelFunc
 }
 
-// NewRunner is a contructor of the Runner controller.
+// NewRunner is a constructor of the Runner controller.
 func NewRunner(wl *data.MongoWordList) *Runner {
 	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
 
