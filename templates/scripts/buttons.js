@@ -12,18 +12,10 @@ function resetHelper() {
 
 // button to copy a content of the element with the given id
 function copyText(id) {
-  const e = document.getElementById(id);
-  if (e.type === "password") {
-    e.type = "text";
-    copyDisabledElement(e);
-    e.type = "password";
-  } else {
-    copyDisabledElement(e);
-  }
-
-// navigator.clipboard.writeText(text.value)
-//   .then(() => $.notify("Successfully copied", "success"),
-//     () => $.notify("Unsuccessfully copied", "error"));
+  const text = document.getElementById(id);
+  navigator.clipboard.writeText(text.value)
+    .then(() => $.notify("Successfully copied", "success"),
+      () => $.notify("Unsuccessfully copied", "error"));
 }
 
 function copyDisabledElement(e) {
