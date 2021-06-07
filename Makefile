@@ -12,7 +12,7 @@ test-wordlist-sql:
 	python3 data/prenasec_sqlite.py data/raw/wordlist-1.txt pkg/data/test/wordlist.db
 	python3 data/prenasec_sqlite.py data/raw/wordlist-1.txt pkg/engine/test/wordlist.db
 	python3 data/prenasec_sqlite.py data/raw/wordlist-1.txt pkg/server/test/wordlist.db
-	python3 data/prenasec_sqlite.py data/raw/wordlist-1.txt templates/db/wordlist.db
+	python3 data/prenasec_sqlite.py data/raw/wordlist-1.txt public/db/wordlist.db
 
 .PHONY: test
 test:
@@ -25,7 +25,7 @@ build:
 
 .PHONY: wasm
 wasm:
-	DOCKER_BUILDKIT=1 docker build --target export-stage --output templates --file wasm/Dockerfile .
+	DOCKER_BUILDKIT=1 docker build --target export-stage --output public --file wasm/Dockerfile .
 
 .PHONY: docker
 docker:
@@ -34,13 +34,13 @@ docker:
 
 .PHONY: npmi
 npmi:
-	npm install --prefix ./templates --only=production
+	npm install --prefix ./public --only=production
 
 .PHONY: npmu
 npmu:
-	npm update --prefix ./templates
+	npm update --prefix ./public
 
-BG_IMAGES?=templates/assets/styles/images/background
+BG_IMAGES?=public/assets/styles/images/background
 
 .PHONY: bg-build
 bg-build:
@@ -57,7 +57,7 @@ bg-render:
 			 --export-type=png -w 2560 -h 1600 \
 			 $(BG_IMAGES)/bg.svg
 
-FAVICONS?=templates/images
+FAVICONS?=public/images
 
 .PHONY: favicon
 favicon:

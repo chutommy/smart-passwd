@@ -51,9 +51,9 @@ func setRouter(root string, e *engine.Engine, r *gin.Engine) {
 	r.GET("/ping", pingHandler())
 	r.POST("/gen", passwordGenHandler(e))
 
-	r.Static("/assets", filepath.Join(root, "templates/assets"))
-	r.Static("/scripts", filepath.Join(root, "templates/scripts"))
-	r.LoadHTMLFiles(filepath.Join(root, "templates/index.html"))
+	r.Static("/assets", filepath.Join(root, "public/assets"))
+	r.Static("/scripts", filepath.Join(root, "public/scripts"))
+	r.LoadHTMLFiles(filepath.Join(root, "public/index.html"))
 	r.GET("/", homePageHandler())
 }
 

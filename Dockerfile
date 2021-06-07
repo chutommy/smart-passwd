@@ -31,7 +31,7 @@ ENV CGO_ENABLED="1"
 
 # prepare workspace
 WORKDIR /launch
-COPY templates/ templates/
+COPY public/ public/
 COPY data/ data/
 COPY config.yaml .
 COPY --from=build-stage /build/main .
