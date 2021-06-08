@@ -173,9 +173,7 @@
 <!--service worker for pwa-->
 <script>
   if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/smart-password/service-worker.js', {scope: '/smart-passwd'});
-    });
+      navigator.serviceWorker.register('/smart-password/service-worker.js', {scope: '/smart-passwd/'});
   }
 </script>
 
