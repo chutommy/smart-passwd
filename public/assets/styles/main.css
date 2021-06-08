@@ -73,6 +73,14 @@ input, select, textarea {
 
 /* Basic */
 
+@font-face {
+  font-family: 'sans-serif';
+  font-style: normal;
+  font-weight: 400;
+  src: local('sans-serif');
+  font-display: swap;
+}
+
 html {
   box-sizing: border-box;
 }
