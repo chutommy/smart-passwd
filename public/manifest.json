@@ -16,7 +16,7 @@
       "purpose": "maskable any"
     }
   ],
-  "start_url": "/smart-passwd",
+  "start_url": "/",
   "background_color": "#142c38",
   "theme_color": "#040e12",
   "display": "fullscreen",
