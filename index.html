@@ -174,7 +174,7 @@
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/service-worker.js');
+      navigator.serviceWorker.register('./smart-passwd/service-worker.js', {scope: '/smart-passwd'});
     });
   }
 </script>
