@@ -54,7 +54,7 @@ bg-render:
 					 --image $(BG_IMAGES)/bg-orig.jpg \
 					 --output $(BG_IMAGES)/bg
 	inkscape --export-filename $(BG_IMAGES)/bg \
-			 --export-type=png -w 2560 -h 1600 \
+			 --export-type=png -w 3840 -h 2160 \
 			 $(BG_IMAGES)/bg.svg
 
 FAVICONS?=public/images
