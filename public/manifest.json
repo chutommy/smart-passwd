@@ -18,18 +18,18 @@
   ],
   "start_url": "/smart-passwd",
   "background_color": "#142c38",
-  "theme_color": "#3c9054",
+  "theme_color": "#040e12",
   "display": "fullscreen",
   "screenshots": [
     {
       "src": "./assets/images/screenshots/random.png",
       "type": "image/png",
-      "sizes": "640x360"
+      "sizes": "1920x1080"
     },
     {
       "src": "./assets/images/screenshots/custom.png",
       "type": "image/png",
-      "sizes": "640x360"
+      "sizes": "1920x1080"
     }
   ]
 }
