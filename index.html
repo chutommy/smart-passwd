@@ -3,15 +3,19 @@
     html5up.net | @ajlkn
     Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
+<!--suppress JSUnusedGlobalSymbols -->
 <html lang="en">
 <head>
   <title>Smart Password</title>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
   <meta name="description" content="SmartPasswd helps users to generate and use safe passwords which can be easily remembered thanks to meaningful reminders.">
-  <link rel="icon" type="image/ico" href="./assets/images/favicon.ico"/>
+  <meta name="theme-color" content="#040e12"/>
 
-  <link rel="preload" as="font" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900&display=swap">
+  <link rel="icon" type="image/ico" href="./assets/images/favicon.ico"/>
+  <link rel="apple-touch-icon" href="./assets/images/pwa-assets/apple-icon-180.png">
+  <link rel="manifest" href="./manifest.json">
+
   <link rel="preconnect" as="style" href="./assets/styles/main.css">
 
   <!-- Stylesheets -->
@@ -164,6 +168,15 @@
     .then((result) => {
       go.run(result.instance);
     });
+</script>
+
+<!--service worker for pwa-->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js');
+    });
+  }
 </script>
 
 <script src="./scripts/api.js" async></script>
