@@ -10,6 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
   <meta name="description" content="SmartPasswd helps users to generate and use safe passwords which can be easily remembered thanks to meaningful reminders.">
   <link rel="icon" type="image/ico" href="./assets/images/favicon.ico"/>
+  <link rel="manifest" href="./manifest.json">
 
   <link rel="preconnect" as="style" href="./assets/styles/main.css">
 
@@ -163,6 +164,15 @@
     .then((result) => {
       go.run(result.instance);
     });
+</script>
+
+<!--service worker for pwa-->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./scripts/service-worker.js');
+    });
+  }
 </script>
 
 <script src="./scripts/api.js" async></script>

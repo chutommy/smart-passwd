@@ -57,18 +57,22 @@ bg-render:
 			 --export-type=png -w 3840 -h 2160 \
 			 $(BG_IMAGES)/bg.svg
 
-FAVICONS?=public/assets/images
+IMAGES?=public/assets/images
 
 .PHONY: favicon
 favicon:
-	inkscape --export-filename $(FAVICONS)/16 \
+	inkscape --export-filename $(IMAGES)/16 \
 			 --export-type=png -w 16 -h 16 \
-			 $(FAVICONS)/logo.svg
-	inkscape --export-filename $(FAVICONS)/32 \
+			 $(IMAGES)/logo.svg
+	inkscape --export-filename $(IMAGES)/32 \
 			 --export-type=png -w 32 -h 32 \
-			 $(FAVICONS)/logo.svg
-	inkscape --export-filename $(FAVICONS)/48 \
+			 $(IMAGES)/logo.svg
+	inkscape --export-filename $(IMAGES)/48 \
 			 --export-type=png -w 48 -h 48 \
-			 $(FAVICONS)/logo.svg
-	convert $(FAVICONS)/16.png $(FAVICONS)/32.png $(FAVICONS)/48.png $(FAVICONS)/favicon.ico
-	rm $(FAVICONS)/16.png $(FAVICONS)/32.png $(FAVICONS)/48.png
+			 $(IMAGES)/logo.svg
+	convert $(IMAGES)/16.png $(IMAGES)/32.png $(IMAGES)/48.png $(IMAGES)/favicon.ico
+	rm $(IMAGES)/16.png $(IMAGES)/32.png $(IMAGES)/48.png
+
+.PHONY: pwa-assets
+pwa-assets:
+	npx -y pwa-asset-generator $(IMAGES)/logo.svg $(IMAGES)/pwa-assets
