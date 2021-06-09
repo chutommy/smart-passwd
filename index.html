@@ -54,7 +54,8 @@
   </noscript>
 
 </head>
-<body class="is-preload">
+<!--<body class="is-preload">-->
+<body>
 <div id="wrapper">
   <div id="bg"></div>
   <div id="overlay"></div>
@@ -141,7 +142,7 @@
 </div>
 
 <script>
-  window.onload = () => document.body.classList.remove('is-preload');
+  // window.onload = () => document.body.classList.remove('is-preload');
   window.ontouchmove = () => false;
   matchMedia("screen and (orientation:portrait)").onchange = () => document.body.scrollTop = 0;
 </script>
@@ -183,6 +184,5 @@
     }
   }
 </script>
-<!--<script src="./scripts/sw-register.js"></script>-->
 </body>
 </html>
