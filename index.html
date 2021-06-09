@@ -139,6 +139,12 @@
 
   </div>
 </div>
+
+<script>
+  window.onload = () => document.body.classList.remove('is-preload');
+  window.ontouchmove = () => false;
+  matchMedia("screen and (orientation:portrait)").onchange = () => document.body.scrollTop = 0;
+</script>
 <script src="./scripts/jquery-3.6.0.min.js"></script>
 <script src="./scripts/notify.min.js"></script>
 <script src="./scripts/helper.js" async></script>
@@ -178,11 +184,5 @@
   }
 </script>
 <!--<script src="./scripts/sw-register.js"></script>-->
-
-<script>
-  window.onload = () => document.body.classList.remove('is-preload');
-  window.ontouchmove = () => false;
-  matchMedia("screen and (orientation:portrait)").onchange = () => document.body.scrollTop = 0;
-</script>
 </body>
 </html>
