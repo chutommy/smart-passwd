@@ -170,13 +170,9 @@
     });
 </script>
 
-<!--service worker for pwa-->
-<script>
-  if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/service-worker.js');
-  }
-</script>
-
 <script src="./scripts/api.js" async></script>
+
+<!--service worker for pwa-->
+<script src="./scripts/sw-register.js"></script>
 </body>
 </html>
