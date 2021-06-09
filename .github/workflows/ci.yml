@@ -5,94 +5,94 @@ on:
   workflow_dispatch:
 
 jobs:
-  data:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Setup Python
-        uses: actions/setup-python@v2.2.2
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install flake8
-          if [ -f data/requirements.txt ]; then pip install -r data/requirements.txt; fi
-
-      - name: Lint with flake8
-        run: |
-          # stop the build if there are Python syntax errors or undefined names
-          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-
-      - name: Build MongoDB wordlist
-        env:
-          SMART_PASSWD_MONGODB_URI: ${{ secrets.MONGODB_WR_CS }}
-        run: make wordlist-mongo
-
-      - name: Build SQL wordlist
-        run: make wordlist-sql
-
-      - name: Build testing SQL wordlists
-        run: make test-wordlist-sql
-
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
-
-      - name: Commit and push changes
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config pull.rebase true
-          if [ -n "$(git status --porcelain)" ]; then
-            git add -A
-            git commit -m "Update wordlist databases [GitHub Action]"
-            git pull -X ours origin ${{ steps.extract_branch.outputs.branch }}
-            git push origin HEAD:${{ steps.extract_branch.outputs.branch }}
-          fi
-
-  update:
-    needs: [data]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Set up Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: 1.16
-
-      - name: Go mod tidy
-        run: go mod tidy
-
-      - name: NPM update
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-      - run: make npmu
-
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
-
-      - name: Commit and push changes
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config pull.rebase true
-          if [ -n "$(git status --porcelain)" ]; then
-            git add -A
-            git commit -m "Build binaries [GitHub Action]"
-            git pull -X ours origin ${{ steps.extract_branch.outputs.branch }}
-            git push origin HEAD:${{ steps.extract_branch.outputs.branch }}
-          fi
+#  data:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#
+#      - name: Setup Python
+#        uses: actions/setup-python@v2.2.2
+#
+#      - name: Install dependencies
+#        run: |
+#          python -m pip install --upgrade pip
+#          pip install flake8
+#          if [ -f data/requirements.txt ]; then pip install -r data/requirements.txt; fi
+#
+#      - name: Lint with flake8
+#        run: |
+#          # stop the build if there are Python syntax errors or undefined names
+#          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+#          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+#          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+#
+#      - name: Build MongoDB wordlist
+#        env:
+#          SMART_PASSWD_MONGODB_URI: ${{ secrets.MONGODB_WR_CS }}
+#        run: make wordlist-mongo
+#
+#      - name: Build SQL wordlist
+#        run: make wordlist-sql
+#
+#      - name: Build testing SQL wordlists
+#        run: make test-wordlist-sql
+#
+#      - name: Extract branch name
+#        shell: bash
+#        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+#        id: extract_branch
+#
+#      - name: Commit and push changes
+#        run: |
+#          git config --global user.name "github-actions[bot]"
+#          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+#          git config pull.rebase true
+#          if [ -n "$(git status --porcelain)" ]; then
+#            git add -A
+#            git commit -m "Update wordlist databases [GitHub Action]"
+#            git pull -X ours origin ${{ steps.extract_branch.outputs.branch }}
+#            git push origin HEAD:${{ steps.extract_branch.outputs.branch }}
+#          fi
+#
+#  update:
+#    needs: [data]
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#
+#      - name: Set up Go
+#        uses: actions/setup-go@v2
+#        with:
+#          go-version: 1.16
+#
+#      - name: Go mod tidy
+#        run: go mod tidy
+#
+#      - name: NPM update
+#        uses: actions/setup-node@v2
+#        with:
+#          node-version: '14'
+#      - run: make npmu
+#
+#      - name: Extract branch name
+#        shell: bash
+#        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+#        id: extract_branch
+#
+#      - name: Commit and push changes
+#        run: |
+#          git config --global user.name "github-actions[bot]"
+#          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+#          git config pull.rebase true
+#          if [ -n "$(git status --porcelain)" ]; then
+#            git add -A
+#            git commit -m "Build binaries [GitHub Action]"
+#            git pull -X ours origin ${{ steps.extract_branch.outputs.branch }}
+#            git push origin HEAD:${{ steps.extract_branch.outputs.branch }}
+#          fi
 
   test:
-    needs: [data, update]
+#    needs: [data, update]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -108,54 +108,54 @@ jobs:
       - name: Test
         run: make test
 
-  build:
-    needs: [data, update]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Build binaries
-        run: make build
-
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
-
-      - name: Commit and push changes
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config pull.rebase true
-          if [ -n "$(git status --porcelain)" ]; then
-            git add -A
-            git commit -m "Build binaries [GitHub Action]"
-            git pull -X ours origin ${{ steps.extract_branch.outputs.branch }}
-            git push origin HEAD:${{ steps.extract_branch.outputs.branch }}
-          fi
-
-  wasm:
-    needs: [data, build]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Regenerate webassembly binaries
-        run: make wasm
-
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
-
-      - name: Commit and push changes
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config pull.rebase true
-          if [ -n "$(git status --porcelain)" ]; then
-            git add -A
-            git commit -m "Build wasm [GitHub Action]"
-            git pull -X ours origin ${{ steps.extract_branch.outputs.branch }}
-            git push origin HEAD:${{ steps.extract_branch.outputs.branch }}
-          fi
+#  build:
+#    needs: [data, update]
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#
+#      - name: Build binaries
+#        run: make build
+#
+#      - name: Extract branch name
+#        shell: bash
+#        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+#        id: extract_branch
+#
+#      - name: Commit and push changes
+#        run: |
+#          git config --global user.name "github-actions[bot]"
+#          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+#          git config pull.rebase true
+#          if [ -n "$(git status --porcelain)" ]; then
+#            git add -A
+#            git commit -m "Build binaries [GitHub Action]"
+#            git pull -X ours origin ${{ steps.extract_branch.outputs.branch }}
+#            git push origin HEAD:${{ steps.extract_branch.outputs.branch }}
+#          fi
+#
+#  wasm:
+#    needs: [data, build]
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#
+#      - name: Regenerate webassembly binaries
+#        run: make wasm
+#
+#      - name: Extract branch name
+#        shell: bash
+#        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+#        id: extract_branch
+#
+#      - name: Commit and push changes
+#        run: |
+#          git config --global user.name "github-actions[bot]"
+#          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+#          git config pull.rebase true
+#          if [ -n "$(git status --porcelain)" ]; then
+#            git add -A
+#            git commit -m "Build wasm [GitHub Action]"
+#            git pull -X ours origin ${{ steps.extract_branch.outputs.branch }}
+#            git push origin HEAD:${{ steps.extract_branch.outputs.branch }}
+#          fi
