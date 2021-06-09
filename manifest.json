@@ -1,7 +1,6 @@
 {
-  "name": "Smart Password",
-  "short_name": "SmartPasswd",
-  "description": "Smart password generator",
+  "name": "Hello World",
+  "short_name": "Hello",
   "icons": [
     {
       "src": "./assets/images/pwa-assets/manifest-icon-192.png",
@@ -16,21 +15,9 @@
       "purpose": "maskable any"
     }
   ],
-  "start_url": "/index.html",
   "lang": "en-US",
-  "background_color": "#142c38",
-  "theme_color": "#040e12",
-  "display": "fullscreen",
-  "screenshots": [
-    {
-      "src": "./assets/images/screenshots/random.png",
-      "type": "image/png",
-      "sizes": "1920x1080"
-    },
-    {
-      "src": "./assets/images/screenshots/custom.png",
-      "type": "image/png",
-      "sizes": "1920x1080"
-    }
-  ]
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "white",
+  "theme_color": "white"
 }

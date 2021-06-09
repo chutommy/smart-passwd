@@ -1,0 +1,36 @@
+{
+  "name": "Smart Password",
+  "short_name": "SmartPasswd",
+  "description": "Smart password generator",
+  "icons": [
+    {
+      "src": "./assets/images/pwa-assets/manifest-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "./assets/images/pwa-assets/manifest-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "start_url": "/index.html",
+  "lang": "en-US",
+  "background_color": "#142c38",
+  "theme_color": "#040e12",
+  "display": "fullscreen",
+  "screenshots": [
+    {
+      "src": "./assets/images/screenshots/random.png",
+      "type": "image/png",
+      "sizes": "1920x1080"
+    },
+    {
+      "src": "./assets/images/screenshots/custom.png",
+      "type": "image/png",
+      "sizes": "1920x1080"
+    }
+  ]
+}
