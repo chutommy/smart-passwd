@@ -1,24 +1,179 @@
-<!doctype html>
+<!DOCTYPE HTML><!--
+    Aerial by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<!--suppress JSUnusedGlobalSymbols -->
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Hello World</title>
+  <title>Smart Password</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+  <meta name="description" content="SmartPasswd helps users to generate and use safe passwords which can be easily remembered thanks to meaningful reminders.">
+  <meta name="theme-color" content="#040e12"/>
+
+  <link rel="icon" type="image/ico" href="./assets/images/favicon.ico"/>
+  <link rel="apple-touch-icon" href="./assets/images/pwa-assets/apple-icon-180.png">
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <link rel="apple-touch-icon" href="images/hello-icon-152.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="white"/>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Hello World">
-  <meta name="msapplication-TileImage" content="images/hello-icon-144.png">
-  <meta name="msapplication-TileColor" content="#FFFFFF">
+
+  <link rel="preconnect" as="style" href="./assets/styles/main.css">
+
+  <!-- Stylesheets -->
+  <noscript>
+    <link rel="stylesheet" href="./assets/styles/noscript.css"/>
+  </noscript>
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="./assets/styles/main.css"/>
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="./assets/styles/slider.css">
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="./assets/styles/numbers.css">
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="./assets/styles/content.css">
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="./assets/styles/gen-btn.css">
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="./assets/styles/clear-btn.css">
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="./assets/styles/helper-text.css">
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="./assets/styles/results.css">
+
+  <noscript>
+    <link rel="stylesheet" href="./assets/styles/main.css"/>
+    <link rel="stylesheet" href="./assets/styles/slider.css">
+    <link rel="stylesheet" href="./assets/styles/numbers.css">
+    <link rel="stylesheet" href="./assets/styles/content.css">
+    <link rel="stylesheet" href="./assets/styles/gen-btn.css">
+    <link rel="stylesheet" href="./assets/styles/clear-btn.css">
+    <link rel="stylesheet" href="./assets/styles/helper-text.css">
+    <link rel="stylesheet" href="./assets/styles/results.css">
+  </noscript>
+
+  <!-- Media queries -->
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" media="screen" href="./assets/styles/mqueries.css">
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" media="screen" href="./assets/styles/mqueries2.css">
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" media="screen" href="./assets/styles/mqueries3.css">
+
+  <noscript>
+    <link rel="stylesheet" media="screen" href="./assets/styles/mqueries.css">
+    <link rel="stylesheet" media="screen" href="./assets/styles/mqueries2.css">
+    <link rel="stylesheet" media="screen" href="./assets/styles/mqueries3.css">
+  </noscript>
+
 </head>
-<body class="fullscreen">
-  <div class="container">
-    <h1 class="title">Hello World!</h1>
+<body class="is-preload">
+<div id="wrapper">
+  <div id="bg"></div>
+  <div id="overlay"></div>
+  <div id="main">
+
+    <!-- Header -->
+    <header id="header">
+      <h1>Smart Password Generator</h1>
+      <p>One-click generation &nbsp;&bull;&nbsp; Strong password &nbsp;&bull;&nbsp; Easy to remember</p>
+
+      <!-- Body -->
+      <div id="content">
+        <div id="password-gen-body">
+
+          <!-- len slider -->
+          <label for="slider-len" class="pull-left eLabel">Length</label>
+          <div class="sliders">
+            <div class="slider"><input id="slider-len" type="range" value="0" min="0" max="27"></div>
+          </div>
+          <div class="statusNums"><h2 id="len" class="nums">5</h2></div>
+
+          <!-- extra slider -->
+          <label for="slider-extra" class="pull-left eLabel">Strength</label>
+          <div class="sliders">
+            <div class="slider"><input id="slider-extra" type="range" value="0" min="0" max="10"></div>
+          </div>
+          <div class="statusNums"><h2 id="extra" class="nums">0</h2></div>
+
+          <!-- helper -->
+          <div class="form__group field">
+            <input type="text" class="form__field" placeholder="Custom helper" id='helper' autocomplete="off" maxlength="60"> <label for="helper" class="form__label">Custom reminder</label>
+          </div>
+          <div id="clearBtn">
+            <button id="clear" class="btn2" onclick="resetHelper(); return false" aria-label="Clear reminder" disabled>
+							<span class="left">
+								<span class="circle-left"></span>
+								<span class="circle-right"></span>
+							</span><span class="right">
+								<span class="circle-left"></span>
+								<span class="circle-right"></span>
+							</span>
+            </button>
+          </div>
+
+          <!-- gen button -->
+          <div id="generateBtn">
+            <button id="gen" class="btn effect01" onclick="generatePasswd(); return false" aria-label="Generate password">
+              <span>GENERATE</span>
+            </button>
+          </div>
+
+
+          <!-- generated password -->
+          <div id="generated-passwd-container">
+            <button id="hideButton" onclick="togglePasswordVisibility(); return false" aria-label="Hide password" disabled><i class="fas fa-eye-slash"></i></button>
+            <input aria-label="Password" id="passwd" type="text" value="Generated password" disabled>
+            <button id="copyPasswd" class="btn btn-dark" onclick="copyText('passwd'); return false" aria-label="Copy password" disabled>Copy</button>
+          </div>
+
+          <!-- password's helper -->
+          <div id="passwd-helper">
+            <input aria-label="Password reminder" id="helper-p" type="text" value="Password reminder" disabled>
+            <button id="copyHelper" class="btn btn-dark" onclick="copyText('helper-p'); return false" aria-label="Copy reminder" disabled>Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="https://chutified.github.io" aria-label="Author's personal website" class="fas fa-user" target="_blank" rel="noopener"><span class="label">Author</span></a></li>
+          <li><a href="https://github.com/chutified" aria-label="Author's GitHub page" class="icon brands fa-github" target="_blank" rel="noopener"><span class="label">Author GH</span></a></li>
+          <li><a href="https://github.com/chutified/smart-passwd" class="fa fa-code" aria-label="Source code" target="_blank" rel="noopener"><span class="label">Source</span></a></li>
+          <li><a href="https://www.cisecurity.org/newsletter/why-strong-unique-passwords-matter" aria-label="Password security" class="fas fa-shield-alt" target="_blank" rel="noopener"><span class="label">Password security</span></a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <span class="copyright">&copy; SmartPasswd, Tommy Chu. All Rights Reserved. &nbsp;&bull;&nbsp; HTML5 UP Design</span>
+    </footer>
+
   </div>
-  <script src="js/main.js"></script>
+</div>
+<script>
+  window.onload = () => document.body.classList.remove('is-preload');
+  window.ontouchmove = () => false;
+  matchMedia("screen and (orientation:portrait)").onchange = () => document.body.scrollTop = 0;
+</script>
+<script src="./scripts/jquery-3.6.0.min.js"></script>
+<script src="./scripts/notify.min.js"></script>
+<script src="./scripts/helper.js" async></script>
+<script src="./scripts/slider.js" async></script>
+<script src="./scripts/buttons.js" async></script>
+
+<!--data-->
+<script src="./node_modules/sql.js/dist/sql-wasm.js"></script>
+<script>
+  const sqlPromise = initSqlJs({
+    locateFile: file => `./node_modules/sql.js/dist/${file}`
+  });
+  const dataPromise = fetch("./db/wordlist.db").then(res => res.arrayBuffer());
+</script>
+<script src="./scripts/sql-data.js"></script>
+
+<!--password retarder engine-->
+<script src="./scripts/wasm_exec.js"></script>
+<script>
+  const go = new Go();
+  WebAssembly.instantiateStreaming(fetch("./wasm/sqlite-main.wasm"), go.importObject)
+    .then((result) => {
+      go.run(result.instance);
+    });
+</script>
+
+<script src="./scripts/api.js" async></script>
+
+<!--service worker for pwa-->
+<script src="js/main.js"></script>
+<!--<script src="./scripts/sw-register.js"></script>-->
 </body>
 </html>
