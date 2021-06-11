@@ -35,7 +35,7 @@ func TestMain(m *testing.M) {
 	c := engine.NewConstructor(3, 20)
 	s := engine.NewSwapper()
 
-	testConfig = config.NewConfig(8080, "./test/wordlist.db", false, "../..")
+	testConfig = config.NewConfig(8080, "test/wordlist.db", false, "../..")
 	testEngine = engine.Init(wl, c, s)
 	invalidEngine = engine.Init(iwl, c, s)
 
