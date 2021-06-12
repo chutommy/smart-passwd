@@ -19,7 +19,7 @@ $(function () {
   let rangeVal = $extraSlider.val();
   $extraSlider.on('change input', function () {
     rangeVal = parseInt($extraSlider.val());
-    $('[id="extra"]').html(rangeVal);
+    $('[id="extra"]').html(encodeURI(rangeVal));
     if (document.getElementById('slider-len').disabled === true) {
       $('[id="len"]').html(parseInt($('[id="slider-len"]').val()) + parseInt($('[id="slider-extra"]').val())); // update len
     } else {
