@@ -6,7 +6,7 @@ Versions of of the project that are currently being supported with security upda
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 2.5.z   | :white_check_mark: |
+| 2.5.x   | :white_check_mark: |
 | < 2.5   | :x:                |
 
 ## Reporting a Vulnerability
