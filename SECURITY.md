@@ -1,0 +1,17 @@
+# Security Policy
+
+## Supported Versions
+
+Versions of of the project that are currently being supported with security updates.
+
+| Version | Supported          |
+| ------- | ------------------ |
+| 2.5.z   | :white_check_mark: |
+| < 2.5   | :x:                |
+
+## Reporting a Vulnerability
+
+Create a new [bug issue](https://github.com/chutified/smart-passwd/issues/new?assignees=chutified&amp;labels=bug&amp;template=bug_report.md&amp)
+or contact me at chutommy101@gmail.com.
+
+Thank you very much!
