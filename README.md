@@ -82,6 +82,6 @@ either of them a green successful notification should appear.
 
 ## Support for mobile devices
 
-Tablet view | Smartphone view
+Tablet / iPad view | Smartphone view
 | :---: | :---: |
 | ![Screenshot 1](imgs/screenshot_3.png) | ![Screenshot 1](imgs/screenshot_4.png) |
