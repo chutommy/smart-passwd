@@ -85,3 +85,11 @@ either of them a green successful notification should appear.
 Tablet / iPad view | Smartphone view
 | :---: | :---: |
 | ![Screenshot 1](imgs/screenshot_3.png) | ![Screenshot 1](imgs/screenshot_4.png) |
+
+## License
+
+The Aerial design is provided by HTML5 UP (cc 3.0), the WordNet 1.6 database by Princeton University
+and the slider component by Brandon McConnell.
+
+The project is under the MIT license open source software. I welcome contributions both big
+and small! Please, take a look at the community [contributing notes](https://github.com/chutified/smart-passwd/blob/master/CONTRIBUTING.md).
