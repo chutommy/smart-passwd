@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/chutified/smart-passwd/pkg/utils"
+	"github.com/chutommy/smart-passwd/pkg/utils"
 	"github.com/stretchr/testify/require"
 )
 

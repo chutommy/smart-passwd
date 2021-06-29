@@ -13,11 +13,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/chutified/smart-passwd/pkg/config"
-	"github.com/chutified/smart-passwd/pkg/data"
-	"github.com/chutified/smart-passwd/pkg/engine"
-	"github.com/chutified/smart-passwd/pkg/server"
-	"github.com/chutified/smart-passwd/pkg/utils"
+	"github.com/chutommy/smart-passwd/pkg/config"
+	"github.com/chutommy/smart-passwd/pkg/data"
+	"github.com/chutommy/smart-passwd/pkg/engine"
+	"github.com/chutommy/smart-passwd/pkg/server"
+	"github.com/chutommy/smart-passwd/pkg/utils"
 	_ "github.com/mattn/go-sqlite3"
 )
 

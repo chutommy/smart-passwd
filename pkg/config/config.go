@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/chutified/smart-passwd/pkg/utils"
+	"github.com/chutommy/smart-passwd/pkg/utils"
 	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
 )

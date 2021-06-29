@@ -6,7 +6,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/chutified/smart-passwd/pkg/utils"
+	"github.com/chutommy/smart-passwd/pkg/utils"
 	_ "github.com/mattn/go-sqlite3"
 )
 

@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/chutified/smart-passwd/pkg/data"
+	"github.com/chutommy/smart-passwd/pkg/data"
 )
 
 // Runner represents a runner which is in control of the WordList connection.

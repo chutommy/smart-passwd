@@ -3,7 +3,7 @@ package data
 import (
 	"fmt"
 
-	"github.com/chutified/smart-passwd/pkg/utils"
+	"github.com/chutommy/smart-passwd/pkg/utils"
 )
 
 const (

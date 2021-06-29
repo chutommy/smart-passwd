@@ -7,8 +7,8 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/chutified/smart-passwd/pkg/config"
-	"github.com/chutified/smart-passwd/pkg/engine"
+	"github.com/chutommy/smart-passwd/pkg/config"
+	"github.com/chutommy/smart-passwd/pkg/engine"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )

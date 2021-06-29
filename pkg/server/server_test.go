@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/chutified/smart-passwd/pkg/config"
-	"github.com/chutified/smart-passwd/pkg/engine"
+	"github.com/chutommy/smart-passwd/pkg/config"
+	"github.com/chutommy/smart-passwd/pkg/engine"
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"
 )

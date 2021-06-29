@@ -17,7 +17,7 @@ reciprocate that respect by addressing your issue, assessing changes, and helpin
 
 I take myself and other contributors to high standards of communication. By participating and contributing to this
 project, you agree to uphold
-our [Code of Conduct](https://github.com/chutified/smart-passwd/blob/master/CODE_OF_CONDUCT.md).
+our [Code of Conduct](https://github.com/chutommy/smart-passwd/blob/master/CODE_OF_CONDUCT.md).
 
 ## Getting Started
 

@@ -3,7 +3,7 @@ package config
 import (
 	"testing"
 
-	"github.com/chutified/smart-passwd/pkg/utils"
+	"github.com/chutommy/smart-passwd/pkg/utils"
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/require"
 )

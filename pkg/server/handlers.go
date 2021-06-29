@@ -4,7 +4,7 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/chutified/smart-passwd/pkg/engine"
+	"github.com/chutommy/smart-passwd/pkg/engine"
 	"github.com/gin-gonic/gin"
 )
 

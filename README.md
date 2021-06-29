@@ -92,4 +92,4 @@ The Aerial design is provided by HTML5 UP (cc 3.0), the WordNet 1.6 database by 
 and the slider component by Brandon McConnell.
 
 The project is under the MIT license open source software. I welcome contributions both big
-and small! Please, take a look at the community [contributing notes](https://github.com/chutified/smart-passwd/blob/master/CONTRIBUTING.md).
+and small! Please, take a look at the community [contributing notes](https://github.com/chutommy/smart-passwd/blob/master/CONTRIBUTING.md).

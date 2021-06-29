@@ -5,10 +5,10 @@ import (
 	"os"
 	"testing"
 
-	"github.com/chutified/smart-passwd/pkg/config"
-	"github.com/chutified/smart-passwd/pkg/data"
-	"github.com/chutified/smart-passwd/pkg/engine"
-	"github.com/chutified/smart-passwd/pkg/utils"
+	"github.com/chutommy/smart-passwd/pkg/config"
+	"github.com/chutommy/smart-passwd/pkg/data"
+	"github.com/chutommy/smart-passwd/pkg/engine"
+	"github.com/chutommy/smart-passwd/pkg/utils"
 	"github.com/gin-gonic/gin"
 	_ "github.com/mattn/go-sqlite3"
 )

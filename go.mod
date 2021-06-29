@@ -1,9 +1,9 @@
-module github.com/chutified/smart-passwd
+module github.com/chutommy/smart-passwd
 
 go 1.16
 
 require (
-	github.com/chutified/rand v0.0.0-20210214192546-2404aafca3a1
+	github.com/chutommy/rand v0.0.0-20210629174045-e7b054a30cca
 	github.com/gin-contrib/cors v1.3.1
 	github.com/gin-gonic/gin v1.7.1
 	github.com/go-playground/validator/v10 v10.5.0 // indirect

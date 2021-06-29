@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/chutified/smart-passwd/pkg/utils"
+	"github.com/chutommy/smart-passwd/pkg/utils"
 )
 
 // SQLiteWordList represents a SQL-based implementation for WordList interface.

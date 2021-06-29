@@ -6,7 +6,7 @@ import (
 	"os"
 	"syscall/js"
 
-	engine "github.com/chutified/smart-passwd/pkg/enginelite"
+	engine "github.com/chutommy/smart-passwd/pkg/enginelite"
 )
 
 func main() {

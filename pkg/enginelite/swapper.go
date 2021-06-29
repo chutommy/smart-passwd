@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"unicode"
 
-	"github.com/chutified/smart-passwd/pkg/utils"
+	"github.com/chutommy/smart-passwd/pkg/utils"
 )
 
 // Swapper represents a random swapper engine which can also generate

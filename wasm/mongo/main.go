@@ -8,8 +8,8 @@ import (
 	"syscall/js"
 	"time"
 
-	"github.com/chutified/smart-passwd/pkg/data"
-	"github.com/chutified/smart-passwd/pkg/wasm"
+	"github.com/chutommy/smart-passwd/pkg/data"
+	"github.com/chutommy/smart-passwd/pkg/wasm"
 )
 
 var (

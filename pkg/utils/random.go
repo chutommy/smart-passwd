@@ -3,7 +3,7 @@ package utils
 import (
 	"math/rand"
 
-	rand2 "github.com/chutified/rand"
+	rand2 "github.com/chutommy/rand"
 )
 
 // Rand returns a math/rand Rand instance with a cryptographically

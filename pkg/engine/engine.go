@@ -7,7 +7,7 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/chutified/smart-passwd/pkg/data"
+	"github.com/chutommy/smart-passwd/pkg/data"
 )
 
 // ErrInvalidRequirements is returned if request is invalid.
