@@ -1,5 +1,5 @@
 FROM golang:1.16 AS build-stage
-LABEL maintainer="Tommy Chu <chutommy101@gmail.com>"
+LABEL maintainer="Tommy Chu <tommychu2256@gmail.com>"
 LABEL project="SmartPasswd"
 
 # set enviroment

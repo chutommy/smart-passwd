@@ -12,6 +12,6 @@ Versions of of the project that are currently being supported with security upda
 ## Reporting a Vulnerability
 
 Create a new [bug issue](https://github.com/chutommy/smart-passwd/issues/new?assignees=chutommy&amp;labels=bug&amp;template=bug_report.md&amp)
-or contact me at chutommy101@gmail.com.
+or contact me at tommychu2256@gmail.com.
 
 Thank you very much!

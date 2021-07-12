@@ -7,7 +7,7 @@ __copyright__ = "Copyright 2021, SmartPasswd"
 __license__ = "MIT"
 __version__ = "1.0.0"
 __maintainer__ = "Tommy Chu"
-__email__ = "chutommy101@gmail.com"
+__email__ = "tommychu2256@gmail.com"
 __status__ = "Production"
 
 import os
