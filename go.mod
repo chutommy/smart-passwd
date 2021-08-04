@@ -5,7 +5,7 @@ go 1.16
 require (
 	github.com/chutommy/rand v0.0.0-20210629174045-e7b054a30cca
 	github.com/gin-contrib/cors v1.3.1
-	github.com/gin-gonic/gin v1.7.1
+	github.com/gin-gonic/gin v1.7.3
 	github.com/go-playground/validator/v10 v10.5.0 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect
 	github.com/mattn/go-sqlite3 v1.14.8
