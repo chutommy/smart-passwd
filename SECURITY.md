@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-Versions of of the project that are currently being supported with security updates.
+Versions of the project that are currently being supported with security updates.
 
 | Version | Supported          |
 | ------- | ------------------ |
