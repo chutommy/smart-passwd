@@ -8,27 +8,27 @@ Smart Passwd is a web application which helps people to generate strong password
 
 ### Strength level
 
-Users can adjust the strength level of the password which adds another extra layer of security by inserting random
-numbers or special characters into the result.
+Users can adjust the strength level of the password which adds an extra layer of security by inserting random
+numbers or special characters into the final form of the password.
 
 ### Reminders
 
-The generator creates each password along with its `reminder` which is a word or group of words that either graphically
-or phonetically resemble the real password.
+The generator creates each password along with its `reminder` which is a word or phrase that either graphically
+or phonetically resembles the real password.
 
 #### Custom reminders
 
-Users can also provide their own reminder which makes the generator to create the password that corresponds with.
+Users can run the generator with a custom reminder which creates a new unique password based on the given text.
 
 ### Hide button
 
 Hide button is placed on the left side of the `generated password` field. Three seconds after a password is generated
-the values is hidden and its visibility can be toggled.
+the values are hidden and its visibility can be easily toggled on and off.
 
 ### Copy buttons
 
 Both `generated password` and `reminder` have copy buttons to easily copy their values to clipboard. After pressing
-either of them a green successful notification should appear.
+either of them a green notification appears to confirm it was successfully stored in the clipboard.
 
 ## Examples with random reminders
 
