@@ -4,6 +4,10 @@
 
 Smart Passwd is a web application which helps people to generate strong passwords that are easy to remember.
 
+### Website
+
+Check out the web app at [chutommy.github.io/smart-passwd](https://chutommy.github.io/smart-passwd/).
+
 ## Features
 
 ### Strength level
