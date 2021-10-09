@@ -108,34 +108,8 @@ jobs:
       - name: Test
         run: make test
 
-  build:
-    needs: [data, update]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Build binaries
-        run: make build
-
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
-
-      - name: Commit and push changes
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config pull.rebase true
-          if [ -n "$(git status --porcelain)" ]; then
-            git add -A
-            git commit -m "Build binaries [GitHub Action]"
-            git pull -X ours origin ${{ steps.extract_branch.outputs.branch }}
-            git push origin HEAD:${{ steps.extract_branch.outputs.branch }}
-          fi
-
   wasm:
-    needs: [data, build]
+    needs: [data]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
